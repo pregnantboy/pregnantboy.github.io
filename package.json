@@ -1,0 +1,21 @@
+{
+    "title": "IanWeb",
+    "name": "ianweb",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pregnantboy/pregnantboy.github.io.git"
+    },
+    "scripts": {
+        "start": "gulp",
+        "postinstall": "gulp vendor"
+    },
+    "dependencies": {
+        "bootstrap": "^4.1.0",
+        "jquery": "^3.3.1"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.23.6",
+        "gulp": "^3.9.1"
+    }
+}
