@@ -78,6 +78,7 @@ var promptInput = function(terminalObj, message, PROMPT_TYPE, callback) {
 				firstPrompt = false;
 				setTimeout(function() {
 					inputField.focus();
+					inputField.focus();
 				}, 200);
 			} else {
 				inputField.focus();
