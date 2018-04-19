@@ -4,27 +4,27 @@ $('terminal').append(term.html);
 
 var id = 'Guest';
 asyncWaterfall([
-    // function (next) {
-    //     term.type('Starting up...', function () {
-    //         term.sleep(500, next);
-    //     });
-    // },
-    // function (next) {
-    //     term.input('Login ID:', function (msg) {
-    //         if (msg && msg.length > 0) {
-    //             id = msg;
-    //         }
-    //         next();
-    //     });
-    // },
-    // function (next) {
-    //     term.password('Password:', function (pw) {
-    //         next();
-    //     });
-    // },
-    // function (next) {
-    //     term.type('Logging in... ^1000 Successful^200', next);
-    // },
+    function (next) {
+        term.type('Starting up...', function () {
+            term.sleep(500, next);
+        });
+    },
+    function (next) {
+        term.input('Login ID:', function (msg) {
+            if (msg && msg.length > 0) {
+                id = msg;
+            }
+            next();
+        });
+    },
+    function (next) {
+        term.password('Password:', function (pw) {
+            next();
+        });
+    },
+    function (next) {
+        term.type('Logging in... ^1000 Successful^200', next);
+    },
     function (next) {
         term.clear();
         term.print(`
