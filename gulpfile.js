@@ -24,6 +24,7 @@ gulp.task('vendor', function () {
       './node_modules/typed.js/lib/typed.min.js'
     ])
     .pipe(gulp.dest('./vendor/typed.js'))
+
 })
 
 // Configure the browserSync task

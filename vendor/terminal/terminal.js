@@ -80,7 +80,7 @@ var Terminal = (function () {
 				firstPrompt = false
 				setTimeout(function () {
 					inputField.focus()
-				}, 50)
+				}, 200)
 			} else {
 				inputField.focus()
 			}
@@ -112,6 +112,19 @@ var Terminal = (function () {
 
 		this._shouldBlinkCursor = true
 		this._typed = null;
+		this._option = 0;
+		this._optionDivs = [];
+
+		// this._innerWindow.onkeyup(function (e) {
+		// 	if (this._optionDivs.length > 1) {
+		// 		if (e.which === 38) {
+		// 			this._optionDivs[this._option].innerText = this._optionDivs[this._option].innerText.slice(1);
+		// 			this._option = (this._option + 1) % (this._optionDivs.length);
+		// 			this._optionDivs[this._option].innerText = '>' + this._optionDivs[this._option].innerText;
+		// 		}
+
+		// 	}
+		// });
 
 		this.beep = function () {
 			terminalBeep.load()
@@ -132,6 +145,7 @@ var Terminal = (function () {
 				newLine.textContent = message;
 			}
 			this._output.appendChild(newLine);
+			return newLine;
 		}
 
 		this.type = function (message, callback) {
@@ -151,6 +165,7 @@ var Terminal = (function () {
 					}
 				}
 			});
+			return newLine;
 		}
 
 		this.skip = function (numLines) {
@@ -171,6 +186,20 @@ var Terminal = (function () {
 
 		this.confirm = function (message, callback) {
 			promptInput(this, message, PROMPT_CONFIRM, callback)
+		}
+
+		this.choice = function (choices, callback) {
+			this._optionDivs = [];
+			this._option = 0;
+			var that = this;
+			async.eachSeries(choices, function (choice, next) {
+				var optionDiv = that.type(choice.choice, function () {
+					next();
+				});
+				console.log(optionDiv);
+				optionDiv.style.height = '5vh';
+				optionDiv.style['line-height'] = '5vh';
+			});
 		}
 
 		this.clear = function () {
