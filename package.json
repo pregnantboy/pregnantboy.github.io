@@ -8,7 +8,8 @@
     },
     "scripts": {
         "start": "gulp",
-        "postinstall": "gulp vendor"
+        "postinstall": "gulp vendor",
+        "test": "eslint js/*"
     },
     "dependencies": {
         "bootstrap": "^4.1.0",
@@ -17,6 +18,7 @@
     },
     "devDependencies": {
         "browser-sync": "^2.23.6",
+        "eslint": "^4.19.1",
         "gulp": "^3.9.1"
     }
 }
