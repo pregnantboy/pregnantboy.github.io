@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto+Mono');:root {
+    --text-one: rgb(200, 200, 200);
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #111116;
+    background: -webkit-linear-gradient(to left, #2a2b2c, #111116);
+    background: linear-gradient(to left, #2a2b2c, #111116);
+    overflow-x: hidden;
+}
+
+.text-primary {
+    color: var(--text-one) !important;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}

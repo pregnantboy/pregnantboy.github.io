@@ -3,7 +3,7 @@ var browserSync = require('browser-sync').create();
 var pkg = require('./package.json');
 
 // Copy third party libraries from /node_modules into /vendor
-gulp.task('vendor', function() {
+gulp.task('vendor', function () {
 
   // Bootstrap
   gulp.src([
@@ -20,10 +20,14 @@ gulp.task('vendor', function() {
     ])
     .pipe(gulp.dest('./vendor/jquery'))
 
+  gulp.src([
+      './node_modules/typed.js/lib/typed.min.js'
+    ])
+    .pipe(gulp.dest('./vendor/typed.js'))
 })
 
 // Configure the browserSync task
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
   browserSync.init({
     server: {
       baseDir: "./"
@@ -32,7 +36,7 @@ gulp.task('browserSync', function() {
 });
 
 // Dev task
-gulp.task('dev', ['browserSync'], function() {
+gulp.task('dev', ['browserSync'], function () {
   gulp.watch('./css/*.css', browserSync.reload);
   gulp.watch('./*.html', browserSync.reload);
 });

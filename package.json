@@ -11,8 +11,10 @@
         "postinstall": "gulp vendor"
     },
     "dependencies": {
+        "async-waterfall": "^0.1.5",
         "bootstrap": "^4.1.0",
-        "jquery": "^3.3.1"
+        "jquery": "^3.3.1",
+        "typed.js": "^2.0.6"
     },
     "devDependencies": {
         "browser-sync": "^2.23.6",
