@@ -1,8 +1,10 @@
 var term = new Terminal();
 term.setTextSize("1.2rem");
+term.setLineHeight("2.2rem");
 $("terminal").append(term.html);
 
 var id = "Guest";
+var selected = null;
 
 var escapeString = function(string) {
 	var div = document.createElement("div");
@@ -11,30 +13,30 @@ var escapeString = function(string) {
 };
 
 async.waterfall([
-	// function(next) {
-	// 	term.type("Booting up...", function() {
-	// 		term.sleep(500, next);
-	// 	});
-	// },
-	// function(next) {
-	// 	term.input("Please enter your login ID:", function(msg) {
-	// 		msg = msg.trim();
-	// 		if (msg && msg.length > 0) {
-	// 			id = escapeString(msg);
-	// 		}
-	// 		next();
-	// 	});
-	// },
-	// function(next) {
-	// 	term.password("Please enter your password:", function() {
-	// 		next();
-	// 	});
-	// },
-	// function(next) {
-	// 	term.type("Logging in... ^1000 Successful", function() {
-	// 		term.sleep(1000, next);
-	// 	});
-	// },
+	function(next) {
+		term.type("Booting up...", function() {
+			term.sleep(500, next);
+		});
+	},
+	function(next) {
+		term.input("Please enter your login ID:", function(msg) {
+			msg = msg.trim();
+			if (msg && msg.length > 0) {
+				id = escapeString(msg);
+			}
+			next();
+		});
+	},
+	function(next) {
+		term.password("Please enter your password:", function() {
+			next();
+		});
+	},
+	function(next) {
+		term.type("Logging in... ^1000 Successful", function() {
+			term.sleep(1000, next);
+		});
+	},
 	function(next) {
 		term.clear();
 		if (window.innerWidth > 600) {
@@ -81,8 +83,19 @@ async.waterfall([
 			}
 		],
 		function(choice) {
-			console.log(choice);
+			term.skip(1);
+			selected = choice;
+			term.type(choice + " selected.", next);
 		});
+	},
+	function (next) {
+		term.type("Checking user permissions... ^400OK", next);
+	},
+	function(next) {
+		term.type("Loading " + selected + "^300.^300.^300.", next);
+	},
+	function(next) {
+		term.type("Going to sleep... ^450Continue tomorrow", next);
 	}
 ],
 function(err) {
