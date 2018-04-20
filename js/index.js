@@ -137,6 +137,6 @@ function escapeString(string) {
 function showModal() {
 	$("#windowModal").modal({
 		keyboard: false,
-		backdrop: 'static'
+		backdrop: "static"
 	});
 }

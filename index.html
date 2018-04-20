@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>ian</title>
+  <title>ian</title>
 
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/vendor/animate/animate.css" rel="stylesheet">
-    <link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-  </head>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/animate/animate.css" rel="stylesheet">
+  <link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="terminal-container col-12 overflow-x-hidden">
-      <terminal></terminal>
-    </div>
-    <div class="modal fade" tabindex="-1" role="dialog" id="windowModal" aria-hidden="true" options>
-      <div class="modal-dialog modal-lg">
+<body>
+  <div class="terminal-container col-12 overflow-x-hidden">
+    <terminal></terminal>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="windowModal" aria-hidden="true" options>
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content window-content">
         <div class="modal-header window-header text-center">
           <span style="width: 100%">
-            <i class="fas fa-times-circle float-left window-header-buttons" style="color:rgb(252, 70, 69);"></i>
-            <span class="fa-layers fa-fw float-left window-header-buttons">
-              <i class="fas fa-circle" style="color:Tomato"></i>
-              <i class="fa-inverse far fa-expand-alt" data-fa-transform="shrink-6"></i>
+            <span id="traffic-lights" style="float: left">
+              <span class="fa-stack fa-1x float-left window-header-buttons">
+                <i class="fas fa-circle fa-stack-1x" style="color:rgb(252, 70, 69)"></i>
+                <i class="fa-inverse fas fa-times fa-stack-halfx"></i>
+              </span>
+              <span class="fa-stack fa-1x float-left window-header-buttons">
+                <i class="fas fa-circle fa-stack-1x" style="color:#f1c40f"></i>
+                <i class="fa-inverse fas fa-minus fa-stack-halfx"></i>
+              </span>
+              <span class="fa-stack fa-1x float-left window-header-buttons">
+                <i class="fas fa-circle fa-stack-1x" style="color:#1abc9c"></i>
+                <i class="fa-inverse far fa-expand-alt fa-stack-halfx"></i>
+              </span>
             </span>
-            Window
+            Portfolio
           </span>
         </div>
-        <div class="modal-content window-content">
-        </div>
+        <div class="modal-body window-body"></div>
       </div>
     </div>
+  </div>
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/typed.js/typed.min.js"></script>
-    <script src="/vendor/async/async.min.js"></script>
-    <script src="/js/terminal.js"></script>
-    <script src="/js/index.js"></script>
-    </script>
-  </body>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/typed.js/typed.min.js"></script>
+  <script src="/vendor/async/async.min.js"></script>
+  <script src="/js/terminal.js"></script>
+  <script src="/js/index.js"></script>
+  </script>
+</body>
 
 </html>

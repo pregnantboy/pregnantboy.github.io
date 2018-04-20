@@ -35,13 +35,36 @@ body {
 
 .window-header-buttons {
     line-height: 2rem;
-    padding-right: 0.5rem;
+    margin-right: -0.6rem;
 }
 
 .window-content {
-    height: calc( 95vh - 3.5rem - 30px);
+    height: calc( 95vh - 3.5rem - 10px);
+}
+
+.window-body {
     background: white;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-width: 0;
+}
+
+.fa-stack-halfx {
+    font-size: 0.5em;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: inherit;
+    opacity: 0;
+    transition: 0.3s opacity linear;
+}
+
+#traffic-lights {
+    position: fixed;
+    left: 0.4rem;
+}
+
+#traffic-lights:hover .fa-stack-halfx {
+    opacity: 1;
 }

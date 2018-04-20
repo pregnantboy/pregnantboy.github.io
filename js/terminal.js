@@ -5,7 +5,7 @@ var PROMPT_INPUT = 1,
 
 function fireCursorInterval(inputField, terminalObj) {
 	var cursor = terminalObj._cursor;
-	setTimeout(function() {
+	setTimeout(() => {
 		if (inputField.parentElement && terminalObj._shouldBlinkCursor) {
 			cursor.style.visibility = cursor.style.visibility === "visible" ? "hidden" : "visible";
 			fireCursorInterval(inputField, terminalObj);
@@ -36,7 +36,7 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 	fireCursorInterval(inputField, terminalObj);
 
 	if (message.length)
-		terminalObj.type(PROMPT_TYPE === PROMPT_CONFIRM ? message + " (y/n)" : message, function() {
+		terminalObj.type(PROMPT_TYPE === PROMPT_CONFIRM ? message + " (y/n)" : message, () => {
 			inputField.onblur = function() {
 				terminalObj._cursor.style.display = "none";
 			};
@@ -54,7 +54,7 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 				if (e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9) {
 					e.preventDefault();
 				} else if (shouldDisplayInput && e.which !== 13) {
-					setTimeout(function() {
+					setTimeout(() => {
 						terminalObj._inputLine.textContent = inputField.value;
 						if (PROMPT_TYPE === PROMPT_PASSWORD) {
 							terminalObj._inputLine.textContent = "•".repeat(inputField.value.length);
@@ -78,8 +78,7 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 			};
 			if (firstPrompt) {
 				firstPrompt = false;
-				setTimeout(function() {
-					inputField.focus();
+				setTimeout(() => {
 					inputField.focus();
 				}, 200);
 			} else {
