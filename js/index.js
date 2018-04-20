@@ -14,9 +14,7 @@ var sleep = milliseconds => term.sleep.bind(term, milliseconds);
 var clear = () => term.clear.bind(term);
 var print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
-showModal();
-
-getLoginId(true)
+getLoginId()
 	.then(newId => {
 		id = newId;
 		return getSelectedChoice();
@@ -25,7 +23,8 @@ getLoginId(true)
 		selected = selectedChoice;
 		if (selected === "Portfolio") {
 			console.log("here");
-		}
+		} 
+		showModal();		
 	});
 
 function getLoginId(skip) {
@@ -110,13 +109,13 @@ function getSelectedChoice() {
 				// must be done in a function for selected to be updated;
 				term.type(selectedChoice + " selected.", next);
 			},
-			// type("Checking user permissions... ^400OK"),
-			// type("Installing updates... ^400OK"),
-			// type("Spinning the CPU fan... ^400OK"),
-			// next => {
-			// 	// must be done in a function for selected to be updated;
-			// 	term.type("Loading " + selectedChoice + "^300.^300.^300.", next);
-			// }
+			type("Checking user permissions... ^400OK"),
+			type("Installing updates... ^400OK"),
+			type("Spinning the CPU fan... ^400OK"),
+			next => {
+				// must be done in a function for selected to be updated;
+				term.type("Loading " + selectedChoice + "^300.^300.^300.", next);
+			}
 		],
 		err => {
 			if (err) {

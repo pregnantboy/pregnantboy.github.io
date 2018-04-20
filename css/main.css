@@ -38,15 +38,12 @@ body {
     margin-right: -0.6rem;
 }
 
-.window-content {
-    height: calc( 95vh - 3.5rem - 10px);
-}
-
 .window-body {
     background: white;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-width: 0;
+    height: calc( 95vh - 3.5rem - 30px);
 }
 
 .fa-stack-halfx {
@@ -67,4 +64,22 @@ body {
 
 #traffic-lights:hover .fa-stack-halfx {
     opacity: 1;
+}
+
+/* portfolio */
+.folder {
+    padding: 2vh 2vw;
+}
+
+.folder img {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+
+.folder span {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
