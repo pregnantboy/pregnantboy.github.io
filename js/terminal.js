@@ -3,20 +3,21 @@ var PROMPT_INPUT = 1,
 	PROMPT_PASSWORD = 2,
 	PROMPT_CONFIRM = 3;
 
-var fireCursorInterval = function(inputField, terminalObj) {
+function fireCursorInterval(inputField, terminalObj) {
 	var cursor = terminalObj._cursor;
 	setTimeout(function() {
 		if (inputField.parentElement && terminalObj._shouldBlinkCursor) {
 			cursor.style.visibility = cursor.style.visibility === "visible" ? "hidden" : "visible";
 			fireCursorInterval(inputField, terminalObj);
 		} else {
-			cursor.style.visibility = "visible";``
+			cursor.style.visibility = "visible";
 		}
 	}, 500);
-};
+}
 
 var firstPrompt = true;
-var promptInput = function(terminalObj, message, PROMPT_TYPE, callback) {
+
+function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 	var shouldDisplayInput = PROMPT_TYPE === PROMPT_INPUT || PROMPT_TYPE === PROMPT_PASSWORD;
 	var inputField = document.createElement("input");
 
@@ -25,7 +26,8 @@ var promptInput = function(terminalObj, message, PROMPT_TYPE, callback) {
 	inputField.style.outline = "none";
 	inputField.style.border = "none";
 	inputField.style.opacity = "0";
-	inputField.style.fontSize = "0.2em";
+	inputField.style.fontSize = "1px";
+	inputField.style.color = "transparent";
 	inputField.maxLength = "30";
 
 	terminalObj._inputLine.textContent = "";
@@ -84,7 +86,7 @@ var promptInput = function(terminalObj, message, PROMPT_TYPE, callback) {
 				inputField.focus();
 			}
 		});
-};
+}
 
 var terminalBeep = document.createElement("audio");
 var source = "<source src=\"http://www.erikosterberg.com/terminaljs/beep.";
@@ -121,6 +123,8 @@ class Terminal {
 		this._cursor.style.display = "none"; //then hide it
 		this._input.style.display = "none";
 		this._lineHeight = "auto";
+		this._autoScroll = true;
+
 		this._typed = null;
 		this._selectedChoice = 0;
 		this._choiceDivs = [];
@@ -130,11 +134,11 @@ class Terminal {
 		this.setTextColor("white");
 		this.setTextSize("1em");
 		this.setWidth("100%");
-		this.setHeight("100%");
+		this.setMinHeight("100%");
 		this.setLineHeight("auto");
 
-		document.onkeydown = function(e) {
-			if (this._choiceDivs.length > 1) {
+		this._choiceListener = function(e) {
+			if (this._choiceDivs.length > 1 && this._choices.length === this._choiceDivs.length) {
 				if (e.which === 38) {
 					console.log("key up");
 					this._selectedChoice = (this._choices.length + this._selectedChoice - 1) % this._choices.length;
@@ -159,9 +163,9 @@ class Terminal {
 		terminalBeep.play();
 	}
 
-	print(message, keepSpace) {
+	print(message, keepSpace, callback) {
 		var newLine = document.createElement("div");
-		newLine.style["line-height"] = this._lineHeight;		
+		newLine.style["line-height"] = this._lineHeight;
 		if (keepSpace) {
 			var newPre = document.createElement("pre");
 			newPre.innerText = message;
@@ -174,7 +178,8 @@ class Terminal {
 			newLine.textContent = message;
 		}
 		this._output.appendChild(newLine);
-		return newLine;
+		this.scrollToBottom();
+		if (callback) callback();
 	}
 
 	type(message, callback) {
@@ -199,33 +204,40 @@ class Terminal {
 				}
 			}
 		});
+		this.scrollToBottom();
 		return newLine;
 	}
 
-	skip(numLines) {
+	skip(numLines, callback) {
 		for (var i = 0; i < numLines; i++) {
 			var newLine = document.createElement("div");
 			newLine.style.height = this._output.style.fontSize;
 			this._output.appendChild(newLine);
 		}
+		this.scrollToBottom();
+		if (callback) callback();
 	}
 
 	input(message, callback) {
 		promptInput(this, message, PROMPT_INPUT, callback);
+		this.scrollToBottom();
 	}
 
 	password(message, callback) {
 		promptInput(this, message, PROMPT_PASSWORD, callback);
+		this.scrollToBottom();
 	}
 
 	confirm(message, callback) {
 		promptInput(this, message, PROMPT_CONFIRM, callback);
+		this.scrollToBottom();
 	}
 
 	choice(choices, callback) {
-		this._choiceDivs = [];
+		this.resetChoiceVars();
 		this._choices = choices;
-		this._selectedChoice = 0;
+		// add listener
+		document.addEventListener("keydown", this._choiceListener);
 		async.eachOfSeries(choices,
 			(choice, index, next) => {
 				var optionDiv = this.type(choice.choice, () => {
@@ -233,15 +245,27 @@ class Terminal {
 				});
 				optionDiv.style.cursor = "pointer";
 				optionDiv.onclick = () => {
-					this._selectedChoice = index;
-					this.updateChoice();
-					callback(choice.choice);
+					if (this._choices.length > 1) {
+						this._selectedChoice = index;
+						this.updateChoice();
+						this.resetChoiceVars();
+						// destroy choice
+						document.removeEventListener("keydown", this._choiceListener);
+						callback(choice.choice);
+					}
 				};
 				this._choiceDivs.push(optionDiv);
 			},
 			() => {
 				this.updateChoice();
 			});
+		this.scrollToBottom();
+	}
+
+	resetChoiceVars() {
+		this._choiceDivs = [];
+		this._choices = [];
+		this._selectedChoice = 0;
 	}
 
 	updateChoice() {
@@ -257,9 +281,10 @@ class Terminal {
 		}
 	}
 
-	clear() {
+	clear(callback) {
 		this._output.innerHTML = "";
 		this._typed = null;
+		if (callback) callback();
 	}
 
 	sleep(milliseconds, callback) {
@@ -289,8 +314,8 @@ class Terminal {
 		this.html.style.width = width;
 	}
 
-	setHeight(height) {
-		this.html.style.height = height;
+	setMinHeight(minHeight) {
+		this.html.style["min-height"] = minHeight;
 	}
 
 	setLineHeight(lineHeight) {
@@ -298,8 +323,17 @@ class Terminal {
 		this._input.style["line-height"] = lineHeight;
 	}
 
+	setAutoScroll(bool) {
+		this._autoScroll = bool;
+	}
+
 	blinkingCursor(bool) {
 		bool = bool.toString().toUpperCase();
 		this._shouldBlinkCursor = bool === "TRUE" || bool === "1" || bool === "YES";
+	}
+	scrollToBottom() {
+		if (this._autoScroll) {
+			document.documentElement.scrollTo({ top: document.body.scrollHeight });
+		}
 	}
 }

@@ -1,103 +1,142 @@
 var term = new Terminal();
 term.setTextSize("1.2rem");
 term.setLineHeight("2.2rem");
+term.setMinHeight("90vh");
+term.setAutoScroll(true);
 $("terminal").append(term.html);
 
 var id = "Guest";
 var selected = null;
 
-var escapeString = function(string) {
-	var div = document.createElement("div");
-	div.appendChild(document.createTextNode(string));
-	return div.innerHTML;
-};
+var type = msg => term.type.bind(term, msg);
+var skip = lines => term.skip.bind(term, lines);
+var sleep = milliseconds => term.sleep.bind(term, milliseconds);
+var clear = () => term.clear.bind(term);
+var print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
-async.waterfall([
-	function(next) {
-		term.type("Booting up...", function() {
-			term.sleep(500, next);
-		});
-	},
-	function(next) {
-		term.input("Please enter your login ID:", function(msg) {
-			msg = msg.trim();
-			if (msg && msg.length > 0) {
-				id = escapeString(msg);
+showModal();
+
+getLoginId(true)
+	.then(newId => {
+		id = newId;
+		return getSelectedChoice();
+	})
+	.then(selectedChoice => {
+		selected = selectedChoice;
+		if (selected === "Portfolio") {
+			console.log("here");
+		}
+	});
+
+function getLoginId(skip) {
+	if (skip) {
+		return Promise.resolve("Guest");
+	}
+	return new Promise((resolve, reject) => {
+		var newId = null;
+		async.waterfall([
+			type("Booting up...^500"),
+			next => {
+				term.input("Please enter your login ID:", msg => {
+					msg = msg.trim();
+					if (msg && msg.length > 0) {
+						newId = escapeString(msg);
+					}
+					next();
+				});
+			},
+			next => {
+				term.password("Please enter your password:", () => {
+					next();
+				});
+			},
+			type("Logging in... ^1000 Successful✔"),
+			sleep(1000),
+			clear()
+		],
+		err => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(newId);
 			}
-			next();
 		});
-	},
-	function(next) {
-		term.password("Please enter your password:", function() {
-			next();
-		});
-	},
-	function(next) {
-		term.type("Logging in... ^1000 Successful", function() {
-			term.sleep(1000, next);
-		});
-	},
-	function(next) {
-		term.clear();
-		if (window.innerWidth > 600) {
-			term.print(`
-     ____                 ______ __               
-    /  _/____ _ ____     / ____// /_   ___   ____ 
-    / / / __ \`// __ \\   / /    / __ \\ / _ \\ / __ \\
-  _/ / / /_/ // / / /  / /___ / / / //  __// / / /
- /___/ \\__,_//_/ /_/   \\____//_/ /_/ \\___//_/ /_/ 
-    		`,
-			true);
-		} else {
-			term.print(`
-     ____            
-    /  _/____ _ ____   
-    / / / __ \`// __ \\ 
-  _/ / / /_/ // / / / 
- /___/ \\__,_//_/ /_/ 
-   ______ __    
-  / ____// /_   ___   ____ 
+	});
+}
+
+function getSelectedChoice() {
+	return new Promise((resolve, reject) => {
+		var selectedChoice = -1;
+		async.waterfall([
+			window.innerWidth > 600
+				? print(`
+    ____                 ______ __
+   /  _/____ _ ____     / ____// /_   ___   ____
+   / / / __ \`// __ \\   / /    / __ \\ / _ \\ / __ \\
+ _/ / / /_/ // / / /  / /___ / / / //  __// / / /
+/___/ \\__,_//_/ /_/   \\____//_/ /_/ \\___//_/ /_/
+	    		`,
+				true)
+				: print(`
+     ____
+    /  _/____ _ ____
+    / / / __ \`// __ \\
+  _/ / / /_/ // / / /
+ /___/ \\__,_//_/ /_/
+   ______ __
+  / ____// /_   ___   ____
  / /    / __ \\ / _ \\ / __ \\
 / /___ / / / //  __// / / /
 \\____//_/ /_/ \\___//_/ /_/
-       		`,
-			true);
-		}
-		term.type("Welcome " + id + "!", next);
-	},
-	function(next) {
-		term.skip(3);
-		term.type("What would you like to access today?", next);
-	},
-	function(next) {
-		term.skip(1);
-		term.choice([
-			{
-				choice: "Portfolio"
+	       		`,
+				true),
+			next => {
+				// must be done in a function for id to be updated;
+				term.type("Welcome " + id + "!", next);
 			},
-			{
-				choice: "Resume"
+			skip(1),
+			type("What would you like to access today?"),
+			skip(1),
+			next => {
+				term.choice([
+					{ choice: "Portfolio" }, { choice: "Resume" }, { choice: "Contact Info" }
+				], choice => {
+					selectedChoice = choice;
+					next();
+				});
 			},
-			{
-				choice: "Contact Info"
-			}
+			skip(1),
+			next => {
+				// must be done in a function for selected to be updated;
+				term.type(selectedChoice + " selected.", next);
+			},
+			// type("Checking user permissions... ^400OK"),
+			// type("Installing updates... ^400OK"),
+			// type("Spinning the CPU fan... ^400OK"),
+			// next => {
+			// 	// must be done in a function for selected to be updated;
+			// 	term.type("Loading " + selectedChoice + "^300.^300.^300.", next);
+			// }
 		],
-		function(choice) {
-			term.skip(1);
-			selected = choice;
-			term.type(choice + " selected.", next);
+		err => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(selectedChoice);
+			}
 		});
-	},
-	function (next) {
-		term.type("Checking user permissions... ^400OK", next);
-	},
-	function(next) {
-		term.type("Loading " + selected + "^300.^300.^300.", next);
-	},
-	function(next) {
-		term.type("Going to sleep... ^450Continue tomorrow", next);
-	}
-],
-function(err) {
-	console.log(err || "completed");
-});
+	});
+}
+
+function escapeString(string) {
+	var div = document.createElement("div");
+	div.appendChild(document.createTextNode(string));
+	return div.innerHTML;
+}
+
+function showModal() {
+	$("#windowModal").modal({
+		keyboard: false,
+		backdrop: 'static'
+	});
+}

@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto+Mono');:root {
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+:root {
     --text-one: rgb(200, 200, 200);
 }
 
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     min-height: 100vh;
     min-width: 100vw;
     background: #111116;
@@ -16,10 +17,31 @@ body {
     color: var(--text-one) !important;
 }
 
-.overflow-hidden {
-    overflow: hidden;
+.overflow-x-hidden {
+    overflow-x: hidden;
 }
 
 .terminal-container {
     padding: 5vh 5vw;
+}
+
+.window-header {
+    height: 2rem;
+    background: rgb(200, 200, 200);
+    line-height: 2rem;
+    padding: 0 10px;
+    border-bottom: none;
+}
+
+.window-header-buttons {
+    line-height: 2rem;
+    padding-right: 0.5rem;
+}
+
+.window-content {
+    height: calc( 95vh - 3.5rem - 30px);
+    background: white;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-width: 0;
 }
