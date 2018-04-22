@@ -35,7 +35,7 @@ body {
 
 .window-header-buttons {
     line-height: 2rem;
-    margin-right: -0.6rem;
+    margin-left: -0.6rem;
 }
 
 .window-body {
@@ -44,6 +44,18 @@ body {
     border-top-right-radius: 0;
     border-width: 0;
     height: calc( 95vh - 3.5rem - 30px);
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.window-expanded {
+    max-width: none;
+    margin: 0;
+}
+
+.window-expanded .modal-content {
+    height: 100vh;
 }
 
 .fa-stack-halfx {
@@ -57,29 +69,65 @@ body {
     transition: 0.3s opacity linear;
 }
 
+#forward-back {
+    position: fixed;
+    left: 0.6rem;
+    height: 1.4rem;
+    top: 0.3rem;
+}
+
+#forward-back i {
+    line-height:  1.4rem;
+}
+
+#forward-back .btn {
+    padding: 0;
+    width: 40px;
+    background-color: transparent;
+    border: 1px solid rgb(150, 150, 150);
+}
+
+#forward-back .btn:hover:not(:disabled) {
+    background-color:rgb(150, 150, 150);
+}
+
+#forward-back .btn:focus:not(:disabled) {
+    box-shadow: none !important;
+}
+
+#forward-back .btn:active:not(:disabled) {
+    background-color:rgb(100, 100, 100);    
+}
+
 #traffic-lights {
     position: fixed;
-    left: 0.4rem;
+    right: 0.4rem;
 }
 
 #traffic-lights:hover .fa-stack-halfx {
     opacity: 1;
 }
 
-/* portfolio */
-.folder {
-    padding: 2vh 2vw;
+.red-light {
+    color: rgb(252, 70, 69);
 }
 
-.folder img {
-    width: 60%;
-    display: block;
-    margin: auto;
+.fa-stack:hover .red-light {
+    color: rgb(211, 24, 24);
 }
 
-.folder span {
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+.yellow-light {
+    color: #f1c40f;
+}
+
+.fa-stack:hover .yellow-light {
+    color: #d1930c;
+}
+
+.green-light {
+    color: #1abc9c;
+}
+
+.fa-stack:hover .green-light {
+    color: #0e9176;
 }

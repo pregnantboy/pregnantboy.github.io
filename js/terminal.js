@@ -80,7 +80,7 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 				firstPrompt = false;
 				setTimeout(() => {
 					inputField.focus();
-				}, 200);
+				}, 1);
 			} else {
 				inputField.focus();
 			}

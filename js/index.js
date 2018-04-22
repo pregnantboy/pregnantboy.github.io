@@ -49,7 +49,7 @@ function getLoginId(skip) {
 					next();
 				});
 			},
-			type("Logging in... ^1000 Successful✔"),
+			type("Logging in... ^1000 Successful!"),
 			sleep(1000),
 			clear()
 		],
@@ -109,12 +109,12 @@ function getSelectedChoice() {
 				// must be done in a function for selected to be updated;
 				term.type(selectedChoice + " selected.", next);
 			},
-			type("Checking user permissions... ^400OK"),
-			type("Installing updates... ^400OK"),
-			type("Spinning the CPU fan... ^400OK"),
+			type("Checking user permissions... ^100OK"),
+			type("Installing updates... ^100OK"),
+			type("Spinning the CPU fan... ^100OK"),
 			next => {
 				// must be done in a function for selected to be updated;
-				term.type("Loading " + selectedChoice + "^300.^300.^300.", next);
+				term.type("Loading " + selectedChoice + "...", next);
 			}
 		],
 		err => {
@@ -134,8 +134,19 @@ function escapeString(string) {
 }
 
 function showModal() {
+	$(".window-body").load("/portfolio/index.html");
 	$("#windowModal").modal({
 		keyboard: false,
 		backdrop: "static"
 	});
+}
+
+/* exported expandWindow */
+function expandWindow() {
+	$("#windowModal .modal-dialog").addClass("window-expanded");
+}
+
+/* exported shrinkWindow */
+function shrinkWindow() {
+	$("#windowModal .modal-dialog.window-expanded").removeClass("window-expanded");	
 }

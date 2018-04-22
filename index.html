@@ -22,86 +22,46 @@
   </div>
   <div class="modal fade" tabindex="-1" role="dialog" id="windowModal" aria-hidden="true" options>
     <div class="modal-dialog modal-lg">
-      <div class="modal-content" style="overflow: hidden">
+      <div class="modal-content" style="overflow: hidden; border-width: 0px;">
         <div class="modal-header window-header text-center">
           <span style="width: 100%">
-            <span id="traffic-lights" style="float: left">
-              <span class="fa-stack fa-1x float-left window-header-buttons" data-dismiss="modal" >
-                <i class="fas fa-circle fa-stack-1x" style="color:rgb(252, 70, 69)"></i>
+            <div id="forward-back" class="btn-group btn-group-toggle">
+              <button class="btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="btn" disabled style="border-left: none">
+                  <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <span id="traffic-lights">
+              <span class="fa-stack fa-1x float-right window-header-buttons" data-dismiss="modal">
+                <i class="fas fa-circle fa-stack-1x red-light"></i>
                 <i class="fa-inverse fas fa-times fa-stack-halfx"></i>
               </span>
-              <span class="fa-stack fa-1x float-left window-header-buttons">
-                <i class="fas fa-circle fa-stack-1x" style="color:#f1c40f"></i>
-                <i class="fa-inverse fas fa-minus fa-stack-halfx"></i>
+              <span class="fa-stack fa-1x float-right window-header-buttons" onclick="expandWindow()">
+                <i class="fas fa-circle fa-stack-1x green-light"></i>
+                <i class="fa-inverse fas fa-plus fa-stack-halfx"></i>
               </span>
-              <span class="fa-stack fa-1x float-left window-header-buttons">
-                <i class="fas fa-circle fa-stack-1x" style="color:#1abc9c"></i>
-                <i class="fa-inverse far fa-expand-alt fa-stack-halfx"></i>
+              <span class="fa-stack fa-1x float-right window-header-buttons" onclick="shrinkWindow()">
+                <i class="fas fa-circle fa-stack-1x yellow-light"></i>
+                <i class="fa-inverse fas fa-minus fa-stack-halfx"></i>
               </span>
             </span>
             Portfolio
           </span>
         </div>
         <div class="modal-body window-body">
-          <div class="row">
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>Fickle</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>Pepo</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>AED App</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>DMGify</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>Minecraft AI Creator</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>Bigtube</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>Vault</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12">
-              <div class="folder align-items-center">
-                <img src="/img/folder.svg">
-                <span>School Apps</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/vendor/typed.js/typed.min.js"></script>
   <script src="/vendor/async/async.min.js"></script>
+  <script src="/vendor/json2html/json2html.js"></script>
+  <script src="/vendor/json2html/jquery.json2html.js"></script>
   <script src="/js/terminal.js"></script>
   <script src="/js/index.js"></script>
   </script>
