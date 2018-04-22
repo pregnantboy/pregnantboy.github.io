@@ -69,33 +69,33 @@ body {
     transition: 0.3s opacity linear;
 }
 
-#forward-back {
+#history {
     position: fixed;
     left: 0.6rem;
     height: 1.4rem;
     top: 0.3rem;
 }
 
-#forward-back i {
+#history i {
     line-height:  1.4rem;
 }
 
-#forward-back .btn {
+#history .btn {
     padding: 0;
     width: 40px;
     background-color: transparent;
     border: 1px solid rgb(150, 150, 150);
 }
 
-#forward-back .btn:hover:not(:disabled) {
+#history .btn:hover:not(:disabled) {
     background-color:rgb(150, 150, 150);
 }
 
-#forward-back .btn:focus:not(:disabled) {
+#history .btn:focus:not(:disabled) {
     box-shadow: none !important;
 }
 
-#forward-back .btn:active:not(:disabled) {
+#history .btn:active:not(:disabled) {
     background-color:rgb(100, 100, 100);    
 }
 
@@ -121,7 +121,7 @@ body {
 }
 
 .fa-stack:hover .yellow-light {
-    color: #d1930c;
+    color: #e9b035;
 }
 
 .green-light {

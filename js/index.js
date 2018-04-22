@@ -23,8 +23,8 @@ getLoginId()
 		selected = selectedChoice;
 		if (selected === "Portfolio") {
 			console.log("here");
-		} 
-		showModal();		
+		}
+		showModal();
 	});
 
 function getLoginId(skip) {
@@ -33,8 +33,7 @@ function getLoginId(skip) {
 	}
 	return new Promise((resolve, reject) => {
 		var newId = null;
-		async.waterfall([
-			type("Booting up...^500"),
+		async.waterfall([type("Booting up...^500"),
 			next => {
 				term.input("Please enter your login ID:", msg => {
 					msg = msg.trim();
@@ -51,8 +50,7 @@ function getLoginId(skip) {
 			},
 			type("Logging in... ^1000 Successful!"),
 			sleep(1000),
-			clear()
-		],
+			clear()],
 		err => {
 			if (err) {
 				reject(err);
@@ -66,17 +64,16 @@ function getLoginId(skip) {
 function getSelectedChoice() {
 	return new Promise((resolve, reject) => {
 		var selectedChoice = -1;
-		async.waterfall([
-			window.innerWidth > 600
-				? print(`
+		async.waterfall([window.innerWidth > 600
+			? print(`
     ____                 ______ __
    /  _/____ _ ____     / ____// /_   ___   ____
    / / / __ \`// __ \\   / /    / __ \\ / _ \\ / __ \\
  _/ / / /_/ // / / /  / /___ / / / //  __// / / /
 /___/ \\__,_//_/ /_/   \\____//_/ /_/ \\___//_/ /_/
 	    		`,
-				true)
-				: print(`
+			true)
+			: print(`
      ____
     /  _/____ _ ____
     / / / __ \`// __ \\
@@ -88,35 +85,34 @@ function getSelectedChoice() {
 / /___ / / / //  __// / / /
 \\____//_/ /_/ \\___//_/ /_/
 	       		`,
-				true),
-			next => {
-				// must be done in a function for id to be updated;
-				term.type("Welcome " + id + "!", next);
-			},
-			skip(1),
-			type("What would you like to access today?"),
-			skip(1),
-			next => {
-				term.choice([
-					{ choice: "Portfolio" }, { choice: "Resume" }, { choice: "Contact Info" }
-				], choice => {
-					selectedChoice = choice;
-					next();
-				});
-			},
-			skip(1),
-			next => {
-				// must be done in a function for selected to be updated;
-				term.type(selectedChoice + " selected.", next);
-			},
-			type("Checking user permissions... ^100OK"),
-			type("Installing updates... ^100OK"),
-			type("Spinning the CPU fan... ^100OK"),
-			next => {
-				// must be done in a function for selected to be updated;
-				term.type("Loading " + selectedChoice + "...", next);
-			}
-		],
+			true),
+		next => {
+			// must be done in a function for id to be updated;
+			term.type("Welcome " + id + "!", next);
+		},
+		skip(1),
+		type("What would you like to access today?"),
+		skip(1),
+		next => {
+			term.choice([{ choice: "Portfolio" },
+				{ choice: "Resume" },
+				{ choice: "Contact Info" }], choice => {
+				selectedChoice = choice;
+				next();
+			});
+		},
+		skip(1),
+		next => {
+			// must be done in a function for selected to be updated;
+			term.type(selectedChoice + " selected.", next);
+		},
+		type("Checking user permissions... ^100OK"),
+		type("Installing updates... ^100OK"),
+		type("Spinning the CPU fan... ^100OK"),
+		next => {
+			// must be done in a function for selected to be updated;
+			term.type("Loading " + selectedChoice + "...", next);
+		}],
 		err => {
 			if (err) {
 				reject(err);
@@ -139,6 +135,10 @@ function showModal() {
 		keyboard: false,
 		backdrop: "static"
 	});
+	$("#history").on("update", (event, historyLength, historyPointer) => {
+		$("#forward").prop("disabled", historyPointer >= historyLength - 1);
+		$("#back").prop("disabled", historyPointer === 0);
+	});
 }
 
 /* exported expandWindow */
@@ -148,5 +148,15 @@ function expandWindow() {
 
 /* exported shrinkWindow */
 function shrinkWindow() {
-	$("#windowModal .modal-dialog.window-expanded").removeClass("window-expanded");	
+	$("#windowModal .modal-dialog.window-expanded").removeClass("window-expanded");
+}
+
+/* exported goBack */
+function goBack() {
+	$("#history").trigger("goBack");
+}
+
+/* exported goForward */
+function goForward() {
+	$("#history").trigger("goForward");
 }

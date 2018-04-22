@@ -188,9 +188,7 @@ class Terminal {
 		newLine.append(newText);
 		this._output.appendChild(newLine);
 		this._typed = new Typed(newText, {
-			strings: [
-				message
-			],
+			strings: [message],
 			typeSpeed: 20,
 			showCursor: true,
 			onStringTyped: function() {

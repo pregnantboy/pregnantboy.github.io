@@ -25,12 +25,12 @@
       <div class="modal-content" style="overflow: hidden; border-width: 0px;">
         <div class="modal-header window-header text-center">
           <span style="width: 100%">
-            <div id="forward-back" class="btn-group btn-group-toggle">
-              <button class="btn" disabled>
-                <i class="fas fa-chevron-left"></i>
+            <div id="history" class="btn-group btn-group-toggle">
+              <button id="back" class="btn" onclick="goBack()">
+                <i class="far fa-angle-left"></i>
               </button>
-              <button class="btn" disabled style="border-left: none">
-                  <i class="fas fa-chevron-right"></i>
+              <button id="forward" class="btn" style="border-left: none" onclick="goForward()">
+                <i class="far fa-angle-right"></i>
               </button>
             </div>
             <span id="traffic-lights">
