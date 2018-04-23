@@ -1,7 +1,7 @@
 renderFolders();
 
 function loadUrl(url, doNotChangeHistory) {
-	$("#content").load(url);
+	$("#content").load(location.origin + url);
 	if (!doNotChangeHistory) {
 		addToHistory(url);
 	}
@@ -105,7 +105,7 @@ $("#history").on("goBack", () => {
 });
 
 $("#history").on("goForward", () => {
-	console.log("Navigating forward");	
+	console.log("Navigating forward");
 	if (historyLog.length - 1 > historyPointer) {
 		historyPointer++;
 		updateForwardBackButtons();
