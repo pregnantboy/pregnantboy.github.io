@@ -1,7 +1,7 @@
 renderFolders();
 
 function loadUrl(url, doNotChangeHistory) {
-	$("#content").load(location.origin + url);
+	$("#content").load(url);
 	if (!doNotChangeHistory) {
 		addToHistory(url);
 	}
@@ -11,42 +11,42 @@ function renderFolders() {
 	let folderData = [{
 		"folder-name": "Fickle",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "Pepo",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "AED App",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "DMGify",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "Minecraft AI Creator",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "Bigtube",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "Vault",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "School Apps",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle"
+		url: "/portfolio/fickle/index.html"
 	}];
 
 	let folderTemplate = {
