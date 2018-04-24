@@ -1,38 +1,41 @@
-var term = new Terminal();
+let term = new Terminal();
 term.setTextSize("1.2rem");
 term.setLineHeight("2.2rem");
 term.setMinHeight("90vh");
 term.setAutoScroll(true);
+term.setTypeSpeed(10);
 $("terminal").append(term.html);
 
-var id = "Guest";
-var selected = null;
+let id = "Guest";
 
-var type = msg => term.type.bind(term, msg);
-var skip = lines => term.skip.bind(term, lines);
-var sleep = milliseconds => term.sleep.bind(term, milliseconds);
-var clear = () => term.clear.bind(term);
-var print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
+let type = msg => term.type.bind(term, msg);
+let skip = lines => term.skip.bind(term, lines);
+let sleep = milliseconds => term.sleep.bind(term, milliseconds);
+let clear = () => term.clear.bind(term);
+let print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
-getLoginId()
-	.then(newId => {
-		id = newId;
-		return getSelectedChoice();
-	})
-	.then(selectedChoice => {
-		selected = selectedChoice;
-		if (selected === "Portfolio") {
-			console.log("here");
-		}
-		showModal();
-	});
+startup(true);
 
-function getLoginId(skip) {
+function startup(skip) {
 	if (skip) {
-		return Promise.resolve("Guest");
+		showLogo().then(() => {
+			getSelectedChoice(true);
+		});
+	} else {
+		getLoginId()
+			.then(newId => {
+				id = newId;
+				return showLogo();
+			})
+			.then(() => {
+				getSelectedChoice(true);
+			});
 	}
+}
+
+function getLoginId() {
 	return new Promise((resolve, reject) => {
-		var newId = null;
+		let newId = null;
 		async.waterfall([type("Booting up...^500"),
 			next => {
 				term.input("Please enter your login ID:", msg => {
@@ -61,9 +64,8 @@ function getLoginId(skip) {
 	});
 }
 
-function getSelectedChoice() {
+function showLogo() {
 	return new Promise((resolve, reject) => {
-		var selectedChoice = -1;
 		async.waterfall([window.innerWidth > 600
 			? print(`
     ____                 ______ __
@@ -85,18 +87,26 @@ function getSelectedChoice() {
 / /___ / / / //  __// / / /
 \\____//_/ /_/ \\___//_/ /_/
 	       		`,
-			true),
-		next => {
+			true), next => {
 			// must be done in a function for id to be updated;
 			term.type("Welcome " + id + "!", next);
-		},
-		skip(1),
-		type("What would you like to access today?"),
+		}],
+		err => {
+			if (err) reject(err);
+			else resolve();
+		});
+	});
+}
+
+function getSelectedChoice(firstLoad) {
+	let selectedChoice = {};
+	async.waterfall([skip(1),
+		type(firstLoad ? "What would you like to access today?" : "What would you like to see next?"),
 		skip(1),
 		next => {
-			term.choice([{ choice: "Portfolio" },
-				{ choice: "Resume" },
-				{ choice: "Contact Info" }], choice => {
+			term.choice([{ choice: "Portfolio", id: 1 },
+				{ choice: "Resume", id: 2 },
+				{ choice: "Contact Info", id: 3 }], choice => {
 				selectedChoice = choice;
 				next();
 			});
@@ -104,59 +114,59 @@ function getSelectedChoice() {
 		skip(1),
 		next => {
 			// must be done in a function for selected to be updated;
-			term.type(selectedChoice + " selected.", next);
-		},
-		type("Checking user permissions... ^100OK"),
-		type("Installing updates... ^100OK"),
-		type("Spinning the CPU fan... ^100OK"),
-		next => {
-			// must be done in a function for selected to be updated;
-			term.type("Loading " + selectedChoice + "...", next);
+			term.type(selectedChoice.choice + " selected.", next);
 		}],
-		err => {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(selectedChoice);
-			}
-		});
+	err => {
+		if (err) {
+			console.error(err);
+		} else {
+			handleChoice(selectedChoice);
+		}
 	});
+}
+
+function handleChoice(choice) {
+	switch (choice.id) {
+	case 1:
+		// async loading
+		loadScript(scriptPaths.portfolio, () => {
+			$(".window-body").load("/portfolio/index.html");
+		});
+		async.waterfall([type("Spinning the CPU fan... ^100OK"),
+			type("Mining some ethereum... ^100OK"),
+			type("Unzipping the folders... ^100OK"),
+			type("Opening Portfolio")], () => {
+			showWindow();
+		});
+		break;
+	case 2: {
+		async.waterfall([type("Randomly generating words... ^100OK"),
+			type("Converting to PDF... ^100OK"),
+			type("Resume ready for download")], () => {
+			let file_path = "/resume.txt";
+			let a = document.createElement("A");
+			a.href = file_path;
+			a.download = file_path.substr(file_path.lastIndexOf("/") + 1);
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+			getSelectedChoice();
+		});
+		break;
+	}
+	case 3:
+		async.waterfall([type("email: <a target=\"_blank\" href=\"mailto:ian-@gmx.com\">ian-@gmx.com</a>"),
+			type("github: <a target=\"_blank\" href=\"https://github.com/pregnantboy\">@pregnantboy</a>"),
+			type("linkedin:  <a target=\"_blank\" href=\"https://www.linkedin.com/in/chenweiian/\">chenweiiian</a>")],
+		getSelectedChoice);
+		break;
+	default:
+		getSelectedChoice();
+	}
 }
 
 function escapeString(string) {
-	var div = document.createElement("div");
+	let div = document.createElement("div");
 	div.appendChild(document.createTextNode(string));
 	return div.innerHTML;
-}
-
-function showModal() {
-	$(".window-body").load("/portfolio/index.html");
-	$("#windowModal").modal({
-		keyboard: false,
-		backdrop: "static"
-	});
-	$("#history").on("update", (event, historyLength, historyPointer) => {
-		$("#forward").prop("disabled", historyPointer >= historyLength - 1);
-		$("#back").prop("disabled", historyPointer === 0);
-	});
-}
-
-/* exported expandWindow */
-function expandWindow() {
-	$("#windowModal .modal-dialog").addClass("window-expanded");
-}
-
-/* exported shrinkWindow */
-function shrinkWindow() {
-	$("#windowModal .modal-dialog.window-expanded").removeClass("window-expanded");
-}
-
-/* exported goBack */
-function goBack() {
-	$("#history").trigger("goBack");
-}
-
-/* exported goForward */
-function goForward() {
-	$("#history").trigger("goForward");
 }

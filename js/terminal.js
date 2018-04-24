@@ -123,6 +123,7 @@ class Terminal {
 		this._input.style.display = "none";
 		this._lineHeight = "auto";
 		this._autoScroll = true;
+		this._typeSpeed = 20;
 
 		this._typed = null;
 		this._selectedChoice = 0;
@@ -189,7 +190,7 @@ class Terminal {
 		this._output.appendChild(newLine);
 		this._typed = new Typed(newText, {
 			strings: [message],
-			typeSpeed: 20,
+			typeSpeed: this._typeSpeed,
 			showCursor: true,
 			onStringTyped: function() {
 				$(newText)
@@ -248,7 +249,7 @@ class Terminal {
 						this.resetChoiceVars();
 						// destroy choice
 						document.removeEventListener("keydown", this._choiceListener);
-						callback(choice.choice);
+						callback(choice);
 					}
 				};
 				this._choiceDivs.push(optionDiv);
@@ -260,6 +261,9 @@ class Terminal {
 	}
 
 	resetChoiceVars() {
+		this._choiceDivs.forEach(div => {
+			div.onclick = null;
+		});
 		this._choiceDivs = [];
 		this._choices = [];
 		this._selectedChoice = 0;
@@ -322,6 +326,10 @@ class Terminal {
 
 	setAutoScroll(bool) {
 		this._autoScroll = bool;
+	}
+
+	setTypeSpeed(typeSpeed) {
+		this._typeSpeed = typeSpeed;
 	}
 
 	blinkingCursor(bool) {

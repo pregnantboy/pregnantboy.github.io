@@ -13,6 +13,7 @@
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/vendor/animate/animate.css" rel="stylesheet">
   <link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="/vendor/jquery/jquery-ui.min.css" rel="stylesheet">
   <link href="/css/main.css" rel="stylesheet">
 </head>
 
@@ -20,10 +21,10 @@
   <div class="terminal-container col-12 overflow-x-hidden">
     <terminal></terminal>
   </div>
-  <div class="modal fade" tabindex="-1" role="dialog" id="windowModal" aria-hidden="true" options>
+  <div class="modal fade" tabindex="-1" role="dialog" id="windowModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" style="overflow: hidden; border-width: 0px;">
-        <div class="modal-header window-header text-center">
+        <div class="modal-header window-header text-center draggable-source" ondblclick="toggleWindow()">
           <span style="width: 100%">
             <div id="history" class="btn-group btn-group-toggle">
               <button id="back" class="btn" onclick="goBack()">
@@ -34,7 +35,7 @@
               </button>
             </div>
             <span id="traffic-lights">
-              <span class="fa-stack fa-1x float-right window-header-buttons" data-dismiss="modal">
+              <span class="fa-stack fa-1x float-right window-header-buttons" data-dismiss="modal" aria-label="Close">
                 <i class="fas fa-circle fa-stack-1x red-light"></i>
                 <i class="fa-inverse fas fa-times fa-stack-halfx"></i>
               </span>
@@ -47,7 +48,7 @@
                 <i class="fa-inverse fas fa-minus fa-stack-halfx"></i>
               </span>
             </span>
-            Portfolio
+            <span id="window-title">Portfolio</span>
           </span>
         </div>
         <div class="modal-body window-body">
@@ -56,13 +57,18 @@
     </div>
   </div>
 
+  <!-- vendors -->
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery-ui.min.js"></script>
   <script src="/vendor/typed.js/typed.min.js"></script>
   <script src="/vendor/async/async.min.js"></script>
   <script src="/vendor/json2html/json2html.js"></script>
   <script src="/vendor/json2html/jquery.json2html.js"></script>
+  <!-- user scripts -->
+  <script src="/js/script-loader.js"></script>  
   <script src="/js/terminal.js"></script>
+  <script src="/js/window.js"></script>
   <script src="/js/index.js"></script>
   </script>
 </body>

@@ -10,6 +10,7 @@ body {
     background: #111116;
     background: -webkit-linear-gradient(to left, #2a2b2c, #111116);
     background: radial-gradient(circle at center, #2a2b2c, #111116);
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -25,17 +26,27 @@ body {
     padding: 5vh 5vw;
 }
 
+#windowModal {
+    padding-right: 0 !important;
+}
+
+#window-title {
+    user-select: none;
+}
+
 .window-header {
     height: 2rem;
     background: rgb(200, 200, 200);
     line-height: 2rem;
     padding: 0 10px;
     border-bottom: none;
+    cursor: move;
 }
 
 .window-header-buttons {
     line-height: 2rem;
     margin-left: -0.6rem;
+    cursor: pointer;
 }
 
 .window-body {
@@ -43,7 +54,7 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-width: 0;
-    height: calc( 95vh - 3.5rem - 30px);
+    max-height: calc( 95vh - 3.5rem - 30px);
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -77,7 +88,7 @@ body {
 }
 
 #history i {
-    line-height:  1.4rem;
+    line-height: 1.4rem;
 }
 
 #history .btn {
@@ -88,7 +99,7 @@ body {
 }
 
 #history .btn:hover:not(:disabled) {
-    background-color:rgb(150, 150, 150);
+    background-color: rgb(150, 150, 150);
 }
 
 #history .btn:focus:not(:disabled) {
@@ -96,7 +107,7 @@ body {
 }
 
 #history .btn:active:not(:disabled) {
-    background-color:rgb(100, 100, 100);    
+    background-color: rgb(100, 100, 100);
 }
 
 #traffic-lights {

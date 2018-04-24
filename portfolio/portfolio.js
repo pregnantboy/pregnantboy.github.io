@@ -1,9 +1,7 @@
-renderFolders();
-
-function loadUrl(url, doNotChangeHistory) {
-	$("#content").load(url);
+function loadUrl(folder, doNotChangeHistory) {
+	$("#content").load(folder.url);
 	if (!doNotChangeHistory) {
-		addToHistory(url);
+		addToHistory(folder);
 	}
 }
 
@@ -57,7 +55,7 @@ function renderFolders() {
 			class: "folder",
 			html: [{ "<>": "img", src: "${folder-img}", html: "" }, { "<>": "span", html: "${folder-name}" }],
 			ondblclick: e => {
-				loadUrl(e.obj.url);
+				loadUrl(e.obj);
 			}
 		}]
 	};
@@ -67,22 +65,28 @@ function renderFolders() {
 	$(".folder-list").json2html(folderData, folderTemplate);
 }
 
-let historyLog = ["root"];
+let historyLog = [{
+	url: "/",
+	"folder-name": "Portfolio"
+}];
 let historyPointer = 0;
 updateForwardBackButtons();
 
-function addToHistory(url) {
+function addToHistory(folder) {
 	historyPointer++;
 	// replace existing history log
 	if (historyLog.length >= historyPointer) {
 		historyLog.splice(historyPointer);
 	}
-	historyLog.push(url);
+	historyLog.push(folder);
 	updateForwardBackButtons();
 }
 
 function updateForwardBackButtons() {
-	$("#history").trigger("update", [historyLog.length, historyPointer]);
+	let folderName = historyLog[historyPointer]["folder-name"];
+	$("#history").trigger("update", [historyLog.length,
+		historyPointer,
+		folderName]);
 }
 
 $("#history").on("goBack", () => {
