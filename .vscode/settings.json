@@ -1,5 +1,6 @@
 {
 	"prettier.eslintIntegration": true,
 	"prettier.printWidth": 200,
-	"git.enabled": true
+	"git.enabled": true,
+	"git.ignoreLimitWarning": true
 }
