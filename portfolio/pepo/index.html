@@ -1,95 +1,122 @@
-<div class="background">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+<script src="/vendor/tooltip/tooltip.min.js"></script>
+<div id="page" class="background">
     <div class="container">
 
-        <div class="blank-div"> </div>
-        <div class="still-div logo-div">
-            <img class="logo" src="./pepo-logo.png">
+        <div class="one-div"> </div>
+        <div class="still-div two-div">
+            <img class="logo" src="/portfolio/pepo/pepo-logo-with-text.png">
         </div>
 
-        <div class="blank-div"> </div>
+        <div class="one-div"> </div>
 
         <div class="still-div">
-            <div class="">
-                <img class="stills" src="./screen/exisitinglogin.png">
-                <video class="stills-vid" src="./screen/exisitinglogin.mp4"></video>
-            </div>
+            <video class="stills-vid" src="/portfolio/pepo/screen/exisitinglogin.mp4" poster="/portfolio/pepo/screen/exisitinglogin.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
         </div>
 
-        <div class="still-div ">
-            <img class="stills" src="./screen/achievements.png">
+        <div class="still-div">
+            <video class="stills-vid" src="/portfolio/pepo/screen/achievements.mp4" poster="/portfolio/pepo/screen/achievements.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
         </div>
-        <div class="still-div ">
-            <img class="stills" src="./screen/achievements.png">
+        <div class="still-div">
+            <video class="stills-vid" src="/portfolio/pepo/screen/track.mp4" poster="/portfolio/pepo/screen/track.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
         </div>
-        <div class="still-div ">
-            <img class="stills" src="./screen/achievements.png">
+        <div class="still-div">
+            <video class="stills-vid" src="/portfolio/pepo/screen/friends.mp4" poster="/portfolio/pepo/screen/friends.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
         </div>
-        <div class="still-div ">
-            <img class="stills" src="./screen/achievements.png">
+        <div class="still-div">
+            <video class="stills-vid" src="/portfolio/pepo/screen/trackdayweekmonth.mp4" poster="/portfolio/pepo/screen/trackdayweekmonth.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
+        </div>
+        <div class="still-div two-div">
+            <img class="logo" src="/portfolio/pepo/sensor.png">
         </div>
     </div>
-</div>
-<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    body {
-        margin: 0;
-    }
 
-    .background {
-        background: #667db6;
-        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-        background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-        min-height: 100vh;
-        margin: 0;
-        padding: 5vh 10vw;
-    }
+    <div class="description">
+        <h3>Stack</h3>
+        <p>
+            <img class="stack-logo" src="/img/logo/ios.png">
+            <img class="stack-logo" src="/img/logo/particle.png">
+        </p>
+        <h3>Description</h3>
+        <p>
+            <b>PEPO</b> is a smart water tracking system that consists of a non-intrusive, clip-on sensor that sends real-time water usage data to an app. The sensor picks up when the shower is turned on or off and sends it realtime to the app, which calculates the volume of water used. The app tracks water usage based on a per-shower, daily, weekly and monthly basis. It includes an achievements page, weekly leaderboard and social challenge feature.
+        </p>
 
-    .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: auto;
-        grid-gap: 5vh 3vw;
-    }
-
-    @media (max-width: 720px) {
-        .container {
-            grid-template-columns: repeat(2, 1fr);
+        <h3>Accolades</h3>
+        <ul>
+            <li>Runner Up in Social Entrepreneurship Challenge 2015 - UC Berekely</li>
+            <li> Presented in the City Innovate Summit 2015, San Francisco</li>
+        </ul>
+    </div>
+    <style scoped>
+        body {
+            margin: 0;
         }
-    }
 
-    @media (max-width: 540px) {
+        .background {
+            background: #667db6;
+            background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+            background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+            min-height: 100vh;
+            margin: 0;
+            padding: 5vh 5%;
+        }
+
         .container {
+            display: grid;
             grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: auto;
+            grid-gap: 5vh 3%;
+            max-width: 80vw;
+            margin: 0 auto;
         }
-    }
 
-    .still-div {
-        grid-row: span 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        @media screen and (min-width: 540px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-    .logo-div {
-        grid-row: span 3;
-    }
+        @media screen and (min-width: 720px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
-    .blank-div {
-        grid-row: span 1;
-    }
+        .still-div {
+            grid-row: span 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .logo {
-        width: 60%;
-    }
+        .two-div {
+            grid-row: span 2;
+        }
 
-    .stills {
-        width: 80%;
-        margin-left: 10%;
-    }
+        .one-div {
+            grid-row: span 1;
+        }
 
-    .stills-vid {
-        width: 80%;
-        margin-left: 10%;
-    }
+        .logo {
+            width: 60%;
+        }
 
-</style>
+        .stills-vid {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .description {
+            padding: 5vh 8%;
+            max-width: 80vw;
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</div>
+
+<link href="/css/main.css" rel="stylesheet">
