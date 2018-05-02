@@ -1,5 +1,9 @@
 function loadUrl(folder, doNotChangeHistory) {
-	$("#content").load(folder.url + " #page");
+	$("#content").load(folder.url + " #page", () => {
+		if (folder.script) {
+			loadScript(folder.script);
+		}
+	});
 	if (!doNotChangeHistory) {
 		addToHistory(folder);
 	}
@@ -14,7 +18,8 @@ function renderFolders() {
 	{
 		"folder-name": "Pepo",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/pepo/index.html"
+		url: "/portfolio/pepo/index.html",
+		script: "/portfolio/pepo/pepo.js"
 	},
 	{
 		"folder-name": "AED App",

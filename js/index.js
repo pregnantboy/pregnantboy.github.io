@@ -16,7 +16,7 @@ let print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
 startup(true);
 
-// showWindow();
+showWindow();
 
 function startup(skip) {
 	if (skip) {

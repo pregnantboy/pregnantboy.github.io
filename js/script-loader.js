@@ -10,9 +10,13 @@ function loadScript(path, callback) {
 	if (!scriptsLoaded[path]) {
 		$.getScript(path, success => {
 			scriptsLoaded[path] = success;
-			callback();
+			if (callback) {
+				callback();
+			}
 		});
 	} else {
-		callback();
+		if (callback) {
+			callback();
+		}
 	}
 }

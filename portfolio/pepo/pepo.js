@@ -1,3 +1,7 @@
-if ($("link[href='/vendor/bootstrap/css/bootstrap.min.css']")[0].sheet.cssRules.length == 0) {
-	$("head").append($("<link rel=\"stylesheet\" type=\"text/css\" />").attr("href", "/vendor/bootstrap/css/bootstrap.min.cssl"));
-}
+var divs = document.getElementsByClassName("stack-logo");
+[...divs].forEach(div => {
+	new Tooltip(div, {
+		title: div.getAttribute("data-tooltip"),
+		trigger: "hover focus"
+	});
+});
