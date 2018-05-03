@@ -14,21 +14,21 @@
 
         <div class="one-div"> </div>
 
-        <div class="still-div">
-            <video class="stills-vid" src="/portfolio/pepo/screen/exisitinglogin.mp4" poster="/portfolio/pepo/screen/exisitinglogin.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
+        <div class="still-div" style="background-image:url('/portfolio/pepo/screen/exisitinglogin.png')">
+            <video class="stills-vid" data-tooltip="Login Screen" src="/portfolio/pepo/screen/exisitinglogin.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         </div>
 
-        <div class="still-div">
-            <video class="stills-vid" src="/portfolio/pepo/screen/achievements.mp4" poster="/portfolio/pepo/screen/achievements.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
+        <div class="still-div" style="background-image:url('/portfolio/pepo/screen/achievements.png')">
+            <video class="stills-vid" data-tooltip="Achievements" src="/portfolio/pepo/screen/achievements.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         </div>
-        <div class="still-div">
-            <video class="stills-vid" src="/portfolio/pepo/screen/track.mp4" poster="/portfolio/pepo/screen/track.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
+        <div class="still-div" style="background-image:url('/portfolio/pepo/screen/track.png')">
+            <video class="stills-vid" data-tooltip="Real-time Tracking" src="/portfolio/pepo/screen/track.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         </div>
-        <div class="still-div">
-            <video class="stills-vid" src="/portfolio/pepo/screen/friends.mp4" poster="/portfolio/pepo/screen/friends.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
+        <div class="still-div" style="background-image:url('/portfolio/pepo/screen/friends.png')">
+            <video class="stills-vid" data-tooltip="Social" src="/portfolio/pepo/screen/friends.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         </div>
-        <div class="still-div">
-            <video class="stills-vid" src="/portfolio/pepo/screen/trackdayweekmonth.mp4" poster="/portfolio/pepo/screen/trackdayweekmonth.png" onclick="this.play()" onmouseover="this.play()" onmouseout="this.load()" loop></video>
+        <div class="still-div" style="background-image:url('/portfolio/pepo/screen/trackdayweekmonth.png')">
+            <video class="stills-vid" data-tooltip="Progress Tracking" src="/portfolio/pepo/screen/trackdayweekmonth.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         </div>
         <div class="still-div two-div">
             <img class="logo" src="/portfolio/pepo/sensor.png">
@@ -58,9 +58,9 @@
         }
 
         .background {
-            background: #667db6;
-            background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-            background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+            background: #3495c7;
+            background: -webkit-linear-gradient(to bottom, #3495c7, #325669);
+            background: linear-gradient(to bottom, #3495c7, #04496d);
             min-height: 100vh;
             margin: 0;
             padding: 5vh 5%;
@@ -92,6 +92,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-position: center;
+            background-size: 80% auto;
+            background-repeat: no-repeat;
         }
 
         .two-div {
@@ -109,6 +112,22 @@
         .stills-vid {
             width: 80%;
             margin: 0 auto;
+            opacity: 0
+        }
+
+        .stills-vid:hover,
+        .stills-vid:focus {
+            opacity: 1;
+        }
+
+        .video-label {
+            position: absolute;
+            top: 12%;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 1.4rem;
         }
 
         .description {
