@@ -209,3 +209,28 @@ body {
 .tooltip {
     opacity: 1 !important;
 }
+
+.source-code {
+    margin-top: 2rem;
+    color: white;
+    opacity: 0.8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.source-code:hover {
+    opacity: 1;
+}
+
+.source-code i {
+    font-size: 3rem;
+
+}
+
+.source-code span {
+    font-size: 1rem;
+    line-height: 3rem;
+    margin-left: 0.5rem;
+}
+
