@@ -1,7 +1,9 @@
 function loadUrl(folder, doNotChangeHistory) {
-	$("#content").load(folder.url + " #page", () => {
-		if (folder.script) {
-			loadScript(folder.script);
+	$.ajax({
+		url: folder.url + "#page",
+		dataType: "html",
+		success: function(data) {
+			$("#content").html($(data).filter("#page"));
 		}
 	});
 	if (!doNotChangeHistory) {

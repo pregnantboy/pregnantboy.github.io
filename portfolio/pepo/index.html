@@ -52,6 +52,26 @@
             <li> Presented in the City Innovate Summit 2015, San Francisco</li>
         </ul>
     </div>
+
+    <script type="text/javascript">
+        var divs = document.getElementsByClassName("stack-logo");
+        [...divs].forEach(div => {
+            new Tooltip(div, {
+                title: div.getAttribute("data-tooltip"),
+                trigger: "hover focus"
+            });
+        });
+
+        var vids = document.getElementsByClassName("stills-vid");
+        [...vids].forEach(div => {
+            var x = new Tooltip(div, {
+                title: div.getAttribute("data-tooltip"),
+                trigger: "hover focus"
+            });
+            console.log(x);
+        });
+    </script>
+
     <style scoped>
         body {
             margin: 0;
@@ -141,4 +161,3 @@
     </style>
 
 </div>
-<script src="./pepo.js"></script>

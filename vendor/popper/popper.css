@@ -61,9 +61,6 @@ p.bold {
 
 .tooltip-inner {
     padding: 5px 10px;
-    zoom: 2;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
 }
 
 .style5 .tooltip {
