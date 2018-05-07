@@ -1,0 +1,113 @@
+<script src="/vendor/jquery/jquery.min.js"></script>
+
+<div class="background" id="page">
+	<link href="/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+	<script src="/vendor/fancybox/jquery.fancybox.min.js"></script>
+
+	<div class="full-section">
+		<img style="width: 90%; max-width: 100vh; margin: 0 auto" src="/portfolio/minecraft/title.png" />
+		<img style="max-height: 60vh; max-width: 100%; margin: 10vh auto" class="screenshot" src="/portfolio/minecraft/ai-ss.png" />
+	</div>
+
+	<div class="sub-section">
+		<div class="sub-title">
+			<img src="/portfolio/minecraft/rule-title.png" />
+		</div>
+		<div class="sub-body">
+			<img href="/portfolio/minecraft/videos/create.mp4" data-width="768" data-height="432"  data-fancybox src="/portfolio/minecraft/rule-ss.png" class="screenshot" />
+		</div>
+	</div>
+
+	<div class="sub-section alt">
+		<div class="sub-title">
+			<img src="/portfolio/minecraft/fuzzy-title.png" />
+		</div>
+		<div class="sub-body">
+			<img src="/portfolio/minecraft/fuzzy-ss.png" class="screenshot" />
+		</div>
+	</div>
+
+	<div class="sub-section">
+		<div class="sub-title">
+			<img src="/portfolio/minecraft/export-title.png" />
+		</div>
+		<div class="sub-body">
+			<img src="/portfolio/minecraft/export-ss.png" class="screenshot" />
+		</div>
+	</div>
+
+	<div class="full-section" style="margin: 7vh auto;">
+		<img class="sub-title-img" src="/portfolio/minecraft/mod-title.png" />
+	</div>
+
+	<style scoped>
+		body {
+			margin: 0;
+		}
+
+		.background {
+			background: #5A3F37;
+			background: -webkit-linear-gradient(to bottom, #2C7744, #5A3F37);
+			background: linear-gradient(to bottom, #2C7744, #5A3F37);
+			background-attachment: fixed;
+			margin: 0;
+			min-height: 100vh;
+			padding: 5vh 5%;
+			overflow: auto;
+		}
+
+		.full-section {
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.full-section img {
+			display: block;
+		}
+
+		.sub-title {
+			width: 50%;
+			float: left;
+			text-align: center;
+		}
+
+		.sub-title-img,
+		.sub-title img {
+			max-height: 7vh;
+			max-width: 30vw;
+			margin: auto;
+			text-align: center;
+		}
+
+		.sub-section {
+			width: 100%;
+			padding: 5vh 4vw;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+		}
+
+		.sub-section.alt {
+			flex-direction: row-reverse;
+		}
+
+		.sub-body {
+			width: 50%;
+			float: left;
+			padding: 3vh 0;
+		}
+
+		.sub-body img {
+			width: 90%;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.screenshot {
+			box-shadow: 1vw 2vh 5vh 1vh rgba(0, 0, 0, 0.6);
+			border-radius: 5px;
+		}
+
+	</style>
+</div>

@@ -67,6 +67,11 @@ body {
     overflow-x: hidden;
 }
 
+.center {
+    display: block;
+    margin: auto auto;
+}
+
 .terminal-container {
     padding: 5vh 5vw;
 }
