@@ -36,7 +36,7 @@ function renderFolders() {
 	{
 		"folder-name": "Minecraft AI Creator",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle/index.html"
+		url: "/portfolio/minecraft/index.html"
 	},
 	{
 		"folder-name": "Bigtube",

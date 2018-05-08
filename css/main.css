@@ -1,36 +1,31 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
 @font-face {
     font-family: 'Open Sans';
-    src: url('/css/fonts/OpenSans-Light.woff2') format('woff2'),
-        url('/css/fonts/OpenSans-Light.woff') format('woff');
+    src: url('/css/fonts/OpenSans-Light.woff2') format('woff2'), url('/css/fonts/OpenSans-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/css/fonts/OpenSans.woff2') format('woff2'),
-        url('/css/fonts/OpenSans.woff') format('woff');
+    src: url('/css/fonts/OpenSans.woff2') format('woff2'), url('/css/fonts/OpenSans.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/css/fonts/OpenSans-Semibold.woff2') format('woff2'),
-        url('/css/fonts/OpenSans-Semibold.woff') format('woff');
+    src: url('/css/fonts/OpenSans-Semibold.woff2') format('woff2'), url('/css/fonts/OpenSans-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/css/fonts/OpenSans-Bold.woff2') format('woff2'),
-        url('/css/fonts/OpenSans-Bold.woff') format('woff');
+    src: url('/css/fonts/OpenSans-Bold.woff2') format('woff2'), url('/css/fonts/OpenSans-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
-
 
 :root {
     --text-one: rgb(200, 200, 200);
@@ -217,9 +212,9 @@ body {
 
 .source-code {
     margin-top: 2rem;
-    color: white;
+    color: white !important;
     opacity: 0.8;
-    text-decoration: none;
+    text-decoration: none !important;
     display: flex;
     align-items: center;
 }
@@ -230,7 +225,6 @@ body {
 
 .source-code i {
     font-size: 3rem;
-
 }
 
 .source-code span {
@@ -239,3 +233,15 @@ body {
     margin-left: 0.5rem;
 }
 
+.description {
+    padding: 5vh 8%;
+    max-width: 80vw;
+    color: var(--text-two);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: left;
+}
+
+.description h3 {
+    margin-top: 3vh;
+}
