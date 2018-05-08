@@ -61,7 +61,7 @@ function renderFolders() {
 			"<>": "div",
 			class: "folder",
 			html: [{ "<>": "img", src: "${folder-img}", html: "" }, { "<>": "span", html: "${folder-name}" }],
-			ondblclick: e => {
+			onclick: e => {
 				loadUrl(e.obj);
 			}
 		}]
