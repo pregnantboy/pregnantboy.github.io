@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>Bigtube</title>
+
+	<link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/vendor/popper/popper.css" rel="stylesheet">
+	<script src="/vendor/popper/popper.min.js"></script>
+	<script src="/vendor/popper/tooltip.min.js"></script>
+</head>
+
+<body>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+	<div class="background" id="page">
+		<div class="bigtube-logo center-contents">
+			<img src="/portfolio/bigtube/icon.png" />
+			<span>BigTube</span>
+		</div>
+		<div class="browser-container">
+			<div class="browser center">
+				<img class="browser-header" src="/portfolio/bigtube/browser.png" />
+				<img class="browser-content selected" id="default-ss" src="/portfolio/bigtube/default.png" />
+				<img class="browser-content" id="cinema-ss" src="/portfolio/bigtube/cinema.png" />
+				<img class="browser-content" id="bigtube-ss" src="/portfolio/bigtube/bigtube.png" />
+			</div>
+			<br>
+			<div class="browser-buttons center center-contents">
+				<a id="default" class="button selected center-contents" onclick="changeMode('default')">
+					<i class="far fa-rectangle-wide fa-2x"></i>
+					<span>Default</span>
+				</a>
+				<a id="cinema" class="button center-contents" onclick="changeMode('cinema')">
+					<i class="fal fa-rectangle-landscape fa-3x"></i>
+					<span>Cinema</span>
+				</a>
+				<a id="bigtube" class="button center-contents" onclick="changeMode('bigtube')">
+					<img width="80%" src="/portfolio/bigtube/icon.png" />
+					<span>Bigtube</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function changeMode(mode) {
+			var selectedEls = document.getElementsByClassName("selected");
+			console.log(selectedEls);
+			[...selectedEls].forEach((el) => {
+				el.classList.remove("selected");
+			});
+			document.getElementById(mode).classList.add("selected");
+			console.log(document.getElementById(mode + "-ss"));
+			document.getElementById(mode + "-ss").classList.add("selected");
+		}
+
+	</script>
+
+	<style scoped>
+		body {
+			margin: 0;
+		}
+
+		.background {
+			min-height: 100vh;
+			width: 100vw;
+			overflow-x: hidden;
+			background-color: white;
+		}
+
+		.bigtube-logo {
+			margin: 5vh auto;
+		}
+
+		.bigtube-logo img {
+			display: inline-flex;
+			max-width: 25vw;
+		}
+
+		.bigtube-logo span {
+			margin-left: 1rem;
+			font-family: 'Roboto';
+			font-size: 4rem;
+			color: black;
+			font-weight: 500;
+			letter-spacing: -0.2rem;
+		}
+
+		@media screen and (max-width: 540px) {
+			.bigtube-logo span {
+				font-size: 3rem;
+			}
+		}
+
+		.browser-container {
+			padding: 0 5%;
+		}
+
+		.browser {
+			overflow: auto;
+			width: 70vh;
+			max-width: 90vw;
+			height: auto;
+			border-radius: 5px;
+			margin-bottom: 3vh;
+			box-shadow: 1rem 1rem 2rem 0 rgba(0, 0, 0, 0.5);
+		}
+
+		.browser-header {
+			float: left;
+			width: 100%;
+		}
+
+		.browser-content {
+			float: left;
+			width: 100%;
+			display: none;
+		}
+
+		.browser-content.selected {
+			display: block;
+		}
+
+		.browser-buttons {
+			display: flex;
+			justify-content: center;
+		}
+
+		.browser-buttons .button {
+			float: left;
+			width: 5em;
+			height: 5em;
+			cursor: pointer;
+			opacity: 0.7;
+			border-radius: 4px;
+			position: relative;
+			user-select: none;
+			margin: 0 1em;
+		}
+
+		.browser-buttons .button.selected,
+		.browser-buttons .button:hover {
+			box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+			opacity: 1;
+		}
+
+		.browser-buttons .button:active {
+			box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+			opacity: 1;
+		}
+
+		.browser-buttons .button:hover span {
+			opacity: 1;
+		}
+
+		.browser-buttons .button span {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			font-size: 1rem;
+			font-weight: 500;
+			bottom: -2rem;
+			opacity: 0;
+		}
+
+	</style>
+</body>

@@ -67,6 +67,12 @@ body {
     margin: auto auto;
 }
 
+.center-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .terminal-container {
     padding: 5vh 5vw;
 }
