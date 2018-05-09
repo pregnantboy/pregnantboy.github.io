@@ -41,7 +41,7 @@ function renderFolders() {
 	{
 		"folder-name": "Bigtube",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle/index.html"
+		url: "/portfolio/bigtube/index.html"
 	},
 	{
 		"folder-name": "Vault",
