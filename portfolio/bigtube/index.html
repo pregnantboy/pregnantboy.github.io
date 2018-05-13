@@ -23,6 +23,8 @@
 			<img src="/portfolio/bigtube/icon.png" />
 			<span>BigTube</span>
 		</div>
+		<a id="chromestore" target="__blank" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/bigtube/gdkadbhiemijfpoochcieonikoaciapi"></a>
+		<a id="firestore" target="__blank" href="https://addons.mozilla.org/en-GB/firefox/addon/bigtube/"></a>
 		<div class="browser-container">
 			<div class="browser center">
 				<img class="browser-header" src="/portfolio/bigtube/browser.png" />
@@ -46,6 +48,17 @@
 				</a>
 			</div>
 		</div>
+
+		<div class="description dark">
+			<h3>Stack</h3>
+			<p>
+				<img class="stack-logo" data-tooltip="Javascript" src="/img/logo/js.png">
+			</p>
+			<h3>Description</h3>
+			<p>
+				A lightweight browser extension that improves the cinema mode on Youtube. Fully utilise your browser's viewing area without having to go fullscreen!
+			</p>
+		</div>
 		<script>
 			function changeMode(mode) {
 				var selectedEls = document.getElementsByClassName("selected");
@@ -57,6 +70,14 @@
 				console.log(document.getElementById(mode + "-ss"));
 				document.getElementById(mode + "-ss").classList.add("selected");
 			}
+
+			var divs = document.getElementsByClassName("stack-logo");
+			[...divs].forEach(div => {
+				new Tooltip(div, {
+					title: div.getAttribute("data-tooltip"),
+					trigger: "hover focus"
+				});
+			});
 
 		</script>
 
@@ -94,6 +115,53 @@
 			@media screen and (max-width: 540px) {
 				.bigtube-logo span {
 					font-size: 3rem;
+				}
+			}
+
+			#chromestore {
+				background-image: url('/portfolio/bigtube/chromewebstore.png');
+				background-size: 100% 100%;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				width: 170px;
+				height: 48px;
+			}
+
+			#firestore {
+				background-image: url('/portfolio/bigtube/firestore.svg');
+				background-size: calc(100% - 20px) auto;
+				background-repeat: no-repeat;
+				background-position: center;
+				position: absolute;
+				top: 68px;
+				right: 10px;
+				width: 170px;
+				height: 48px;
+			}
+
+			#chromestore:hover,
+			#firestore:hover {
+				box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+			}
+
+			#chromestore:active,
+			#firestore:active {
+				box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+			}
+
+			@media screen and (max-width: 767px) {
+				#chromestore {
+					background-image: url('/portfolio/bigtube/chromewebstorelogo.png');
+					width: 48px;
+					height: 48px;
+				}
+
+				#firestore {
+					background-image: url('/portfolio/bigtube/firestorelogo.svg');
+					background-size: 40px auto;
+					width: 48px;
+					height: 48px;
 				}
 			}
 
