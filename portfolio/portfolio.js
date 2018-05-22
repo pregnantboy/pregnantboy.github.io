@@ -46,7 +46,7 @@ function renderFolders() {
 	{
 		"folder-name": "Vault",
 		"folder-img": "/img/folder.svg",
-		url: "/portfolio/fickle/index.html"
+		url: "/portfolio/vault/index.html"
 	},
 	{
 		"folder-name": "School Apps",

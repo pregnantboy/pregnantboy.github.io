@@ -1,259 +1,271 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
 @font-face {
-  font-family: "Open Sans";
-  src: url("/css/fonts/OpenSans-Light.woff2") format("woff2"), url("/css/fonts/OpenSans-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
+    font-family: "Open Sans";
+    src: url("/css/fonts/OpenSans-Light.woff2") format("woff2"), url("/css/fonts/OpenSans-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("/css/fonts/OpenSans.woff2") format("woff2"), url("/css/fonts/OpenSans.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Open Sans";
+    src: url("/css/fonts/OpenSans.woff2") format("woff2"), url("/css/fonts/OpenSans.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("/css/fonts/OpenSans-Semibold.woff2") format("woff2"), url("/css/fonts/OpenSans-Semibold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
+    font-family: "Open Sans";
+    src: url("/css/fonts/OpenSans-Semibold.woff2") format("woff2"), url("/css/fonts/OpenSans-Semibold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("/css/fonts/OpenSans-Bold.woff2") format("woff2"), url("/css/fonts/OpenSans-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
+    font-family: "Open Sans";
+    src: url("/css/fonts/OpenSans-Bold.woff2") format("woff2"), url("/css/fonts/OpenSans-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
 }
 
 :root {
-  --text-one: rgb(200, 200, 200);
-  --text-two: rgb(230, 230, 230);
-  --text-three: rgba(50, 50, 50);
-  font-size: 16px;
-  font-weight: normal;
+    --text-one: rgb(200, 200, 200);
+    --text-two: rgb(230, 230, 230);
+    --text-three: rgba(50, 50, 50);
+    font-size: 16px;
+    font-weight: normal;
 }
 
 * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: "Source Code Pro", monospace;
-  min-height: 100vh;
-  min-width: 100vw;
-  background: #111116;
-  background: -webkit-linear-gradient(to left, #2a2b2c, #111116);
-  background: radial-gradient(circle at center, #2a2b2c, #111116);
-  background-attachment: fixed;
-  overflow-x: hidden;
+    font-family: "Source Code Pro", monospace;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #111116;
+    background: -webkit-linear-gradient(to left, #2a2b2c, #111116);
+    background: radial-gradient(circle at center, #2a2b2c, #111116);
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 #page {
-  font-family: "Open Sans";
+    font-family: "Open Sans";
 }
 
 .text-primary {
-  color: var(--text-one) !important;
+    color: var(--text-one) !important;
 }
 
 .overflow-x-hidden {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 .center {
-  display: block;
-  margin: auto auto;
+    display: block;
+    margin: auto auto;
 }
 
 .center-contents {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .terminal-container {
-  padding: 5vh 5vw;
+    padding: 5vh 5vw;
 }
 
 /* window css */
 
+@media (min-width: 992px) {
+    .modal-dialog.modal-lg {
+        max-width: 80vw;
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog.modal-lg {
+        max-width: 90vw;
+    }
+}
+
 #windowModal {
-  padding-right: 0 !important;
-  font-size: 1rem;
+    padding-right: 0 !important;
+    font-size: 1rem;
 }
 
 #window-title {
-  user-select: none;
+    user-select: none;
 }
 
 .window-header {
-  height: 2rem;
-  background: rgb(200, 200, 200);
-  line-height: 2rem;
-  padding: 0 10px;
-  border-bottom: none;
-  cursor: move;
+    height: 2rem;
+    background: rgb(200, 200, 200);
+    line-height: 2rem;
+    padding: 0 10px;
+    border-bottom: none;
+    cursor: move;
 }
 
 .window-header-buttons {
-  line-height: 2rem;
-  margin-left: -0.6rem;
-  cursor: pointer;
+    line-height: 2rem;
+    margin-left: -0.6rem;
+    cursor: pointer;
 }
 
 .window-body {
-  background: white;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-width: 0;
-  max-height: calc(95vh - 3.5rem - 30px);
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+    background: white;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-width: 0;
+    max-height: calc(95vh - 3.5rem - 30px);
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .window-expanded {
-  max-width: none;
-  margin: 0;
+    max-width: none !important;
+    margin: 0;
 }
 
 .window-expanded .window-body {
-  max-height: calc(100vh - 2rem);
+    max-height: calc(100vh - 2rem);
 }
 
 .window-expanded .modal-content {
-  height: 100vh;
+    height: 100vh;
 }
 
 .fa-stack-halfx {
-  font-size: 0.5em;
-  left: 0;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  line-height: inherit;
-  opacity: 0;
-  transition: 0.3s opacity linear;
+    font-size: 0.5em;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: inherit;
+    opacity: 0;
+    transition: 0.3s opacity linear;
 }
 
 #history {
-  position: fixed;
-  left: 0.6rem;
-  height: 1.4rem;
-  top: 0.3rem;
+    position: fixed;
+    left: 0.6rem;
+    height: 1.4rem;
+    top: 0.3rem;
 }
 
 #history i {
-  line-height: 1.4rem;
+    line-height: 1.4rem;
 }
 
 #history .btn {
-  padding: 0;
-  width: 40px;
-  background-color: transparent;
-  border: 1px solid rgb(150, 150, 150);
+    padding: 0;
+    width: 40px;
+    background-color: transparent;
+    border: 1px solid rgb(150, 150, 150);
 }
 
 #history .btn:hover:not(:disabled) {
-  background-color: rgb(150, 150, 150);
+    background-color: rgb(150, 150, 150);
 }
 
 #history .btn:focus:not(:disabled) {
-  box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 #history .btn:active:not(:disabled) {
-  background-color: rgb(100, 100, 100);
+    background-color: rgb(100, 100, 100);
 }
 
 #traffic-lights {
-  position: fixed;
-  right: 0.4rem;
+    position: fixed;
+    right: 0.4rem;
 }
 
 #traffic-lights:hover .fa-stack-halfx {
-  opacity: 1;
+    opacity: 1;
 }
 
 .red-light {
-  color: rgb(252, 70, 69);
+    color: rgb(252, 70, 69);
 }
 
 .fa-stack:hover .red-light {
-  color: rgb(211, 24, 24);
+    color: rgb(211, 24, 24);
 }
 
 .yellow-light {
-  color: #f1c40f;
+    color: #f1c40f;
 }
 
 .fa-stack:hover .yellow-light {
-  color: #e9b035;
+    color: #e9b035;
 }
 
 .green-light {
-  color: #1abc9c;
+    color: #1abc9c;
 }
 
 .fa-stack:hover .green-light {
-  color: #0e9176;
+    color: #0e9176;
 }
 
 /* common */
 
 .stack-logo {
-  width: 100px;
-  display: inline-block;
-  padding: 10px;
-  margin: 10px;
-  background-color: white;
-  border-radius: 30%;
-  max-width: 30%;
+    width: 100px;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 30%;
+    max-width: 30%;
 }
 
 .tooltip {
-  opacity: 1 !important;
+    opacity: 1 !important;
 }
 
 .source-code {
-  margin-top: 2rem;
-  color: white !important;
-  opacity: 0.8;
-  text-decoration: none !important;
-  display: flex;
-  align-items: center;
+    margin-top: 2rem;
+    color: white !important;
+    opacity: 0.8;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
 }
 
 .source-code:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .source-code i {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .source-code span {
-  font-size: 1rem;
-  line-height: 3rem;
-  margin-left: 0.5rem;
+    font-size: 1rem;
+    line-height: 3rem;
+    margin-left: 0.5rem;
 }
 
 .description {
-  padding: 5vh 8%;
-  max-width: 80vw;
-  color: var(--text-two);
-  font-size: 1rem;
-  line-height: 1.5rem;
-  text-align: left;
+    padding: 5vh 8%;
+    max-width: 80vw;
+    color: var(--text-two);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: left;
 }
 
 .description h3 {
-  margin-top: 3vh;
+    margin-top: 3vh;
 }
 
 .description.dark {
-  color: var(--text-three);
+    color: var(--text-three);
 }

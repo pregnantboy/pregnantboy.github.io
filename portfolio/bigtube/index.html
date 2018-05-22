@@ -61,18 +61,13 @@
 		</div>
 		<script>
 			function changeMode(mode) {
-				var selectedEls = document.getElementsByClassName("selected");
-				console.log(selectedEls);
-				[...selectedEls].forEach((el) => {
+				document.querySelectorAll(".selected").forEach((el) => {
 					el.classList.remove("selected");
 				});
 				document.getElementById(mode).classList.add("selected");
-				console.log(document.getElementById(mode + "-ss"));
 				document.getElementById(mode + "-ss").classList.add("selected");
 			}
-
-			var divs = document.getElementsByClassName("stack-logo");
-			[...divs].forEach(div => {
+			document.querySelectorAll(".stack-logo").forEach((div) => {
 				new Tooltip(div, {
 					title: div.getAttribute("data-tooltip"),
 					trigger: "hover focus"
@@ -115,6 +110,10 @@
 			@media screen and (max-width: 540px) {
 				.bigtube-logo span {
 					font-size: 3rem;
+				}
+				#chromestore, #firestore {
+					width: 24px;
+					height: 24px;
 				}
 			}
 

@@ -12,7 +12,7 @@
 	<link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/vendor/popper/popper.css" rel="stylesheet">
-	<link href="/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">	
+	<link href="/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
 	<script src="/vendor/jquery/jquery.min.js"></script>
 	<script src="/vendor/popper/popper.min.js"></script>
 	<script src="/vendor/popper/tooltip.min.js"></script>
@@ -207,18 +207,19 @@
 				This project aims to introduce the basics of AI to youths through simplified programming by incorporating fuzzy logic in Minecraft.
 				<br/>
 				<br/> The objectives are:
-				<ol>
-					<li>To allow users to learn how AI is employed in Non-Player Characters (NPCs) of video games through hands-on programming of their own AI agents.
-					</li>
-					<li> To spark interest in programming and AI in young users through video games.
-					</li>
-					<li> To encourage creative and critical thinking in users when developing their own AI agents.
-					</li>
-					<li>
-						To increase the number of possible ways that Minecraft can be played to provide a fresh gameplay experience for current players.
-					</li>
-				</ol> This project employs the characteristics of two AI techniques by incorporating fuzzy logic into behaviour trees. This is done by using a Fuzzy Inference System (FIS) as the main selector node. The FIS will compute the degree of support for each rule and then rank the subtrees from highest degree to lowest and attempt to execute them in this preference. Futhermore, fuzzy logic allows the use of natural language in the creation of rules. Instead of specifying crisp values like true, false or any numerical value, descriptive words like low, moderate or high can be used. This allows the rules to be more readable and easily interpreted by younger users.
-
+			</p>
+			<ol>
+				<li>To allow users to learn how AI is employed in Non-Player Characters (NPCs) of video games through hands-on programming of their own AI agents.
+				</li>
+				<li> To spark interest in programming and AI in young users through video games.
+				</li>
+				<li> To encourage creative and critical thinking in users when developing their own AI agents.
+				</li>
+				<li>
+					To increase the number of possible ways that Minecraft can be played to provide a fresh gameplay experience for current players.
+				</li>
+			</ol>
+			<p> This project employs the characteristics of two AI techniques by incorporating fuzzy logic into behaviour trees. This is done by using a Fuzzy Inference System (FIS) as the main selector node. The FIS will compute the degree of support for each rule and then rank the subtrees from highest degree to lowest and attempt to execute them in this preference. Futhermore, fuzzy logic allows the use of natural language in the creation of rules. Instead of specifying crisp values like true, false or any numerical value, descriptive words like low, moderate or high can be used. This allows the rules to be more readable and easily interpreted by younger users.
 			</p>
 
 			<h3>Accolades</h3>
@@ -238,8 +239,7 @@
 		</div>
 
 		<script type="text/javascript">
-			var divs = document.getElementsByClassName("stack-logo");
-			[...divs].forEach(div => {
+			document.querySelectorAll(".stack-logo").forEach((div) => {
 				new Tooltip(div, {
 					title: div.getAttribute("data-tooltip"),
 					trigger: "hover focus"
