@@ -7,21 +7,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<title>Vault</title>
-
+	<link href="/vendor/animate/animate.css" rel="stylesheet">
+	<link href="/vendor/fullpage/jquery.fullpage.min.css" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<script src="/vendor/jquery/jquery.min.js"></script>
 </head>
 
 <body>
-	<div id="page">
-		<link href="/vendor/animate/animate.css" rel="stylesheet">
-		<link href="/vendor/fullpage/jquery.fullpage.min.css" rel="stylesheet">
-		<div class="section background">
+	<div id="page" class="background">
+		<div class="section">
 			<div class="main-container">
 				<div class="half" style="padding-bottom: 5%">
-					<span style="font-size:8rem; letter-spacing: -0.8rem; font-weight: 600;">Vault</span>
-					<p style="font-size:2rem;">A password manager for teams.</p>
+					<span style="font-size:8rem; letter-spacing: -0.6rem; font-weight: 600;">Vault</span>
+					<p style="font-size:1.8rem;">A password manager for teams.</p>
 				</div>
 				<div class="half">
 					<img class="wow fadeInLeft" style="top: 15%; left: 55%;" width="20%" src="/portfolio/vault/img/main.PNG">
@@ -29,12 +28,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="section reverse-background">
-			<slide>
-
-			</slide>
+		<div class="section">
+			
 		</div>
-		<div class="section background"></div>
+		<div class="section"> </div>
 	</div>
 	<script src="/vendor/fullpage/jquery.fullpage.min.js"></script>
 	<script src="/vendor/animate/wow.min.js"></script>
@@ -51,15 +48,21 @@
 		}
 
 		.background {
-			background: #8e44ad;
-			background: -webkit-linear-gradient(to left, #8e44ad, #c0392b);
-			background: linear-gradient(to left, #8e44ad, #c0392b);
-			color: white;
+			/* background: #8e44ad; */
+			/* background: -webkit-linear-gradient(to left, #8e44ad, #c0392b); */
+			/* background: linear-gradient(to left, #8e44ad, #c0392b); */
+			background-image: url('/portfolio/vault/img/flopped.svg');
+			background-attachment: scroll;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			height: auto !important;
+			/* color: rgb(239, 91, 91); */
+			color: rgb(250,250,250);
 		}
 
-		.reverse-background {
-			background: #8e44ad;
-			color: white;
+		.section {
+			/* background: transparent; */
 		}
 
 		.main-container {
