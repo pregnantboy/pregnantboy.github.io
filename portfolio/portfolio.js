@@ -1,11 +1,5 @@
 function loadUrl(folder, doNotChangeHistory) {
-	$.ajax({
-		url: folder.url + "#page",
-		dataType: "html",
-		success: function(data) {
-			$("#content").html($(data).filter("#page"));
-		}
-	});
+	$("#content").html(`<iframe src="${folder.url}"></iframe>`);
 	if (!doNotChangeHistory) {
 		addToHistory(folder);
 	}

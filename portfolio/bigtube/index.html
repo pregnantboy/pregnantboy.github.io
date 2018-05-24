@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -59,184 +58,186 @@
 				A lightweight browser extension that improves the cinema mode on Youtube. Fully utilise your browser's viewing area without having to go fullscreen!
 			</p>
 		</div>
-		<script>
-			function changeMode(mode) {
-				document.querySelectorAll(".selected").forEach((el) => {
-					el.classList.remove("selected");
-				});
-				document.getElementById(mode).classList.add("selected");
-				document.getElementById(mode + "-ss").classList.add("selected");
-			}
-			document.querySelectorAll(".stack-logo").forEach((div) => {
-				new Tooltip(div, {
-					title: div.getAttribute("data-tooltip"),
-					trigger: "hover focus"
-				});
+	</div>
+	<script>
+		function changeMode(mode) {
+			document.querySelectorAll(".selected").forEach((el) => {
+				el.classList.remove("selected");
 			});
+			document.getElementById(mode).classList.add("selected");
+			document.getElementById(mode + "-ss").classList.add("selected");
+		}
+		document.querySelectorAll(".stack-logo").forEach((div) => {
+			new Tooltip(div, {
+				title: div.getAttribute("data-tooltip"),
+				trigger: "hover focus"
+			});
+		});
 
-		</script>
+	</script>
 
-		<style>
-			body {
-				margin: 0;
-			}
+	<style>
+		body {
+			margin: 0;
+		}
 
-			.background {
-				width: 100%;
-				min-height: 100vh;
-				overflow: hidden;
-				background-color: white;
-			}
+		.background {
+			width: 100%;
+			min-height: 100vh;
+			overflow: hidden;
+			background-color: white;
+		}
 
-			.bigtube-logo {
-				margin: 3% auto;
-			}
+		.bigtube-logo {
+			margin: 3% auto;
+		}
 
-			.bigtube-logo img {
-				display: inline-flex;
-				max-width: 25%;
-				width: 90px;
-			}
+		.bigtube-logo img {
+			display: inline-flex;
+			max-width: 25%;
+			width: 90px;
+		}
 
+		.bigtube-logo span {
+			margin-left: 1rem;
+			font-family: 'Roboto';
+			font-size: 3.5rem;
+			color: black;
+			font-weight: 500;
+			letter-spacing: -0.2rem;
+		}
+
+		@media screen and (max-width: 540px) {
 			.bigtube-logo span {
-				margin-left: 1rem;
-				font-family: 'Roboto';
-				font-size: 3.5rem;
-				color: black;
-				font-weight: 500;
-				letter-spacing: -0.2rem;
+				font-size: 3rem;
 			}
-
-			@media screen and (max-width: 540px) {
-				.bigtube-logo span {
-					font-size: 3rem;
-				}
-				#chromestore, #firestore {
-					width: 24px;
-					height: 24px;
-				}
+			#chromestore,
+			#firestore {
+				width: 24px;
+				height: 24px;
 			}
+		}
 
+		#chromestore {
+			background-image: url('/portfolio/bigtube/chromewebstore.png');
+			background-size: 100% 100%;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 170px;
+			height: 48px;
+		}
+
+		#firestore {
+			background-image: url('/portfolio/bigtube/firestore.svg');
+			background-size: calc(100% - 20px) auto;
+			background-repeat: no-repeat;
+			background-position: center;
+			position: absolute;
+			top: 68px;
+			right: 10px;
+			width: 170px;
+			height: 48px;
+		}
+
+		#chromestore:hover,
+		#firestore:hover {
+			box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+		}
+
+		#chromestore:active,
+		#firestore:active {
+			box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+		}
+
+		@media screen and (max-width: 767px) {
 			#chromestore {
-				background-image: url('/portfolio/bigtube/chromewebstore.png');
-				background-size: 100% 100%;
-				position: absolute;
-				top: 10px;
-				right: 10px;
-				width: 170px;
+				background-image: url('/portfolio/bigtube/chromewebstorelogo.png');
+				width: 48px;
 				height: 48px;
 			}
 
 			#firestore {
-				background-image: url('/portfolio/bigtube/firestore.svg');
-				background-size: calc(100% - 20px) auto;
-				background-repeat: no-repeat;
-				background-position: center;
-				position: absolute;
-				top: 68px;
-				right: 10px;
-				width: 170px;
+				background-image: url('/portfolio/bigtube/firestorelogo.svg');
+				background-size: 40px auto;
+				width: 48px;
 				height: 48px;
 			}
+		}
 
-			#chromestore:hover,
-			#firestore:hover {
-				box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-			}
+		.browser-container {
+			padding: 0 5%;
+		}
 
-			#chromestore:active,
-			#firestore:active {
-				box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-			}
+		.browser {
+			overflow: auto;
+			width: 70vh;
+			max-width: 90%;
+			height: auto;
+			border-radius: 5px;
+			margin-bottom: 3vh;
+			box-shadow: 1rem 1rem 2rem 0 rgba(0, 0, 0, 0.5);
+		}
 
-			@media screen and (max-width: 767px) {
-				#chromestore {
-					background-image: url('/portfolio/bigtube/chromewebstorelogo.png');
-					width: 48px;
-					height: 48px;
-				}
+		.browser-header {
+			float: left;
+			width: 100%;
+		}
 
-				#firestore {
-					background-image: url('/portfolio/bigtube/firestorelogo.svg');
-					background-size: 40px auto;
-					width: 48px;
-					height: 48px;
-				}
-			}
+		.browser-content {
+			float: left;
+			width: 100%;
+			display: none;
+		}
 
-			.browser-container {
-				padding: 0 5%;
-			}
+		.browser-content.selected {
+			display: block;
+		}
 
-			.browser {
-				overflow: auto;
-				width: 70vh;
-				max-width: 90%;
-				height: auto;
-				border-radius: 5px;
-				margin-bottom: 3vh;
-				box-shadow: 1rem 1rem 2rem 0 rgba(0, 0, 0, 0.5);
-			}
+		.browser-buttons {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 4rem;
+		}
 
-			.browser-header {
-				float: left;
-				width: 100%;
-			}
+		.browser-buttons .button {
+			float: left;
+			width: 5em;
+			height: 5em;
+			cursor: pointer;
+			opacity: 0.7;
+			border-radius: 4px;
+			position: relative;
+			user-select: none;
+			margin: 0 1em;
+		}
 
-			.browser-content {
-				float: left;
-				width: 100%;
-				display: none;
-			}
+		.browser-buttons .button.selected,
+		.browser-buttons .button:hover {
+			box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+			opacity: 1;
+		}
 
-			.browser-content.selected {
-				display: block;
-			}
+		.browser-buttons .button:active {
+			box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+			opacity: 1;
+		}
 
-			.browser-buttons {
-				display: flex;
-				justify-content: center;
-				margin-bottom: 4rem;
-			}
+		.browser-buttons .button:hover span {
+			opacity: 1;
+		}
 
-			.browser-buttons .button {
-				float: left;
-				width: 5em;
-				height: 5em;
-				cursor: pointer;
-				opacity: 0.7;
-				border-radius: 4px;
-				position: relative;
-				user-select: none;
-				margin: 0 1em;
-			}
+		.browser-buttons .button span {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			font-size: 1rem;
+			font-weight: 500;
+			bottom: -2rem;
+			opacity: 0;
+		}
 
-			.browser-buttons .button.selected,
-			.browser-buttons .button:hover {
-				box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-				opacity: 1;
-			}
-
-			.browser-buttons .button:active {
-				box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-				opacity: 1;
-			}
-
-			.browser-buttons .button:hover span {
-				opacity: 1;
-			}
-
-			.browser-buttons .button span {
-				position: absolute;
-				width: 100%;
-				text-align: center;
-				font-size: 1rem;
-				font-weight: 500;
-				bottom: -2rem;
-				opacity: 0;
-			}
-
-		</style>
-	</div>
-
+	</style>
 </body>
+
+</html>

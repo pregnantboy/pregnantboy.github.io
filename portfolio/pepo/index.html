@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -71,101 +70,104 @@
             </a>
         </div>
 
-        <script type="text/javascript">
-            document.querySelectorAll(".stack-logo").forEach((div) => {
-                new Tooltip(div, {
-                    title: div.getAttribute("data-tooltip"),
-                    trigger: "hover focus"
-                });
-            });
-
-            document.querySelectorAll(".stills-vid").forEach(div => {
-                var x = new Tooltip(div, {
-                    title: div.getAttribute("data-tooltip"),
-                    trigger: "hover focus"
-                });
-            });
-        </script>
-
-        <style scoped>
-            body {
-                margin: 0;
-            }
-
-            .background {
-                background: #3495c7;
-                background: -webkit-linear-gradient(to bottom, #3495c7, #325669);
-                background: linear-gradient(to bottom, #3495c7, #04496d);
-                min-height: 100vh;
-                margin: 0;
-                padding: 5vh 5%;
-            }
-
-            .container {
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                grid-auto-rows: auto;
-                grid-gap: 5vh 3%;
-                max-width: 80vw;
-                margin: 0 auto;
-            }
-
-            @media screen and (min-width: 540px) {
-                .container {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media screen and (min-width: 720px) {
-                .container {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-            }
-
-            .still-div {
-                grid-row: span 3;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-position: center;
-                background-size: 80% auto;
-                background-repeat: no-repeat;
-            }
-
-            .two-div {
-                grid-row: span 2;
-            }
-
-            .one-div {
-                grid-row: span 1;
-            }
-
-            .logo {
-                width: 60%;
-            }
-
-            .stills-vid {
-                width: 80%;
-                margin: 0 auto;
-                opacity: 0
-            }
-
-            .stills-vid:hover,
-            .stills-vid:focus {
-                opacity: 1;
-            }
-
-            .video-label {
-                position: absolute;
-                top: 12%;
-                color: white;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                font-weight: 500;
-                font-size: 1.4rem;
-            }
-
-        </style>
 
     </div>
+
+    <script type="text/javascript">
+        document.querySelectorAll(".stack-logo").forEach((div) => {
+            new Tooltip(div, {
+                title: div.getAttribute("data-tooltip"),
+                trigger: "hover focus"
+            });
+        });
+
+        document.querySelectorAll(".stills-vid").forEach(div => {
+            var x = new Tooltip(div, {
+                title: div.getAttribute("data-tooltip"),
+                trigger: "hover focus"
+            });
+        });
+    </script>
+
+    <style scoped>
+        body {
+            margin: 0;
+        }
+
+        .background {
+            background: #3495c7;
+            background: -webkit-linear-gradient(to bottom, #3495c7, #325669);
+            background: linear-gradient(to bottom, #3495c7, #04496d);
+            min-height: 100vh;
+            margin: 0;
+            padding: 5vh 5%;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: auto;
+            grid-gap: 5vh 3%;
+            max-width: 80vw;
+            margin: 0 auto;
+        }
+
+        @media screen and (min-width: 540px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 720px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .still-div {
+            grid-row: span 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: 80% auto;
+            background-repeat: no-repeat;
+        }
+
+        .two-div {
+            grid-row: span 2;
+        }
+
+        .one-div {
+            grid-row: span 1;
+        }
+
+        .logo {
+            width: 60%;
+        }
+
+        .stills-vid {
+            width: 80%;
+            margin: 0 auto;
+            opacity: 0
+        }
+
+        .stills-vid:hover,
+        .stills-vid:focus {
+            opacity: 1;
+        }
+
+        .video-label {
+            position: absolute;
+            top: 12%;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+    </style>
 </body>
+
+</html>

@@ -123,8 +123,7 @@ body {
     border-width: 0;
     max-height: calc(95vh - 3.5rem - 30px);
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .window-expanded {

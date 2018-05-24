@@ -237,144 +237,146 @@
 				<span>Source</span>
 			</a>
 		</div>
+	</div>
 
-		<script type="text/javascript">
-			document.querySelectorAll(".stack-logo").forEach((div) => {
-				new Tooltip(div, {
-					title: div.getAttribute("data-tooltip"),
-					trigger: "hover focus"
-				});
+	<script type="text/javascript">
+		document.querySelectorAll(".stack-logo").forEach((div) => {
+			new Tooltip(div, {
+				title: div.getAttribute("data-tooltip"),
+				trigger: "hover focus"
 			});
-		</script>
+		});
+	</script>
 
-		<style scoped>
-			body {
-				margin: 0;
-			}
+	<style scoped>
+		body {
+			margin: 0;
+		}
 
-			.background {
-				background: #5A3F37;
-				background: -webkit-linear-gradient(to bottom, #2C7744, #5A3F37);
-				background: linear-gradient(to bottom, #2C7744, #5A3F37);
-				background-attachment: fixed;
-				margin: 0;
-				min-height: 100vh;
-				padding: 5vh 5%;
-				overflow: auto;
-			}
+		.background {
+			background: #5A3F37;
+			background: -webkit-linear-gradient(to bottom, #2C7744, #5A3F37);
+			background: linear-gradient(to bottom, #2C7744, #5A3F37);
+			background-attachment: fixed;
+			margin: 0;
+			min-height: 100vh;
+			padding: 5vh 5%;
+			overflow: auto;
+		}
 
-			.full-section {
+		.full-section {
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.full-section img {
+			display: block;
+		}
+
+		.sub-title {
+			width: 50%;
+			float: left;
+			text-align: center;
+		}
+
+		.sub-title img {
+			max-height: 7vh;
+			max-width: 90%;
+			margin: auto;
+			text-align: center;
+		}
+
+		.sub-section {
+			width: 100%;
+			padding: 5vh 0;
+			box-sizing: border-box;
+			display: flex;
+			overflow: auto;
+			align-items: center;
+		}
+
+		.sub-section.alt {
+			flex-direction: row-reverse;
+		}
+
+		.sub-body {
+			width: 50%;
+			float: left;
+			padding: 3vh 0;
+		}
+
+		@media (max-width: 767px) {
+			.sub-section {
 				width: 100%;
-				margin: 0 auto;
-				text-align: center;
-			}
-
-			.full-section img {
 				display: block;
 			}
 
 			.sub-title {
-				width: 50%;
-				float: left;
-				text-align: center;
-			}
-
-			.sub-title img {
-				max-height: 7vh;
-				max-width: 90%;
-				margin: auto;
-				text-align: center;
-			}
-
-			.sub-section {
 				width: 100%;
-				padding: 5vh 0;
-				box-sizing: border-box;
-				display: flex;
-				overflow: auto;
-				align-items: center;
-			}
-
-			.sub-section.alt {
-				flex-direction: row-reverse;
 			}
 
 			.sub-body {
-				width: 50%;
-				float: left;
-				padding: 3vh 0;
-			}
-
-			@media (max-width: 767px) {
-				.sub-section {
-					width: 100%;
-					display: block;
-				}
-
-				.sub-title {
-					width: 100%;
-				}
-
-				.sub-body {
-					width: 100%;
-				}
-			}
-
-			.sub-body .img-div {
-				width: 90%;
-				margin: 0 auto;
-				text-align: center;
-				position: relative;
-			}
-
-			.img-div img {
 				width: 100%;
 			}
+		}
 
-			.overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				background: rgba(0, 0, 0, 0.6);
-				opacity: 0;
-				width: 100%;
-				height: 100%;
-				cursor: pointer;
-			}
+		.sub-body .img-div {
+			width: 90%;
+			margin: 0 auto;
+			text-align: center;
+			position: relative;
+		}
 
-			.overlay:hover {
-				opacity: 1;
-			}
+		.img-div img {
+			width: 100%;
+		}
 
-			.screenshot {
-				box-shadow: 1vw 2vh 5vh 1vh rgba(0, 0, 0, 0.6);
-				border-radius: 5px;
-			}
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.6);
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+		}
 
-			.card-container {
-				padding: 2vh 1%;
-			}
+		.overlay:hover {
+			opacity: 1;
+		}
 
-			.card {
-				border-width: 0;
-				box-shadow: 1vw 2vh 5vh 0 rgba(0, 0, 0, 0.6);
-			}
+		.screenshot {
+			box-shadow: 1vw 2vh 5vh 1vh rgba(0, 0, 0, 0.6);
+			border-radius: 5px;
+		}
 
-			.card-img-top {
-				overflow: hidden;
-				position: relative;
-			}
+		.card-container {
+			padding: 2vh 1%;
+		}
 
-			.card-img-top img {
-				width: 100%;
-			}
+		.card {
+			border-width: 0;
+			box-shadow: 1vw 2vh 5vh 0 rgba(0, 0, 0, 0.6);
+		}
 
-			.overlay .play-button {
-				margin: 20% auto 0;
-				height: 30%;
-				width: auto;
-			}
+		.card-img-top {
+			overflow: hidden;
+			position: relative;
+		}
 
-		</style>
-	</div>
+		.card-img-top img {
+			width: 100%;
+		}
+
+		.overlay .play-button {
+			margin: 20% auto 0;
+			height: 30%;
+			width: auto;
+		}
+
+	</style>
+
 </body>
+</html>
