@@ -338,8 +338,8 @@ class Terminal {
 	}
 	scrollToBottom() {
 		if (this._autoScroll) {
-			document.documentElement.scrollTop = document.documentElement.clientHeight;
-			document.body.scrollTop = document.documentElement.clientHeight;
+			document.documentElement.scrollTop = document.documentElement.scrollHeight;
+			document.body.scrollTop = document.documentElement.scrollHeight;
 		}
 	}
 }

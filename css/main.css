@@ -121,7 +121,7 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-width: 0;
-    max-height: calc(95vh - 3.5rem - 30px);
+    height: calc(95vh - 3.5rem - 30px);
     padding: 0;
     overflow: hidden;
 }
@@ -132,7 +132,7 @@ body {
 }
 
 .window-expanded .window-body {
-    max-height: calc(100vh - 2rem);
+    height: calc(100vh - 2rem);
 }
 
 .window-expanded .modal-content {
