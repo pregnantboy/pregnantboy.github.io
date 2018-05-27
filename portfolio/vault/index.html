@@ -8,10 +8,9 @@
 
 	<title>Vault</title>
 	<link href="/vendor/animate/animate.css" rel="stylesheet">
-	<link href="/vendor/fullpage/jquery.fullpage.min.css" rel="stylesheet">
+	<link href="/vendor/popper/popper.css" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
-	<script src="/vendor/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +42,7 @@
 				<div class="col-xs-12 col-md-4">
 					<div class="feature-container center-contents">
 						<img class="icon" src="/portfolio/vault/img/autofill.svg">
-						<img class="screenshot wow flipInX" data-wow-delay="1000ms" src="/portfolio/vault/img/filled.PNG">
+						<img class="screenshot wow flipInX" data-wow-delay="500ms" src="/portfolio/vault/img/filled.PNG">
 						<span>Auto Form Filling</span>
 					</div>
 				</div>
@@ -51,21 +50,90 @@
 				<div class="col-xs-12 col-md-4">
 					<div class="feature-container center-contents">
 						<img class="icon" src="/portfolio/vault/img/team.svg">
-						<img class="screenshot wow flipInX" data-wow-delay="1500ms" src="/portfolio/vault/img/permission select.PNG">
+						<img class="screenshot wow flipInX" data-wow-delay="500ms" src="/portfolio/vault/img/permission select.PNG">
 						<span>Permission Control</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="section center-contents">
-
+		<div class="section center-contents" style="flex-direction: column">
+			<div class="lunch-text-container">
+				<span style="font-size: 3rem">Add-on:
+				</span>
+				<br>
+				<span style="font-size: 5rem; line-height: 5rem;">
+					Lunch Time
+				</span>
+			</div>
+			<div style="width: 100vw;">
+				<div class="scroll-container">
+					<div class="scroll1">
+						<img class="screenshot" id="image1" src="/portfolio/vault/img/lunch time.PNG">
+						<img class="screenshot" id="image3" src="/portfolio/vault/img/bicycle.PNG">
+						<img class="screenshot" id="image4" src="/portfolio/vault/img/car.PNG">
+						<img class="screenshot" id="image5" src="/portfolio/vault/img/van.PNG">
+						<img class="screenshot" id="image6" src="/portfolio/vault/img/bus.PNG">
+						<img class="screenshot" id="image6" src="/portfolio/vault/img/plane.PNG">
+						<img class="screenshot" id="image6" src="/portfolio/vault/img/lunch.PNG">
+					</div>
+					<div class="scroll2">
+						<img class="screenshot" id="image1" src="/portfolio/vault/img/lunch time.PNG">
+						<img class="screenshot" id="image3" src="/portfolio/vault/img/bicycle.PNG">
+						<img class="screenshot" id="image4" src="/portfolio/vault/img/car.PNG">
+						<img class="screenshot" id="image5" src="/portfolio/vault/img/van.PNG">
+						<img class="screenshot" id="image6" src="/portfolio/vault/img/bus.PNG">
+						<img class="screenshot" id="image6" src="/portfolio/vault/img/plane.PNG">
+						<img class="screenshot" id="image6" src="/portfolio/vault/img/lunch.PNG">
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="section"></div>
+		<div class="section">
+			<div class="description">
+				<h3>Stack</h3>
+				<p>
+					<img class="stack-logo" data-tooltip="Javascript" src="/img/logo/js.png">
+					<img class="stack-logo" data-tooltip="Firebase" src="/img/logo/firebase.png">
+				</p>
+				<h3>Description</h3>
+				<p>
+					<b>Vault</b> is a password manager for teams, packed into a chrome extension. It uses Cloud Firestore by Firebase for storage and permissions, Google OAuth 2.0 for authentication and Material Design framework for front end.
+					<br> Features:
+					<ul>
+						<li>
+							Real-time account sharing/syncing
+						</li>
+						<li>
+							Smart autofilling of login forms
+						</li>
+						<li>
+							Permission control for each account
+						</li>
+						<li>
+							Strong encryption
+						</li>
+					</ul>
+
+					<br> Lunch Time is an add-on where a team member can initiate a lunch session. Other team members will receive a desktop notification and given an option to join in. When lunch time is up, users will be prompted.
+					<br>
+					<span style="opacity: 0.2">If they refuse to make their way to the door, a barrage of popups will appear on their screen.</span>
+				</p>
+
+				*Not publically available.
+			</div>
+		</div>
 	</div>
-	<script src="/vendor/fullpage/jquery.fullpage.min.js"></script>
+	<script src="/vendor/popper/popper.min.js"></script>
+	<script src="/vendor/popper/tooltip.min.js"></script>
 	<script src="/vendor/animate/wow.min.js"></script>
 	<script>
 		new WOW().init();
+		document.querySelectorAll(".stack-logo").forEach((div) => {
+			new Tooltip(div, {
+				title: div.getAttribute("data-tooltip"),
+				trigger: "hover focus"
+			});
+		});
 	</script>
 
 	<style>
@@ -122,6 +190,7 @@
 		.half {
 			width: 40%;
 			position: relative;
+			text-align: center;
 		}
 
 		.half img {
@@ -146,7 +215,8 @@
 
 		.feature-container {
 			flex-direction: column;
-			font-size: 1.4rem
+			font-size: 1.4rem;
+			margin: 5vh 0;
 		}
 
 		.feature-container .screenshot {
@@ -155,8 +225,61 @@
 		}
 
 		.feature-container .icon {
-			width: 30%;
+			width: 20%;
 			opacity: 0.7;
+		}
+
+		.lunch-text-container {
+			text-align: center;
+			margin-bottom: 5vh;
+		}
+
+		.scroll-container {
+			max-width: 100%;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		.scroll-container img {
+			margin: 0 10px;
+			height: 50vh;
+		}
+
+		.scroll1 {
+			display: inline-block;
+			animation: 24s scroll1 infinite linear -12s;
+			will-change: transform;
+		}
+
+		.scroll2 {
+			display: inline-block;
+			animation: 24s scroll2 infinite linear;
+			will-change: transform;
+		}
+
+		@keyframes scroll1 {
+			0% {
+				-webkit-transform: translateX(100%);
+				transform: translateX(100%);
+			}
+
+			100% {
+				-webkit-transform: translateX(-100%);
+				transform: translateX(-100%);
+			}
+
+		}
+
+		@keyframes scroll2 {
+			from {
+				-webkit-transform: translateX(0%);
+				transform: translateX(0%);
+			}
+
+			to {
+				-webkit-transform: translateX(-200%);
+				transform: translateX(-200%);
+			}
 		}
 
 		@media (max-width: 767px) {
@@ -201,7 +324,16 @@
 			}
 
 			.feature-container {
-				min-height: 100vh
+				min-height: 60vh
+			}
+
+			.feature-container .icon {
+				width: 20%;
+				opacity: 0.7;
+			}
+
+			.lunch-text-container {
+				text-align: left;
 			}
 		}
 

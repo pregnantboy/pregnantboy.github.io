@@ -226,6 +226,7 @@ body {
     background-color: white;
     border-radius: 30%;
     max-width: 30%;
+    box-sizing: border-box;
 }
 
 .tooltip {
@@ -257,7 +258,8 @@ body {
 
 .description {
     padding: 5vh 8%;
-    max-width: 80vw;
+    width: 80vw;
+    max-width: 80rem;
     color: var(--text-two);
     font-size: 1rem;
     line-height: 1.5rem;
