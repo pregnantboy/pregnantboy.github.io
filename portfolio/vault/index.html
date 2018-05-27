@@ -24,141 +24,188 @@
 				</div>
 				<div class="half">
 					<div class="img-container">
-						<img class="wow fadeInLeft" id="image1" src="/portfolio/vault/img/main.PNG">
-						<img class="wow fadeInLeft" id="image2" data-wow-delay="1s" src="/portfolio/vault/img/menu2.PNG">
+						<img class="wow fadeInLeft screenshot" id="image1" src="/portfolio/vault/img/menu.PNG">
+						<img class="wow fadeInLeft screenshot" id="image2" data-wow-delay="1s" src="/portfolio/vault/img/menu2.PNG">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="section">
-			<div class="col-xs-12 col-md-4">
-				<div class="feature-container">
-					
+		<div class="section center-contents">
+			<div class="row">
+				<div class="col-xs-12 col-md-4">
+					<div class="feature-container center-contents">
+						<img class="icon" src="/portfolio/vault/img/sync.svg">
+						<img class="screenshot wow flipInX" data-wow-delay="500ms" src="/portfolio/vault/img/menu.PNG">
+						<span>Real Time Syncing</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-4">
+					<div class="feature-container center-contents">
+						<img class="icon" src="/portfolio/vault/img/autofill.svg">
+						<img class="screenshot wow flipInX" data-wow-delay="1000ms" src="/portfolio/vault/img/filled.PNG">
+						<span>Auto Form Filling</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-4">
+					<div class="feature-container center-contents">
+						<img class="icon" src="/portfolio/vault/img/team.svg">
+						<img class="screenshot wow flipInX" data-wow-delay="1500ms" src="/portfolio/vault/img/permission select.PNG">
+						<span>Permission Control</span>
+					</div>
 				</div>
 			</div>
 		</div>
-		<script src="/vendor/fullpage/jquery.fullpage.min.js"></script>
-		<script src="/vendor/animate/wow.min.js"></script>
-		<script>
-			new WOW().init();
-			$(document).ready(function () {
-				$('#page').fullpage();
-			});
-		</script>
+		<div class="section center-contents">
 
-		<style>
-			body {
-				margin: 0;
-			}
+		</div>
+		<div class="section"></div>
+	</div>
+	<script src="/vendor/fullpage/jquery.fullpage.min.js"></script>
+	<script src="/vendor/animate/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	</script>
 
-			.background {
-				/* background: #8e44ad; */
-				/* background: -webkit-linear-gradient(to left, #8e44ad, #c0392b); */
-				/* background: linear-gradient(to left, #8e44ad, #c0392b); */
-				background-image: url('/portfolio/vault/img/flopped.svg');
-				background-attachment: scroll;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-				height: auto !important;
-				/* color: rgb(239, 91, 91); */
-				color: rgb(250, 250, 250);
-			}
+	<style>
+		body {
+			margin: 0;
+		}
 
-			.section {
-				background: transparent;
-			}
+		.background {
+			/* background: #8e44ad; */
+			/* background: -webkit-linear-gradient(to left, #8e44ad, #c0392b); */
+			/* background: linear-gradient(to left, #8e44ad, #c0392b); */
+			background-image: url('/portfolio/vault/img/flopped.svg');
+			background-attachment: scroll;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			height: auto !important;
+			/* color: rgb(239, 91, 91); */
+			color: rgb(250, 250, 250);
+		}
 
+		.section {
+			background: transparent;
+			padding: 0 10%;
+			min-height: 100vh;
+		}
+
+		.main-container {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			min-height: 100vh;
+			width: 100%;
+			padding: 10vh 0;
+			text-align: center;
+		}
+
+		.main-container span {
+			font-size: 8rem;
+			letter-spacing: -0.6rem;
+			font-weight: 600;
+		}
+
+		.main-container p {
+			font-size: 1.8rem;
+		}
+
+		.img-container {
+			height: auto;
+			text-align: left;
+			width: 100%;
+		}
+
+		.half {
+			width: 40%;
+			position: relative;
+		}
+
+		.half img {
+			width: 40vh;
+			max-width: 30vw;
+			position: relative;
+		}
+
+		img.screenshot {
+			border-radius: 5px;
+			box-shadow: 4px 4px 13px 9px rgba(50, 50, 50, 0.3);
+		}
+
+		#image1 {
+			left: 0;
+		}
+
+		#image2 {
+			margin-top: -50%;
+			left: 15%;
+		}
+
+		.feature-container {
+			flex-direction: column;
+			font-size: 1.4rem
+		}
+
+		.feature-container .screenshot {
+			width: 50%;
+			margin: 3vh 0;
+		}
+
+		.feature-container .icon {
+			width: 30%;
+			opacity: 0.7;
+		}
+
+		@media (max-width: 767px) {
 			.main-container {
-				display: flex;
-				justify-content: space-evenly;
-				align-items: center;
-				height: 100vh;
-				padding: 10vh 10%;
-				width: 100%;
-				text-align: center;
+				flex-direction: column-reverse;
 			}
 
 			.main-container span {
-				font-size: 8rem;
-				letter-spacing: -0.6rem;
-				font-weight: 600;
+				margin-top: 3vh;
+				font-size: 3rem;
+				letter-spacing: 0;
 			}
 
 			.main-container p {
-				font-size: 1.8rem;
-			}
-
-			.img-container {
-				height: 50vh;
-				widows: 100%;
+				font-size: 1.4rem;
 			}
 
 			.half {
-				width: 40%;
-				position: relative;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 			}
 
 			.half img {
-				position: absolute;
 				border-radius: 5px;
 				box-shadow: 4px 4px 13px 9px rgba(50, 50, 50, 0.3);
-				width: 40vh;
-				max-width: 30vw;
+				width: 50vw;
+				max-width: 50vw;
 			}
 
 			#image1 {
-				top: -30%;
-				left: 0%;
+				left: -10%;
 			}
 
 			#image2 {
-				top: 35%;
-				left: 15%;
+				left: 5%;
 			}
 
-			@media (max-width: 767px) {
-				.main-container {
-					flex-direction: column-reverse;
-				}
-
-				.main-container span {
-					margin-top: 10vh;
-					font-size: 3rem;
-					letter-spacing: 0;
-				}
-
-				.main-container p {
-					font-size: 1.4rem;
-				}
-
-				.half {
-					width: 100%;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-				}
-
-				.half img {
-					position: absolute;
-					border-radius: 5px;
-					box-shadow: 4px 4px 13px 9px rgba(50, 50, 50, 0.3);
-					width: 50vw;
-					max-width: 50vw;
-				}
-
-				#image1 {
-					top: -10%;
-					left: 15%;
-				}
-
-				#image2 {
-					top: 35%;
-					left: 30%;
-				}
+			.img-container {
+				text-align: center;
 			}
 
-		</style>
+			.feature-container {
+				min-height: 100vh
+			}
+		}
+
+	</style>
 </body>
 
 </html>
