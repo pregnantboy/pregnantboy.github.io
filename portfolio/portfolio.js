@@ -1,5 +1,5 @@
 function loadUrl(folder, doNotChangeHistory) {
-	$("#content").html(`<iframe src="${folder.url}"></iframe>`);
+	$("#content").html(`<iframe src="${folder.url}" frameborder="0" style="height: 100%; width: 100%;"></iframe>`);
 	if (!doNotChangeHistory) {
 		addToHistory(folder);
 	}

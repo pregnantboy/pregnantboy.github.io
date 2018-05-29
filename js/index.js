@@ -14,6 +14,8 @@ let sleep = milliseconds => term.sleep.bind(term, milliseconds);
 let clear = () => term.clear.bind(term);
 let print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
+// showWindow();
+
 startup(true);
 
 function startup(skip) {

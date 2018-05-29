@@ -43,7 +43,7 @@
 body {
     font-family: "Source Code Pro", monospace;
     min-height: 100vh;
-    min-width: 100vw;
+    width: 100vw;
     background: #111116;
     background: -webkit-linear-gradient(to left, #2a2b2c, #111116);
     background: radial-gradient(circle at center, #2a2b2c, #111116);
