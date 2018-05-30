@@ -1,1 +1,134 @@
-<h1>Fickle</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Get Ready.</title>
+	<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon-16x16.png" sizes="16x16" />
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			width: 100vw;
+			overflow-x: hidden;
+		}
+
+		.landing {
+			background: url('/portfolio/fickle/img/icon.png') center center/ 180px 180px no-repeat, linear-gradient( rgb(27, 202, 233) 0%, rgba(92, 191, 208, 1) 50%, white 50%);
+			min-height: 100vh;
+		}
+
+		.title {
+			height: 50vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 0;
+		}
+
+		.title h2 {
+			padding-top: 20px;
+			color: white;
+			font-size: 50px;
+			font-weight: 500;
+			position: bottom;
+			margin-left: 25px;
+		}
+
+		.title h1 {
+			color: white;
+			font-size: 80px;
+			letter-spacing: 5px;
+			font-weight: 500;
+			margin-left: 25px;
+		}
+
+		.bottom {
+			height: 50vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			padding-bottom: 5vh;
+			opacity: 0;
+		}
+
+		.bottom h3 {
+			font-family: Roboto, Open Sans;
+			color: black;
+			font-weight: 1500;
+			font-size: 17px;
+		}
+
+		.typed-cursor {
+			color: white;
+			opacity: 1;
+			animation: blink 0.7s infinite;
+		}
+
+		@keyframes blink {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="page" class="background">
+		<div class="section">
+			<div class="slide landing">
+				<div class="title">
+					<h2 id="questionrow">
+						<span id="question"></span>
+					</h2>
+					<h1 id="ficklerow" style="display:none">FICKLE.</h1>
+				</div>
+				<div class="bottom">
+					<h3>
+						<b>Swipe left</b>
+					</h3>
+				</div>
+			</div>
+			<div class="slide">wef</div>
+			<div class="slide">wef</div>
+		</div>
+	</div>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/typed.js/typed.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var typed = new Typed("#question", {
+				strings: ["Got a question?", "Let's fickle it out"],
+				typeSpeed: 30,
+				startDelay: 30,
+				showCursor: true,
+				backDelay: 1000,
+				cursorChar: "|",
+				onComplete: function () {
+					setTimeout(function () {
+						$("#questionrow").fadeOut(700, function () {
+							$("#ficklerow").fadeIn(700, function () {
+								$(".bottom").fadeTo(500, 1)
+							});
+						});
+					}, 2000);
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
