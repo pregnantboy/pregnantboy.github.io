@@ -87,11 +87,6 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 		});
 }
 
-var terminalBeep = document.createElement("audio");
-var source = "<source src=\"http://www.erikosterberg.com/terminaljs/beep.";
-terminalBeep.innerHTML = source + "mp3\" type=\"audio/mpeg\">" + source + "ogg\" type=\"audio/ogg\">";
-terminalBeep.volume = 0.05;
-
 /* exported Terminal */
 class Terminal {
 	constructor(id) {
@@ -156,11 +151,6 @@ class Terminal {
 				}
 			}
 		}.bind(this);
-	}
-
-	beep() {
-		terminalBeep.load();
-		terminalBeep.play();
 	}
 
 	print(message, keepSpace, callback) {
