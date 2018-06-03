@@ -9,73 +9,8 @@
 
 	<link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
 	<link href="/vendor/popper/popper.css" rel="stylesheet">
-	<link href="/css/main.css" rel="stylesheet">	
+	<link href="/css/main.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
-</head>
-
-<body>
-	<div class="background" id="page">
-
-		<div class="bigtube-logo center-contents">
-			<img src="/portfolio/bigtube/icon.png" />
-			<span>BigTube</span>
-		</div>
-		<a id="chromestore" target="__blank" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/bigtube/gdkadbhiemijfpoochcieonikoaciapi"></a>
-		<a id="firestore" target="__blank" href="https://addons.mozilla.org/en-GB/firefox/addon/bigtube/"></a>
-		<div class="browser-container">
-			<div class="browser center">
-				<img class="browser-header" src="/portfolio/bigtube/browser.png" />
-				<img class="browser-content selected" id="default-ss" src="/portfolio/bigtube/default.png" />
-				<img class="browser-content" id="cinema-ss" src="/portfolio/bigtube/cinema.png" />
-				<img class="browser-content" id="bigtube-ss" src="/portfolio/bigtube/bigtube.png" />
-			</div>
-			<br>
-			<div class="browser-buttons center center-contents">
-				<a id="default" class="button selected center-contents" onclick="changeMode('default')">
-					<i class="far fa-rectangle-wide fa-2x"></i>
-					<span>Default</span>
-				</a>
-				<a id="cinema" class="button center-contents" onclick="changeMode('cinema')">
-					<i class="fal fa-rectangle-landscape fa-3x"></i>
-					<span>Cinema</span>
-				</a>
-				<a id="bigtube" class="button center-contents" onclick="changeMode('bigtube')">
-					<img width="80%" src="/portfolio/bigtube/icon.png" />
-					<span>Bigtube</span>
-				</a>
-			</div>
-		</div>
-
-		<div class="description dark">
-			<h3>Stack</h3>
-			<p>
-				<img class="stack-logo" data-tooltip="Javascript" src="/img/logo/js.png">
-			</p>
-			<h3>Description</h3>
-			<p>
-				A lightweight browser extension that improves the cinema mode on Youtube. Fully utilise your browser's viewing area without having to go fullscreen!
-			</p>
-		</div>
-	</div>
-	<script src="/vendor/popper/popper.min.js"></script>
-	<script src="/vendor/popper/tooltip.min.js"></script>
-	<script>
-		function changeMode(mode) {
-			document.querySelectorAll(".selected").forEach((el) => {
-				el.classList.remove("selected");
-			});
-			document.getElementById(mode).classList.add("selected");
-			document.getElementById(mode + "-ss").classList.add("selected");
-		}
-		document.querySelectorAll(".stack-logo").forEach((div) => {
-			new Tooltip(div, {
-				title: div.getAttribute("data-tooltip"),
-				trigger: "hover focus"
-			});
-		});
-
-	</script>
-
 	<style>
 		body {
 			margin: 0;
@@ -238,6 +173,70 @@
 		}
 
 	</style>
+</head>
+
+<body>
+	<div class="background" id="page">
+
+		<div class="bigtube-logo center-contents">
+			<img src="/portfolio/bigtube/icon.png" />
+			<span>BigTube</span>
+		</div>
+		<a id="chromestore" target="__blank" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/bigtube/gdkadbhiemijfpoochcieonikoaciapi"></a>
+		<a id="firestore" target="__blank" href="https://addons.mozilla.org/en-GB/firefox/addon/bigtube/"></a>
+		<div class="browser-container">
+			<div class="browser center">
+				<img class="browser-header" src="/portfolio/bigtube/browser.png" />
+				<img class="browser-content selected" id="default-ss" src="/portfolio/bigtube/default.png" />
+				<img class="browser-content" id="cinema-ss" src="/portfolio/bigtube/cinema.png" />
+				<img class="browser-content" id="bigtube-ss" src="/portfolio/bigtube/bigtube.png" />
+			</div>
+			<br>
+			<div class="browser-buttons center center-contents">
+				<a id="default" class="button selected center-contents" onclick="changeMode('default')">
+					<i class="far fa-rectangle-wide fa-2x"></i>
+					<span>Default</span>
+				</a>
+				<a id="cinema" class="button center-contents" onclick="changeMode('cinema')">
+					<i class="fal fa-rectangle-landscape fa-3x"></i>
+					<span>Cinema</span>
+				</a>
+				<a id="bigtube" class="button center-contents" onclick="changeMode('bigtube')">
+					<img width="80%" src="/portfolio/bigtube/icon.png" />
+					<span>Bigtube</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="description dark">
+			<h3>Stack</h3>
+			<p>
+				<img class="stack-logo" data-tooltip="Javascript" src="/img/logo/js.png">
+			</p>
+			<h3>Description</h3>
+			<p>
+				A lightweight browser extension that improves the cinema mode on Youtube. Fully utilise your browser's viewing area without having to go fullscreen!
+			</p>
+		</div>
+	</div>
+	<script src="/vendor/popper/popper.min.js"></script>
+	<script src="/vendor/popper/tooltip.min.js"></script>
+	<script>
+		function changeMode(mode) {
+			document.querySelectorAll(".selected").forEach((el) => {
+				el.classList.remove("selected");
+			});
+			document.getElementById(mode).classList.add("selected");
+			document.getElementById(mode + "-ss").classList.add("selected");
+		}
+		document.querySelectorAll(".stack-logo").forEach((div) => {
+			new Tooltip(div, {
+				title: div.getAttribute("data-tooltip"),
+				trigger: "hover focus"
+			});
+		});
+
+	</script>
 </body>
 
 </html>

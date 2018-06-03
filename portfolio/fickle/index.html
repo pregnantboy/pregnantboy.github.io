@@ -5,9 +5,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Get Ready.</title>
-	<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon-32x32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon-16x16.png" sizes="16x16" />
+	<title>Fickle it out</title>
+	<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon.ico" />
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/vendor/swiper/swiper.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
@@ -15,12 +14,17 @@
 		body {
 			margin: 0;
 			width: 100vw;
-			overflow-x: hidden;
+			overflow: hidden;
 		}
 
-		.landing {
-			background: url('/portfolio/fickle/img/icon.png') center center/ 180px 180px no-repeat, linear-gradient( rgb(27, 202, 233) 0%, rgba(92, 191, 208, 1) 50%, white 50%);
-			min-height: 100vh;
+		.background {
+			height: 100vh;
+			overflow: hidden;
+			background: linear-gradient( rgb(27, 202, 233) 0%, rgba(92, 191, 208, 1) 50%, white 50%);
+		}
+
+		.swiper-slide {
+			height: 100vh;
 			user-select: none;
 		}
 
@@ -50,20 +54,37 @@
 			margin-left: 25px;
 		}
 
+		@media screen and (max-width: 767px) {
+			.title h2 {
+				padding-top: 10px;
+				color: white;
+				font-size: 30px;
+				font-weight: 500;
+				margin-left: 15px;
+			}
+
+			.title h1 {
+				color: white;
+				font-size: 60px;
+				letter-spacing: 5px;
+				font-weight: 500;
+				margin-left: 15px;
+			}
+
+		}
+
 		.bottom {
 			height: 50vh;
 			width: 100%;
 			display: flex;
 			justify-content: center;
-			align-items: flex-end;
+			align-items: center;
 			padding-bottom: 5vh;
 			opacity: 0;
 		}
 
 		.bottom h3 {
-			font-family: Roboto, Open Sans;
 			color: black;
-			font-weight: 1500;
 			font-size: 17px;
 		}
 
@@ -72,6 +93,7 @@
 			opacity: 1;
 			animation: blink 0.7s infinite;
 		}
+
 
 		@keyframes blink {
 			0% {
@@ -85,39 +107,115 @@
 			}
 		}
 
+		.center-contents {
+			height: 100%;
+			flex-direction: column;
+			padding-bottom: 5vh;
+		}
+
+		.phone {
+			height: 60vh;
+		}
+
+		.phone-text {
+			font-size: 3rem;
+			height: 3vh;
+			overflow: visible;
+			margin-bottom: 8vh;
+			text-transform: uppercase;
+			color: white;
+		}
+
+
+		.phone.frame {
+			background: url('/portfolio/fickle/img/phoneframe.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 100%;
+			border: none;
+		}
+
+		.promo-video {
+			width: 60vw;
+			height: 33.75vw;
+		}
+
+		@media screen and (max-width: 767px) {
+			.phone-text {
+				font-size: 2rem;
+			}
+
+			.promo-video {
+				width: 90vw;
+				height: 50.625vw;
+			}
+		}
+
 	</style>
 </head>
 
 <body>
 	<div id="page" class="background">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide landing">
+			<div class="swiper-slide">
 				<div class="title">
 					<h2 id="questionrow">
 						<span id="question"></span>
 					</h2>
-					<h1 id="ficklerow" style="display:none">FICKLE.</h1>
+					<h1 id="ficklerow" style="display: none;">FICKLE.</h1>
 				</div>
+				<img src="/portfolio/fickle/img/icon.png" height="180" width="180" style="left: calc(50vw - 90px); top: calc(50vh - 90px); position: absolute">
 				<div class="bottom">
 					<h3>
-						<b>Swipe left</b>
+						<b>Making Everyday Decisions Easier</b>
 					</h3>
 				</div>
 			</div>
 
-			<div class="swiper-slide">Page 1</div>
-			<div class="swiper-slide">Page 2</div>
+			<div class="swiper-slide">
+				<div class="center-contents">
+					<div class="phone-text">Ask anything</div>
+					<img class="phone" src="/portfolio/fickle/img/question.png">
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="center-contents">
+					<div class="phone-text">Get answers fast</div>
+					<div class="phone frame">
+						<video src="/portfolio/fickle/img/answer.mp4" type="video/mp4" style="height: 76%; margin: 7.2vh auto; display: block;" autoplay loop></video>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="center-contents">
+					<iframe id="ytplayer" src="https://www.youtube-nocookie.com/embed/Ya73l2ghhgQ?rel=0&amp;showinfo=0&amp;modestbranding=1&amp;enablejsapi=1" frameborder="0" allow="encrypted-media" allowfullscreen class="promo-video">
+					</iframe>
+				</div>
+			</div>
 		</div>
-		<div class="swiper-scrollbar"></div>
+		<div class=" swiper-scrollbar "></div>
 	</div>
 	</div>
-	<script src="/vendor/jquery/jquery.min.js"></script>
-	<script src="/vendor/typed.js/typed.min.js"></script>
-	<script src="/vendor/swiper/swiper.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js "></script>
+	<script src="/vendor/typed.js/typed.min.js "></script>
+	<script src="/vendor/swiper/swiper.min.js "></script>
 	<script>
+		var tag = document.createElement('script');
+		tag.id = 'iframe-demo';
+		tag.src = 'https://www.youtube.com/iframe_api';
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		var player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('ytplayer');
+			console.log(player);
+		}
+
 		$(document).ready(function () {
-			var typed = new Typed("#question", {
-				strings: ["Got a question?", "Let's fickle it out"],
+			var typed = new Typed("#question ", {
+				strings: ["Got a question? ", "Let 's fickle it out"],
 				typeSpeed: 30,
 				startDelay: 30,
 				showCursor: true,
@@ -134,12 +232,21 @@
 				}
 			});
 
-			var mySwiper = new Swiper('#page', {
+			var mySwiper = new Swiper('#page ', {
 				scrollbar: {
-					el: '.swiper-scrollbar',
+					el: '.swiper-scrollbar ',
 				},
-			})
+				on: {
+					slideChange: function () {
+						if (this.activeIndex !== 3 && player) {
+							player.pauseVideo();
+						}
+					}
+				}
+			});
+
 		});
+
 	</script>
 </body>
 
