@@ -273,3 +273,10 @@ body {
 .description.dark {
     color: var(--text-three);
 }
+
+@media screen and (max-width: 767px) {
+    .description {
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
