@@ -120,3 +120,12 @@ $("#history").on("goForward", () => {
 		updateForwardBackButtons();
 	}
 });
+
+$("#history").on("clear", () => {
+	let historyLog = [{
+		url: "/",
+		"folder-name": "Portfolio"
+	}];
+	let historyPointer = 0;
+	updateForwardBackButtons();	
+});

@@ -3,21 +3,8 @@ function showWindow() {
 	loadScript(scriptPaths.portfolio, () => {
 		$(".window-body").load("/portfolio/index.html");
 	});
-	$("#windowModal").modal({
-		keyboard: true,
-		backdrop: "static"
-	});
 
-	$("#windowModal").on("hide.bs.modal", (e) => {
-		getSelectedChoice();
-		$(e.currentTarget).unbind();
-	});
-
-	$("#windowModal .modal-dialog").draggable({
-		handle: ".modal-header"
-	});
-
-	storeModalPosition(true);
+	$("#window").show();	
 
 	$("#history").on("update", (event, historyLength, historyPointer, folderName) => {
 		$("#window-title").text(folderName);
@@ -26,42 +13,29 @@ function showWindow() {
 	});
 }
 
+function closeWindow() {
+	$("#window").hide();
+	getSelectedChoice();
+	$("#history").trigger("clear");
+}
+
 /* exported expandWindow */
 function expandWindow() {
-	storeModalPosition();
-	resetModalPosition(true);
-	$("#windowModal .modal-dialog").draggable("disable");
-	$("#windowModal .modal-dialog").addClass("window-expanded");
+	$("#window").addClass("expanded");
 }
 
 /* exported shrinkWindow */
 function shrinkWindow() {
-	resetModalPosition();
-	$("#windowModal .modal-dialog").draggable("enable");
-	$("#windowModal .modal-dialog.window-expanded").removeClass("window-expanded");
+	$("#window").removeClass("expanded");
 }
 
 /* exported toggleWindow */
 function toggleWindow() {
-	if ($("#windowModal .modal-dialog").hasClass("window-expanded")) {
+	if ($("#window").hasClass("expanded")) {
 		shrinkWindow();
 	} else {
 		expandWindow();
 	}
-}
-
-function storeModalPosition(original) {
-	let data = {};
-	data[original ? "originalLeft" : "newLeft"] = $("#windowModal .modal-dialog").css("left");
-	data[original ? "originalTop" : "newTop"] = $("#windowModal .modal-dialog").css("top");
-	$("#windowModal .modal-dialog").data(data);
-}
-
-function resetModalPosition(original) {
-	$("#windowModal .modal-dialog").css({
-		left: $("#windowModal .modal-dialog").data(original ? "originalLeft" : "newLeft"),
-		top: $("#windowModal .modal-dialog").data(original ? "originalTop" : "newTop")
-	});
 }
 
 /* exported goBack */
