@@ -8,43 +8,43 @@ function loadUrl(folder, doNotChangeHistory) {
 function renderFolders() {
 	let folderData = [{
 		"folder-name": "Fickle",
-		"folder-img": "/img/folder.svg",
+		"folder-img": "/portfolio/fickle/img/icon.png",
 		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "Pepo",
-		"folder-img": "/img/folder.svg",
+		"folder-img": "/portfolio/pepo/pepo-logo.png",
 		url: "/portfolio/pepo/index.html",
 		script: "/portfolio/pepo/pepo.js"
 	},
 	{
+		"folder-name": "Bigtube",
+		"folder-img": "/portfolio/bigtube/icon.png",
+		url: "/portfolio/bigtube/index.html"
+	},
+	{
+		"folder-name": "Minecraft AI Creator",
+		"folder-img": "/portfolio/minecraft/img/128.png",
+		url: "/portfolio/minecraft/index.html"
+	},
+	{
+		"folder-name": "Vault",
+		"folder-img": "/portfolio/vault/img/icon128.png",
+		url: "/portfolio/vault/index.html"
+	},
+	{
 		"folder-name": "AED App",
-		"folder-img": "/img/folder.svg",
+		"folder-img": "",
 		url: "/portfolio/fickle/index.html"
 	},
 	{
 		"folder-name": "DMGify",
-		"folder-img": "/img/folder.svg",
+		"folder-img": "",
 		url: "/portfolio/fickle/index.html"
 	},
 	{
-		"folder-name": "Minecraft AI Creator",
-		"folder-img": "/img/folder.svg",
-		url: "/portfolio/minecraft/index.html"
-	},
-	{
-		"folder-name": "Bigtube",
-		"folder-img": "/img/folder.svg",
-		url: "/portfolio/bigtube/index.html"
-	},
-	{
-		"folder-name": "Vault",
-		"folder-img": "/img/folder.svg",
-		url: "/portfolio/vault/index.html"
-	},
-	{
 		"folder-name": "School Apps",
-		"folder-img": "/img/folder.svg",
+		"folder-img": "",
 		url: "/portfolio/fickle/index.html"
 	}];
 
@@ -54,7 +54,11 @@ function renderFolders() {
 		html: [{
 			"<>": "div",
 			class: "folder",
-			html: [{ "<>": "img", src: "${folder-img}", html: "" }, { "<>": "span", html: "${folder-name}" }],
+			html: [{
+				"<>": "div",
+				class: "folder-image",
+				html: [{ "<>": "img", src: "${folder-img}", html: "" }]
+			}, { "<>": "span", html: "${folder-name}" }],
 			onclick: e => {
 				loadUrl(e.obj);
 			}
@@ -127,5 +131,5 @@ $("#history").on("clear", () => {
 		"folder-name": "Portfolio"
 	}];
 	let historyPointer = 0;
-	updateForwardBackButtons();	
+	updateForwardBackButtons();
 });
