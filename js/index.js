@@ -14,7 +14,9 @@ let sleep = milliseconds => term.sleep.bind(term, milliseconds);
 let clear = () => term.clear.bind(term);
 let print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
-showWindow();
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+	showWindow();
+}
 
 startup(true);
 
