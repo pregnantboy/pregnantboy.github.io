@@ -4,7 +4,7 @@ function showWindow() {
 		$(".window-body").load("/portfolio/index.html");
 	});
 
-	$("#window").show();	
+	$("#window").show();
 
 	$("#history").on("update", (event, historyLength, historyPointer, folderName) => {
 		$("#window-title").text(folderName);
@@ -13,6 +13,7 @@ function showWindow() {
 	});
 }
 
+/* exported closeWindow */
 function closeWindow() {
 	$("#window").hide();
 	getSelectedChoice();
@@ -47,3 +48,19 @@ function goBack() {
 function goForward() {
 	$("#history").trigger("goForward");
 }
+
+/* exported openExternal */
+function openExternal() {
+	$("#history").trigger("openExternal");
+}
+
+function adjustWindowSize() {
+	if ($(window).width() < 767) {
+		$("#window").addClass("mobile");
+	} else {
+		$("#window").removeClass("mobile");
+	}
+}
+
+adjustWindowSize();
+$(window).on("resize", adjustWindowSize);

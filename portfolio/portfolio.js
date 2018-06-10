@@ -14,8 +14,7 @@ function renderFolders() {
 	{
 		"folder-name": "Pepo",
 		"folder-img": "/portfolio/pepo/pepo-logo.png",
-		url: "/portfolio/pepo/index.html",
-		script: "/portfolio/pepo/pepo.js"
+		url: "/portfolio/pepo/index.html"
 	},
 	{
 		"folder-name": "Bigtube",
@@ -126,10 +125,14 @@ $("#history").on("goForward", () => {
 });
 
 $("#history").on("clear", () => {
-	let historyLog = [{
+	historyLog = [{
 		url: "/",
 		"folder-name": "Portfolio"
 	}];
-	let historyPointer = 0;
+	historyPointer = 0;
 	updateForwardBackButtons();
+});
+
+$("#history").on("openExternal", () => {
+	window.open(historyLog[historyPointer].url.replace("/index.html", ""), "_blank");
 });

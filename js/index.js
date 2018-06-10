@@ -4,6 +4,7 @@ term.setLineHeight("2.2rem");
 term.setMinHeight("90vh");
 term.setAutoScroll(true);
 term.setTypeSpeed(10);
+term.setContainerDiv($(".terminal-container")[0]);
 $("terminal").append(term.html);
 
 let id = "Guest";

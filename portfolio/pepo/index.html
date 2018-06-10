@@ -11,84 +11,6 @@
     <link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/vendor/popper/popper.css" rel="stylesheet">
-</head>
-
-<body>
-    <div id="page" class="background">
-        <div class="container">
-
-            <div class="one-div"> </div>
-            <div class="still-div two-div">
-                <img class="logo" src="/portfolio/pepo/pepo-logo-with-text.png">
-            </div>
-
-            <div class="one-div"> </div>
-
-            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/exisitinglogin.png')">
-                <video class="stills-vid" data-tooltip="Login Screen" src="/portfolio/pepo/screen/exisitinglogin.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
-            </div>
-
-            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/achievements.png')">
-                <video class="stills-vid" data-tooltip="Achievements" src="/portfolio/pepo/screen/achievements.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
-            </div>
-            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/track.png')">
-                <video class="stills-vid" data-tooltip="Real-time Tracking" src="/portfolio/pepo/screen/track.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
-            </div>
-            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/friends.png')">
-                <video class="stills-vid" data-tooltip="Social" src="/portfolio/pepo/screen/friends.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
-            </div>
-            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/trackdayweekmonth.png')">
-                <video class="stills-vid" data-tooltip="Progress Tracking" src="/portfolio/pepo/screen/trackdayweekmonth.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
-            </div>
-            <div class="still-div two-div">
-                <img class="logo" src="/portfolio/pepo/sensor.png">
-            </div>
-        </div>
-
-        <div class="description">
-            <h3>Stack</h3>
-            <p>
-                <img class="stack-logo" data-tooltip="Objective-C" src="/img/logo/ios.png">
-                <img class="stack-logo" data-tooltip="Particle.io" src="/img/logo/particle.png">
-            </p>
-            <h3>Description</h3>
-            <p>
-                <b>PEPO</b> is a smart water tracking system that consists of a non-intrusive, clip-on sensor that sends real-time water usage data to an app. The sensor picks up when the shower is turned on or off and sends it realtime to the app, which calculates the volume of water used. The app tracks water usage based on a per-shower, daily, weekly and monthly basis. It includes an achievements page, weekly leaderboard and social challenge feature.
-            </p>
-
-            <h3>Accolades</h3>
-            <ul>
-                <li>Runner Up in Social Entrepreneurship Challenge 2015 - UC Berekely</li>
-                <li> Presented in the City Innovate Summit 2015, San Francisco</li>
-            </ul>
-
-            <a href="https://github.com/pregnantboy/pepo" class="source-code">
-                <i class="fab fa-github-alt"></i>
-                <span>Source</span>
-            </a>
-        </div>
-
-
-    </div>
-
-    <script src="/vendor/popper/popper.min.js"></script>
-    <script src="/vendor/popper/tooltip.min.js"></script>
-    <script type="text/javascript">
-        document.querySelectorAll(".stack-logo").forEach((div) => {
-            new Tooltip(div, {
-                title: div.getAttribute("data-tooltip"),
-                trigger: "hover focus"
-            });
-        });
-
-        document.querySelectorAll(".stills-vid").forEach(div => {
-            var x = new Tooltip(div, {
-                title: div.getAttribute("data-tooltip"),
-                trigger: "hover focus"
-            });
-        });
-    </script>
-
     <style scoped>
         body {
             margin: 0;
@@ -168,6 +90,83 @@
         }
 
     </style>
+</head>
+
+<body>
+    <div id="page" class="background">
+        <div class="container">
+
+            <div class="one-div"> </div>
+            <div class="still-div two-div">
+                <img class="logo" src="/portfolio/pepo/pepo-logo-with-text.png">
+            </div>
+
+            <div class="one-div"> </div>
+
+            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/exisitinglogin.png')">
+                <video class="stills-vid" data-tooltip="Login Screen" src="/portfolio/pepo/screen/exisitinglogin.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
+            </div>
+
+            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/achievements.png')">
+                <video class="stills-vid" data-tooltip="Achievements" src="/portfolio/pepo/screen/achievements.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
+            </div>
+            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/track.png')">
+                <video class="stills-vid" data-tooltip="Real-time Tracking" src="/portfolio/pepo/screen/track.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
+            </div>
+            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/friends.png')">
+                <video class="stills-vid" data-tooltip="Social" src="/portfolio/pepo/screen/friends.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
+            </div>
+            <div class="still-div" style="background-image:url('/portfolio/pepo/screen/trackdayweekmonth.png')">
+                <video class="stills-vid" data-tooltip="Progress Tracking" src="/portfolio/pepo/screen/trackdayweekmonth.mp4" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
+            </div>
+            <div class="still-div two-div">
+                <img class="logo" src="/portfolio/pepo/sensor.png">
+            </div>
+        </div>
+
+        <div class="description">
+            <h3>Stack</h3>
+            <p>
+                <img class="stack-logo" data-tooltip="Objective-C" src="/img/logo/ios.png">
+                <img class="stack-logo" data-tooltip="Particle.io" src="/img/logo/particle.png">
+            </p>
+            <h3>Description</h3>
+            <p>
+                <b>PEPO</b> is a smart water tracking system that consists of a non-intrusive, clip-on sensor that sends real-time water usage data to an app. The sensor picks up when the shower is turned on or off and sends it realtime to the app, which calculates the volume of water used. The app tracks water usage based on a per-shower, daily, weekly and monthly basis. It includes an achievements page, weekly leaderboard and social challenge feature.
+            </p>
+
+            <h3>Accolades</h3>
+            <ul>
+                <li>Runner Up in Social Entrepreneurship Challenge 2015 - UC Berekely</li>
+                <li> Presented in the City Innovate Summit 2015, San Francisco</li>
+            </ul>
+
+            <a href="https://github.com/pregnantboy/pepo" class="source-code">
+                <i class="fab fa-github-alt"></i>
+                <span>Source</span>
+            </a>
+        </div>
+
+
+    </div>
+
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/popper/tooltip.min.js"></script>
+    <script type="text/javascript">
+        document.querySelectorAll(".stack-logo").forEach((div) => {
+            new Tooltip(div, {
+                title: div.getAttribute("data-tooltip"),
+                trigger: "hover focus"
+            });
+        });
+
+        document.querySelectorAll(".stills-vid").forEach(div => {
+            var x = new Tooltip(div, {
+                title: div.getAttribute("data-tooltip"),
+                trigger: "hover focus"
+            });
+        });
+    </script>
 </body>
 
 </html>

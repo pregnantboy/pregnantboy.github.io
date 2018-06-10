@@ -119,6 +119,7 @@ class Terminal {
 		this._lineHeight = "auto";
 		this._autoScroll = true;
 		this._typeSpeed = 20;
+		this._containerDiv = document.documentElement;
 
 		this._typed = null;
 		this._selectedChoice = 0;
@@ -322,14 +323,17 @@ class Terminal {
 		this._typeSpeed = typeSpeed;
 	}
 
+	setContainerDiv(containerDiv) {
+		this._containerDiv = containerDiv;
+	}
+
 	blinkingCursor(bool) {
 		bool = bool.toString().toUpperCase();
 		this._shouldBlinkCursor = bool === "TRUE" || bool === "1" || bool === "YES";
 	}
 	scrollToBottom() {
 		if (this._autoScroll) {
-			document.documentElement.scrollTop = document.documentElement.scrollHeight;
-			document.body.scrollTop = document.documentElement.scrollHeight;
+			this._containerDiv.scrollTop = this._containerDiv.scrollHeight;
 		}
 	}
 }

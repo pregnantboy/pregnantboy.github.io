@@ -107,13 +107,13 @@
 			}
 		}
 
-		.center-contents {
+		.center-contents.padded {
 			height: 100%;
 			flex-direction: column;
-			padding-bottom: 5vh;
 		}
 
 		.phone {
+			margin-top: 6vh;
 			height: 60vh;
 		}
 
@@ -121,9 +121,10 @@
 			font-size: 3rem;
 			height: 3vh;
 			overflow: visible;
-			margin-bottom: 8vh;
 			text-transform: uppercase;
 			color: white;
+			position: absolute;
+			top: calc(20vh - 4rem);
 		}
 
 
@@ -170,6 +171,7 @@
 		@media screen and (max-width: 767px) {
 			.phone-text {
 				font-size: 2rem;
+				top: calc(20vh - 3rem);
 			}
 
 			.promo-video {
@@ -195,7 +197,9 @@
 					</h2>
 					<h1 id="ficklerow" style="display: none;">FICKLE.</h1>
 				</div>
-				<img src="/portfolio/fickle/img/icon.png" height="180" width="180" style="left: calc(50vw - 90px); top: calc(50vh - 90px); position: absolute">
+				<div class="center-contents" style="position: absolute; height: 100vh; width: 100vw; top: 0">
+					<img src="/portfolio/fickle/img/icon.png" height="180" width="180" style="max-height: 20vh; max-width: 20vh;">
+				</div>
 				<div class="bottom">
 					<h3>
 						<b>Making Everyday Decisions Easier</b>
@@ -205,13 +209,13 @@
 			</div>
 
 			<div class="swiper-slide">
-				<div class="center-contents">
+				<div class="center-contents padded">
 					<div class="phone-text">Ask anything</div>
 					<img class="phone" src="/portfolio/fickle/img/question.png">
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<div class="center-contents">
+				<div class="center-contents padded">
 					<div class="phone-text">Get answers fast</div>
 					<div class="phone frame">
 						<video src="/portfolio/fickle/img/answer.mp4" type="video/mp4" style="height: 76%; margin: 7.2vh auto; display: block;" autoplay muted loop></video>
@@ -219,7 +223,7 @@
 				</div>
 			</div>
 			<div class="swiper-slide">
-				<div class="center-contents">
+				<div class="center-contents padded">
 					<iframe id="ytplayer" src="https://www.youtube-nocookie.com/embed/Ya73l2ghhgQ?rel=0&amp;showinfo=0&amp;modestbranding=1&amp;enablejsapi=1" frameborder="0" allow="encrypted-media" allowfullscreen class="promo-video">
 					</iframe>
 				</div>
