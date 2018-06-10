@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AED Locator</title>
+	<link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+		}
+
+		#page.background {
+			background: linear-gradient(to right,  #db3f3f 0%, #a33535 100%);
+			/* background: linear-gradient(to right, #085899 0%, #337ed4 50%, #db3f3f 50%, #a33535 100%); */
+			height: 100vh;
+			width: 100vw;
+			font-family: "Asap", sans-serif;
+		}
+
+		#particles-js {
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.main-title {
+			text-align: center;
+			padding-top: 15vh;
+			height: 30vh;
+			font-size: 4rem;
+			color: white;
+			font-family: "Asap", sans-serif;
+		}
+
+		.logos {
+			height: 60vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: url("/portfolio/aed/img/sgmap.png");
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		.logo {
+			height: 15vh;
+		}
+
+		.map {
+			height: 60vh;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="page" class="background">
+		<div class="main-title">
+			<div id="particles-js"></div>
+			AED Location Crowdsourcing App
+		</div>
+		<div class="logos">
+			<img class="logo" src="/portfolio/aed/img/PAPcircle.png">
+			<img class="logo" src="/portfolio/aed/img/WPcircle.png">
+		</div>
+	</div>
+	<script src="/vendor/jquery/jquery.min.js "></script>
+	<script src="/vendor/particlesjs/particles.min.js"></script>
+	<script>
+		particlesJS.load("particles-js", "/portfolio/aed/particlesjs-config.json", function () {
+			console.log("callback - particles.js config loaded");
+		});
+	</script>
+</body>
+
+</html>
