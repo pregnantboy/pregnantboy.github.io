@@ -136,11 +136,14 @@ class Terminal {
 		this._choiceListener = function(e) {
 			if (this._choiceDivs.length > 1 && this._choices.length === this._choiceDivs.length) {
 				if (e.which === 38) {
+					// Prevent default to prevent scroll
+					e.preventDefault();
 					console.log("key up");
 					this._selectedChoice = (this._choices.length + this._selectedChoice - 1) % this._choices.length;
 					this.updateChoice();
 				}
 				if (e.which === 40) {
+					e.preventDefault();
 					console.log("key down");
 					this._selectedChoice = (this._selectedChoice + 1) % this._choices.length;
 					this.updateChoice();
