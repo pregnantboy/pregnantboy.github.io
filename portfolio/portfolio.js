@@ -1,9 +1,11 @@
-function loadUrl(folder, doNotChangeHistory) {
+function loadUrl(folder, doNotReplaceHistory, doNotPushState) {
 	$("#content").html(`<iframe src="${folder.url}" frameborder="0" style="height: 100%; width: 100%;"></iframe>`);
-	if (!doNotChangeHistory) {
+	if (!doNotReplaceHistory) {
 		addToHistory(folder);
 	}
-	pushState(folder);
+	if (!doNotPushState) {
+		pushState(folder);
+	}
 }
 
 let portfolioFolderObject = {
@@ -11,7 +13,7 @@ let portfolioFolderObject = {
 	"folder-name": "Portfolio"
 };
 
-function renderFolders() {
+function renderFolders(doNotPushState) {
 	let folderData = [{
 		"folder-name": "Fickle",
 		"folder-img": "/portfolio/fickle/img/icon.png",
@@ -74,7 +76,9 @@ function renderFolders() {
 
 	$(".folder-list").json2html(folderData, folderTemplate);
 
-	pushState(portfolioFolderObject);
+	if (!doNotPushState) {
+		pushState(portfolioFolderObject);
+	}
 }
 
 let historyLog, historyPointer;
@@ -142,17 +146,38 @@ $("#history").on("openExternal", () => {
 	window.open(historyLog[historyPointer].url.replace("/index.html", ""), "_blank");
 });
 
-// Dealing with hashes here
-
-window.onhashchange = e => {
-	// if (window.location.hash.replace("#", "") !== historyLog[historyPointer]["folder-name"])
-};
+// Dealing with history states here
 
 window.onpopstate = e => {
-	console.log(e);
+	let state = e.state;
+	if ($.isEmptyObject(state)) {
+		// close window
+		if (isWindowShown()) {
+			$("#history").trigger("closeWindow");
+		}
+	} else {
+		let currentFolderName = historyLog[historyPointer]["folder-name"];
+		let stateFolderName = state["folder-name"];
+		if (currentFolderName === stateFolderName) {
+			// check if already in state
+			return;
+		} else {
+			resetHistoryLog();
+			if (stateFolderName === "Portfolio") {
+				// if in terminal, it will render folders but not show window
+				renderFolders(true);
+			} else {
+				loadUrl(state, false, true);
+			}
+		}
+	}
 };
 
 function pushState(folder) {
 	// window.location.hash = hash;
-	history.pushState(folder, folder["folder-name"], folder["url"].replace("/index.html", ""));
+	let urlSuffix = "/";
+	if (folder.url) {
+		urlSuffix = folder.url.replace("/index.html", "");
+	}
+	history.pushState(folder, folder["folder-name"], urlSuffix);
 }

@@ -1,7 +1,13 @@
 <div id="content">
 </div>
 <script>
-	renderFolders();	
+	// function exists and loaded from root
+	if (window.renderFolders) {
+		renderFolders();
+	} else {
+		// if /portfolio is directly accessed, navigate to root;
+		window.location.replace("/");
+	}
 </script>
 <style>
 	#content {

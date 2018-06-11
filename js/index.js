@@ -133,13 +133,13 @@ function getSelectedChoice(firstLoad) {
 function handleChoice(choice) {
 	switch (choice.id) {
 	case 1:
+		var window = showWindow(true);
 		// load first
-		$(".window-body").load("/portfolio/index.html");
 		async.waterfall([type("Spinning the CPU fan... ^100OK"),
 			type("Mining some ethereum... ^100OK"),
 			type("Unzipping the folders... ^100OK"),
 			type("Opening Portfolio")], () => {
-			showWindow();
+			window.show();
 		});
 		break;
 	case 2: {
