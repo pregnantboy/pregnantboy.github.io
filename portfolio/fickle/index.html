@@ -144,7 +144,7 @@
 
 
 		.description-container {
-			min-height: 100vh;
+			min-height: 100%;
 			background: linear-gradient( rgb(27, 202, 233), rgb(92, 191, 208));
 			overflow-y: auto;
 		}
@@ -259,10 +259,10 @@
 				</div>
 			</div>
 		</div>
-		<div class=" swiper-scrollbar "></div>
+		<div class="swiper-scrollbar" style="position:fixed!important"></div>
 	</div>
 	</div>
-	<script src="/vendor/jquery/jquery.min.js "></script>
+	<script src=" /vendor/jquery/jquery.min.js "></script>
 	<script src="/vendor/typed.js/typed.min.js "></script>
 	<script src="/vendor/swiper/swiper.min.js "></script>
 	<script>
@@ -278,23 +278,6 @@
 		}
 
 		$(document).ready(function () {
-			var typed = new Typed("#question ", {
-				strings: ["Got a question? ", "Let 's fickle it out"],
-				typeSpeed: 30,
-				startDelay: 30,
-				showCursor: true,
-				backDelay: 1000,
-				cursorChar: "|",
-				onComplete: function () {
-					setTimeout(function () {
-						$("#questionrow").fadeOut(500, function () {
-							$("#ficklerow").fadeIn(500, function () {
-								$(".bottom").fadeTo(500, 0.5)
-							});
-						});
-					}, 1000);
-				}
-			});
 
 			var mySwiper = new Swiper('#page ', {
 				scrollbar: {
@@ -316,6 +299,23 @@
 				}
 			});
 
+			var typed = new Typed("#question ", {
+				strings: ["Got a question? ", "Let 's fickle it out"],
+				typeSpeed: 30,
+				startDelay: 30,
+				showCursor: true,
+				backDelay: 1000,
+				cursorChar: "|",
+				onComplete: function () {
+					setTimeout(function () {
+						$("#questionrow").fadeOut(500, function () {
+							$("#ficklerow").fadeIn(500, function () {
+								$(".bottom").fadeTo(500, 0.5)
+							});
+						});
+					}, 1000);
+				}
+			});
 		});
 
 	</script>

@@ -169,6 +169,7 @@ window.onpopstate = e => {
 			} else {
 				loadUrl(state, false, true);
 			}
+			updateForwardBackButtons();
 		}
 	}
 };

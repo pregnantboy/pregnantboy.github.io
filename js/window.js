@@ -7,6 +7,12 @@ function showWindow(async) {
 		$("#window-title").text(folderName);
 		$("#forward").prop("disabled", historyPointer >= historyLength - 1);
 		$("#back").prop("disabled", historyPointer === 0);
+		// whether to show the open external button
+		if (folderName === "Portfolio") {
+			$(".open-external-btn").removeClass("show");
+		} else {
+			$(".open-external-btn").addClass("show");
+		}
 	});
 
 	$("#history").on("closeWindow", () => {
