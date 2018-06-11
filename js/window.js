@@ -87,9 +87,6 @@ function openExternal() {
 }
 
 function adjustWindowSize() {
-	if (!isWindowShown()) {
-		return;
-	}
 	if ($(window).width() < 767) {
 		$("#window").addClass("mobile");
 	} else {
