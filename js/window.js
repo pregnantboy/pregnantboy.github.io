@@ -1,9 +1,9 @@
+
+
 /* exported showWindow */
 function showWindow() {
-	loadScript(scriptPaths.portfolio, () => {
-		$(".window-body").load("/portfolio/index.html");
-	});
-
+	// load again in case not called from choice select
+	$(".window-body").load("/portfolio/index.html");
 	$("#window").show();
 
 	$("#history").on("update", (event, historyLength, historyPointer, folderName) => {
@@ -17,7 +17,7 @@ function showWindow() {
 function closeWindow() {
 	$("#window").hide();
 	getSelectedChoice();
-	$("#history").trigger("clear");
+	$("#history").trigger("close");
 }
 
 /* exported expandWindow */

@@ -333,7 +333,9 @@ class Terminal {
 	}
 	scrollToBottom() {
 		if (this._autoScroll) {
-			this._containerDiv.scrollTop = this._containerDiv.scrollHeight;
+			// Document scrolltop needed for mobile devices with address bar on top
+			document.documentElement.scrollTop = document.documentElement.scrollHeight;
+			this._containerDiv.scrollTop = this._containerDiv.scrollHeight + 10;
 		}
 	}
 }

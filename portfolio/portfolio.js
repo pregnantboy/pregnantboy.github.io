@@ -3,7 +3,13 @@ function loadUrl(folder, doNotChangeHistory) {
 	if (!doNotChangeHistory) {
 		addToHistory(folder);
 	}
+	pushState(folder);
 }
+
+let portfolioFolderObject = {
+	url: "/portfolio",
+	"folder-name": "Portfolio"
+};
 
 function renderFolders() {
 	let folderData = [{
@@ -67,13 +73,16 @@ function renderFolders() {
 	$("#content").html("<div class=\"folder-list row\"></div>");
 
 	$(".folder-list").json2html(folderData, folderTemplate);
+
+	pushState(portfolioFolderObject);
 }
 
-let historyLog = [{
-	url: "/",
-	"folder-name": "Portfolio"
-}];
-let historyPointer = 0;
+let historyLog, historyPointer;
+function resetHistoryLog() {
+	historyLog = [portfolioFolderObject];
+	historyPointer = 0;
+}
+resetHistoryLog();
 updateForwardBackButtons();
 
 function addToHistory(folder) {
@@ -105,8 +114,7 @@ $("#history").on("goBack", () => {
 			loadUrl(urlToGo, true);
 		}
 	} else if (historyLog.length === 0 || historyPointer < 0) {
-		historyLog = ["root"];
-		historyPointer = 0;
+		resetHistoryLog();
 		updateForwardBackButtons();
 		renderFolders();
 	}
@@ -124,15 +132,27 @@ $("#history").on("goForward", () => {
 	}
 });
 
-$("#history").on("clear", () => {
-	historyLog = [{
-		url: "/",
-		"folder-name": "Portfolio"
-	}];
-	historyPointer = 0;
+$("#history").on("close", () => {
+	pushState({});
+	resetHistoryLog();
 	updateForwardBackButtons();
 });
 
 $("#history").on("openExternal", () => {
 	window.open(historyLog[historyPointer].url.replace("/index.html", ""), "_blank");
 });
+
+// Dealing with hashes here
+
+window.onhashchange = e => {
+	// if (window.location.hash.replace("#", "") !== historyLog[historyPointer]["folder-name"])
+};
+
+window.onpopstate = e => {
+	console.log(e);
+};
+
+function pushState(folder) {
+	// window.location.hash = hash;
+	history.pushState(folder, folder["folder-name"], folder["url"].replace("/index.html", ""));
+}
