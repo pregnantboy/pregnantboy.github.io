@@ -15,7 +15,7 @@
 		}
 
 		#page.background {
-			background: linear-gradient(to right,  #db3f3f 0%, #a33535 100%);
+			background: linear-gradient(to right, #db3f3f 0%, #a33535 100%);
 			/* background: linear-gradient(to right, #085899 0%, #337ed4 50%, #db3f3f 50%, #a33535 100%); */
 			height: 100vh;
 			width: 100vw;
@@ -52,6 +52,15 @@
 
 		.logo {
 			height: 15vh;
+		}
+
+		.logo:after {
+			content: "";
+			border-left: 15vh solid transparent;
+			border-right: 15vh solid transparent;
+			border-top: 15vh solid #f00;
+			height: 0;
+			height: 0;
 		}
 
 		.map {
