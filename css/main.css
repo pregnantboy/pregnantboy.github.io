@@ -307,6 +307,10 @@ body {
   align-items: center;
 }
 
+.source-code img {
+  filter: invert(1);
+}
+
 .source-code:hover {
   opacity: 1;
 }
@@ -329,6 +333,7 @@ body {
   font-size: 1rem;
   line-height: 1.5rem;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .description h3 {
