@@ -173,3 +173,4 @@ function escapeString(string) {
 	div.appendChild(document.createTextNode(string));
 	return div.innerHTML;
 }
+
