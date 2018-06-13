@@ -7,7 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
-
+	<meta name="theme-color" content="#9b2b2b">
+	<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/aed/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/portfolio/aed/img/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/aed/img/favicon-16x16.png">
 	<title>AED Locator</title>
 	<link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,10 +64,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: url("/portfolio/aed/img/sgmapred.png");
-			background-size: contain;
-			background-position: center;
-			background-repeat: no-repeat;
+			background-image: url("/portfolio/aed/img/sgmapredder.png");
 			z-index: 0;
 			position: absolute;
 			opacity: 0.8;
@@ -162,8 +162,8 @@
 			<div id="particles"></div>
 			AED Location Crowdsourcing App
 		</div>
-		<div class="map" id="map">
-			<span class="map-hint"> click anywhere on the map </span>
+		<div class="map center-background" id="map">
+			<span class="map-hint"> Click anywhere on the map </span>
 		</div>
 		<div class="team-select">
 			<img class="logo" src="/portfolio/aed/img/PAPcircle.png" id="logo1" onclick="selectSide(1);">

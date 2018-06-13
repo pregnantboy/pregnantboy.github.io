@@ -1,5 +1,5 @@
 function loadUrl(folder, doNotReplaceHistory, doNotPushState) {
-	$("#content").html(`<iframe src="${folder.url}" frameborder="0" style="height: 100%; width: 100%;"></iframe>`);
+	$("#content").html(`<iframe src="${folder.url}" frameborder="0" style="height: calc(100% + 1px); width: 100%;"></iframe>`);
 	if (!doNotReplaceHistory) {
 		addToHistory(folder);
 	}
@@ -26,7 +26,7 @@ function renderFolders(doNotPushState) {
 	},
 	{
 		"folder-name": "Bigtube",
-		"folder-img": "/portfolio/bigtube/icon.png",
+		"folder-img": "/portfolio/bigtube/img/icon.png",
 		url: "/portfolio/bigtube/index.html"
 	},
 	{
@@ -41,8 +41,8 @@ function renderFolders(doNotPushState) {
 	},
 	{
 		"folder-name": "AED App",
-		"folder-img": "",
-		url: "/portfolio/fickle/index.html"
+		"folder-img": "/portfolio/aed/img/aed-logo.png",
+		url: "/portfolio/aed/index.html"
 	},
 	{
 		"folder-name": "DMGify",

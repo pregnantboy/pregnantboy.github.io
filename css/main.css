@@ -74,6 +74,12 @@ body {
   align-items: center;
 }
 
+.center-background {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .terminal-container {
   padding: 5vh 5vw;
   height: 100vh;

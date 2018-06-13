@@ -1,7 +1,7 @@
 var side = 0;
 
 $(".map").click(e => {
-	console.log("click registered at (" + e.pageX + ", " + e.pageY + ")");
+	// console.log("click registered at (" + e.pageX + ", " + e.pageY + ")");
 	createMarker(e.pageX, e.pageY);
 	$(".map-hint").fadeTo(300, 0);
 });
@@ -10,8 +10,8 @@ function createMarker(x, y) {
 	if (!side) {
 		return;
 	}
-	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	var h = Math.min(document.documentElement.clientHeight, window.innerHeight || 0);
+	var w = Math.min(document.documentElement.clientWidth, window.innerWidth || 0);
 	var vmin = Math.min(w, h);
 	var markerHeight = (5 / 100) * vmin;
 

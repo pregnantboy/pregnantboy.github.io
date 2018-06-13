@@ -1,381 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+	<head>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="theme-color" content="#5A3F37">
+		<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/minecraft/img/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/portfolio/minecraft/img/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/minecraft/img/favicon-16x16.png">
+		<title>Minecraft AI Builder</title>
+		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/main.css" rel="stylesheet">
+		<link href="/vendor/popper/popper.css" rel="stylesheet">
+		<link href="/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+		<style scoped>
+			body {
+				margin: 0;
+			}
 
-	<title>Minecraft AI Builder</title>
+			.background {
+				background: #5A3F37;
+				background: -webkit-linear-gradient(to bottom, #2C7744, #5A3F37);
+				background: linear-gradient(to bottom, #2C7744, #5A3F37);
+				background-attachment: fixed;
+				margin: 0;
+				min-height: 100vh;
+				padding: 5vh 5%;
+				overflow: auto;
+			}
 
-	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/main.css" rel="stylesheet">
-	<link href="/vendor/popper/popper.css" rel="stylesheet">
-	<link href="/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
-	<style scoped>
-		body {
-			margin: 0;
-		}
-
-		.background {
-			background: #5A3F37;
-			background: -webkit-linear-gradient(to bottom, #2C7744, #5A3F37);
-			background: linear-gradient(to bottom, #2C7744, #5A3F37);
-			background-attachment: fixed;
-			margin: 0;
-			min-height: 100vh;
-			padding: 5vh 5%;
-			overflow: auto;
-		}
-
-		.full-section {
-			width: 100%;
-			margin: 0 auto;
-			text-align: center;
-		}
-
-		.full-section img {
-			display: block;
-		}
-
-		.sub-title {
-			width: 50%;
-			float: left;
-			text-align: center;
-		}
-
-		.sub-title img {
-			max-height: 7vh;
-			max-width: 90%;
-			margin: auto;
-			text-align: center;
-		}
-
-		.sub-section {
-			width: 100%;
-			padding: 5vh 0;
-			box-sizing: border-box;
-			display: flex;
-			overflow: auto;
-			align-items: center;
-		}
-
-		.sub-section.alt {
-			flex-direction: row-reverse;
-		}
-
-		.sub-body {
-			width: 50%;
-			float: left;
-			padding: 3vh 0;
-		}
-
-		@media (max-width: 767px) {
-			.sub-section {
+			.full-section {
 				width: 100%;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.full-section img {
 				display: block;
 			}
 
 			.sub-title {
+				width: 50%;
+				float: left;
+				text-align: center;
+			}
+
+			.sub-title img {
+				max-height: 7vh;
+				max-width: 90%;
+				margin: auto;
+				text-align: center;
+			}
+
+			.sub-section {
 				width: 100%;
+				padding: 5vh 0;
+				box-sizing: border-box;
+				display: flex;
+				overflow: auto;
+				align-items: center;
+			}
+
+			.sub-section.alt {
+				flex-direction: row-reverse;
 			}
 
 			.sub-body {
+				width: 50%;
+				float: left;
+				padding: 3vh 0;
+			}
+
+			@media (max-width: 767px) {
+				.sub-section {
+					width: 100%;
+					display: block;
+				}
+
+				.sub-title {
+					width: 100%;
+				}
+
+				.sub-body {
+					width: 100%;
+				}
+			}
+
+			.sub-body .img-div {
+				width: 90%;
+				margin: 0 auto;
+				text-align: center;
+				position: relative;
+			}
+
+			.img-div img {
 				width: 100%;
 			}
-		}
 
-		.sub-body .img-div {
-			width: 90%;
-			margin: 0 auto;
-			text-align: center;
-			position: relative;
-		}
+			.overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.6);
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
 
-		.img-div img {
-			width: 100%;
-		}
+			.overlay:hover {
+				opacity: 1;
+			}
 
-		.overlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: rgba(0, 0, 0, 0.6);
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			cursor: pointer;
-		}
+			.screenshot {
+				box-shadow: 1vw 2vh 5vh 1vh rgba(0, 0, 0, 0.6);
+				border-radius: 5px;
+			}
 
-		.overlay:hover {
-			opacity: 1;
-		}
+			.card-container {
+				padding: 2vh 1%;
+			}
 
-		.screenshot {
-			box-shadow: 1vw 2vh 5vh 1vh rgba(0, 0, 0, 0.6);
-			border-radius: 5px;
-		}
+			.card {
+				border-width: 0;
+				box-shadow: 1vw 2vh 5vh 0 rgba(0, 0, 0, 0.6);
+			}
 
-		.card-container {
-			padding: 2vh 1%;
-		}
+			.card-img-top {
+				overflow: hidden;
+				position: relative;
+			}
 
-		.card {
-			border-width: 0;
-			box-shadow: 1vw 2vh 5vh 0 rgba(0, 0, 0, 0.6);
-		}
+			.card-img-top img {
+				width: 100%;
+			}
 
-		.card-img-top {
-			overflow: hidden;
-			position: relative;
-		}
+			.overlay .play-button {
+				margin: 20% auto 0;
+				height: 30%;
+				width: auto;
+			}
 
-		.card-img-top img {
-			width: 100%;
-		}
+		</style>
 
-		.overlay .play-button {
-			margin: 20% auto 0;
-			height: 30%;
-			width: auto;
-		}
+	</head>
 
-	</style>
+	<body>
+		<div class="background" id="page">
+			<div class="full-section">
+				<img style="width: 90%; max-width: 100vh; margin: 0 auto" src="/portfolio/minecraft/img/title.png" />
+				<img style="max-height: 60vh; max-width: 100%; margin: 10vh auto" class="screenshot" src="/portfolio/minecraft/img/ai-ss.png" />
+			</div>
 
-</head>
+			<!-- AI -->
 
-<body>
-	<div class="background" id="page">
-		<div class="full-section">
-			<img style="width: 90%; max-width: 100vh; margin: 0 auto" src="/portfolio/minecraft/img/title.png" />
-			<img style="max-height: 60vh; max-width: 100%; margin: 10vh auto" class="screenshot" src="/portfolio/minecraft/img/ai-ss.png" />
+			<div class="sub-section">
+				<div class="sub-title">
+					<img src="/portfolio/minecraft/img/rule-title.png" />
+				</div>
+				<div class="sub-body">
+					<div class="img-div">
+						<img src="/portfolio/minecraft/img/rule-ss.png" class="screenshot" />
+						<div href="/portfolio/minecraft/videos/create.mp4" data-width="768" data-height="432" data-fancybox="minecraft-ai" class="overlay">
+							<img src="/portfolio/minecraft/img/play.png" class="play-button">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sub-section alt">
+				<div class="sub-title">
+					<img src="/portfolio/minecraft/img/fuzzy-title.png" />
+				</div>
+				<div class="sub-body">
+					<div class="img-div">
+						<img src="/portfolio/minecraft/img/fuzzy-ss.png" class="screenshot" />
+						<div href="/portfolio/minecraft/videos/engine.mp4" data-width="768" data-height="432" data-fancybox="minecraft-ai" class="overlay">
+							<img src="/portfolio/minecraft/img/play.png" class="play-button">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sub-section">
+				<div class="sub-title">
+					<img src="/portfolio/minecraft/img/export-title.png" />
+				</div>
+				<div class="sub-body">
+					<div class="img-div">
+						<img src="/portfolio/minecraft/img/export-ss.png" class="screenshot" />
+						<div href="/portfolio/minecraft/videos/export.mp4" data-width="768" data-height="432" data-fancybox="minecraft-ai" class="overlay">
+							<img src="/portfolio/minecraft/img/play.png" class="play-button">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- MODS -->
+
+			<div class="full-section" style="margin: 5vh auto; padding: 0 5%;">
+				<img class="sub-title-img" src="/portfolio/minecraft/img/mod-title.png" style="max-height: 7vh; max-width: 60%;margin: 5vh auto; text-align: center;" />
+				<div class="row">
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/melee.png" />
+								<div href="/portfolio/minecraft/videos/melee.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Melee Attack</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/arrow.png" />
+								<div href="/portfolio/minecraft/videos/arrow.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Ranged Attack</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/fireball.png" />
+								<div href="/portfolio/minecraft/videos/fireball.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Fireball</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/sowing.png" />
+								<div href="/portfolio/minecraft/videos/sowing.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Sowing & Tilling Soil</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/harvesting.png" />
+								<div href="/portfolio/minecraft/videos/harvesting.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Harvesting Crops</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/mining.png" />
+								<div href="/portfolio/minecraft/videos/mining.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Mining</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/house.png" />
+								<div href="/portfolio/minecraft/videos/build house.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Building - House</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/farm.png" />
+								<div href="/portfolio/minecraft/videos/build farm.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Building - Farm</h5>
+							</div>
+						</div>
+					</div>
+					<div class="card-container col-xs-12 col-sm-6 col-md-4">
+						<div class="card">
+							<div class="card-img-top">
+								<img src="/portfolio/minecraft/img/mine.png" />
+								<div href="/portfolio/minecraft/videos/build mine.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
+									<img src="/portfolio/minecraft/img/play.png" class="play-button">
+								</div>
+							</div>
+							<div class="card-body p-2">
+								<h5 class="card-title m-0">Building - Mine</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="description">
+				<h3>Stack</h3>
+				<p>
+					<img class="stack-logo" data-tooltip="Objective-C" src="/img/logo/osx.png">
+					<img class="stack-logo" data-tooltip="Java" src="/img/logo/java.png">
+				</p>
+				<h3>Description</h3>
+				<p>
+					This project aims to introduce the basics of AI to youths through simplified programming by incorporating fuzzy logic in Minecraft.
+					<br/>
+					<br/> The objectives are:
+				</p>
+				<ol>
+					<li>To allow users to learn how AI is employed in Non-Player Characters (NPCs) of video games through hands-on programming of their own AI agents.
+					</li>
+					<li> To spark interest in programming and AI in young users through video games.
+					</li>
+					<li> To encourage creative and critical thinking in users when developing their own AI agents.
+					</li>
+					<li>
+						To increase the number of possible ways that Minecraft can be played to provide a fresh gameplay experience for current players.
+					</li>
+				</ol>
+				<p> This project employs the characteristics of two AI techniques by incorporating fuzzy logic into behaviour trees. This is done by using a Fuzzy Inference System (FIS) as the main selector node. The FIS will compute the degree of support for each rule and then rank the subtrees from highest degree to lowest and attempt to execute them in this preference. Futhermore, fuzzy logic allows the use of natural language in the creation of rules. Instead of specifying crisp values like true, false or any numerical value, descriptive words like low, moderate or high can be used. This allows the rules to be more readable and easily interpreted by younger users.
+				</p>
+
+				<h3>Accolades</h3>
+				<ul>
+					<li>Paper published and presented in the 6
+						<sup>th</sup> Annual International Conference on Education & e-Learning (EeL 2016)
+						<a href="http://dl4.globalstf.org/?wpsc-product=introduction-of-artificial-intelligence-through-fuzzy-logic-in-minecraft">
+							&lt;Link To Paper&gt;
+						</a>
+					</li>
+				</ul>
+
+				<a href="https://github.com/pregnantboy/fuzzy-minecraft-ai" class="source-code">
+					<img src="/img/logo/github.png" height="40">
+					<span>Source</span>
+				</a>
+			</div>
 		</div>
 
-		<!-- AI -->
-
-		<div class="sub-section">
-			<div class="sub-title">
-				<img src="/portfolio/minecraft/img/rule-title.png" />
-			</div>
-			<div class="sub-body">
-				<div class="img-div">
-					<img src="/portfolio/minecraft/img/rule-ss.png" class="screenshot" />
-					<div href="/portfolio/minecraft/videos/create.mp4" data-width="768" data-height="432" data-fancybox="minecraft-ai" class="overlay">
-						<img src="/portfolio/minecraft/img/play.png" class="play-button">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="sub-section alt">
-			<div class="sub-title">
-				<img src="/portfolio/minecraft/img/fuzzy-title.png" />
-			</div>
-			<div class="sub-body">
-				<div class="img-div">
-					<img src="/portfolio/minecraft/img/fuzzy-ss.png" class="screenshot" />
-					<div href="/portfolio/minecraft/videos/engine.mp4" data-width="768" data-height="432" data-fancybox="minecraft-ai" class="overlay">
-						<img src="/portfolio/minecraft/img/play.png" class="play-button">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="sub-section">
-			<div class="sub-title">
-				<img src="/portfolio/minecraft/img/export-title.png" />
-			</div>
-			<div class="sub-body">
-				<div class="img-div">
-					<img src="/portfolio/minecraft/img/export-ss.png" class="screenshot" />
-					<div href="/portfolio/minecraft/videos/export.mp4" data-width="768" data-height="432" data-fancybox="minecraft-ai" class="overlay">
-						<img src="/portfolio/minecraft/img/play.png" class="play-button">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- MODS -->
-
-		<div class="full-section" style="margin: 5vh auto; padding: 0 5%;">
-			<img class="sub-title-img" src="/portfolio/minecraft/img/mod-title.png" style="max-height: 7vh; max-width: 60%;margin: 5vh auto; text-align: center;" />
-			<div class="row">
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/melee.png" />
-							<div href="/portfolio/minecraft/videos/melee.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Melee Attack</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/arrow.png" />
-							<div href="/portfolio/minecraft/videos/arrow.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Ranged Attack</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/fireball.png" />
-							<div href="/portfolio/minecraft/videos/fireball.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Fireball</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/sowing.png" />
-							<div href="/portfolio/minecraft/videos/sowing.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Sowing & Tilling Soil</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/harvesting.png" />
-							<div href="/portfolio/minecraft/videos/harvesting.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Harvesting Crops</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/mining.png" />
-							<div href="/portfolio/minecraft/videos/mining.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Mining</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/house.png" />
-							<div href="/portfolio/minecraft/videos/build house.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Building - House</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/farm.png" />
-							<div href="/portfolio/minecraft/videos/build farm.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Building - Farm</h5>
-						</div>
-					</div>
-				</div>
-				<div class="card-container col-xs-12 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top">
-							<img src="/portfolio/minecraft/img/mine.png" />
-							<div href="/portfolio/minecraft/videos/build mine.mp4" data-width="768" data-height="432" data-fancybox="minecraft-mods" class="overlay">
-								<img src="/portfolio/minecraft/img/play.png" class="play-button">
-							</div>
-						</div>
-						<div class="card-body p-2">
-							<h5 class="card-title m-0">Building - Mine</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="description">
-			<h3>Stack</h3>
-			<p>
-				<img class="stack-logo" data-tooltip="Objective-C" src="/img/logo/osx.png">
-				<img class="stack-logo" data-tooltip="Java" src="/img/logo/java.png">
-			</p>
-			<h3>Description</h3>
-			<p>
-				This project aims to introduce the basics of AI to youths through simplified programming by incorporating fuzzy logic in Minecraft.
-				<br/>
-				<br/> The objectives are:
-			</p>
-			<ol>
-				<li>To allow users to learn how AI is employed in Non-Player Characters (NPCs) of video games through hands-on programming of their own AI agents.
-				</li>
-				<li> To spark interest in programming and AI in young users through video games.
-				</li>
-				<li> To encourage creative and critical thinking in users when developing their own AI agents.
-				</li>
-				<li>
-					To increase the number of possible ways that Minecraft can be played to provide a fresh gameplay experience for current players.
-				</li>
-			</ol>
-			<p> This project employs the characteristics of two AI techniques by incorporating fuzzy logic into behaviour trees. This is done by using a Fuzzy Inference System (FIS) as the main selector node. The FIS will compute the degree of support for each rule and then rank the subtrees from highest degree to lowest and attempt to execute them in this preference. Futhermore, fuzzy logic allows the use of natural language in the creation of rules. Instead of specifying crisp values like true, false or any numerical value, descriptive words like low, moderate or high can be used. This allows the rules to be more readable and easily interpreted by younger users.
-			</p>
-
-			<h3>Accolades</h3>
-			<ul>
-				<li>Paper published and presented in the 6
-					<sup>th</sup> Annual International Conference on Education & e-Learning (EeL 2016)
-					<a href="http://dl4.globalstf.org/?wpsc-product=introduction-of-artificial-intelligence-through-fuzzy-logic-in-minecraft">
-						&lt;Link To Paper&gt;
-					</a>
-				</li>
-			</ul>
-
-			<a href="https://github.com/pregnantboy/fuzzy-minecraft-ai" class="source-code">
-				<img src="/img/logo/github.png" height="40">
-				<span>Source</span>
-			</a>
-		</div>
-	</div>
-
-	<script src="/vendor/jquery/jquery.min.js"></script>
-	<script src="/vendor/popper/popper.min.js"></script>
-	<script src="/vendor/popper/tooltip.min.js"></script>
-	<script src="/vendor/fancybox/jquery.fancybox.min.js"></script>
-	<script type="text/javascript">
-		document.querySelectorAll(".stack-logo").forEach((div) => {
-			new Tooltip(div, {
-				title: div.getAttribute("data-tooltip"),
-				trigger: "hover focus"
+		<script src="/vendor/jquery/jquery.min.js"></script>
+		<script src="/vendor/popper/popper.min.js"></script>
+		<script src="/vendor/popper/tooltip.min.js"></script>
+		<script src="/vendor/fancybox/jquery.fancybox.min.js"></script>
+		<script type="text/javascript">
+			document.querySelectorAll(".stack-logo").forEach((div) => {
+				new Tooltip(div, {
+					title: div.getAttribute("data-tooltip"),
+					trigger: "hover focus"
+				});
 			});
-		});
-	</script>
-</body>
+		</script>
+	</body>
 
 </html>
