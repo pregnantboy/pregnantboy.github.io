@@ -10,7 +10,8 @@ function loadUrl(folder, doNotReplaceHistory, doNotPushState) {
 
 let portfolioFolderObject = {
 	url: "/portfolio",
-	"folder-name": "Portfolio"
+	"folder-name": "Portfolio",
+	"folder-img": "/img/folder.svg"
 };
 
 function renderFolders(doNotPushState) {
@@ -105,10 +106,9 @@ function addToHistory(folder) {
 }
 
 function updateForwardBackButtons() {
-	let folderName = historyLog[historyPointer]["folder-name"];
 	$("#history").trigger("update", [historyLog.length,
 		historyPointer,
-		folderName]);
+		historyLog[historyPointer]]);
 }
 
 $("#history").on("goBack", () => {
@@ -183,9 +183,7 @@ function pushState(folder) {
 	// window.location.hash = hash;
 	let urlSuffix = "/";
 	if (folder.url) {
-		urlSuffix = folder.url
-		.replace("/index.html", "")
-		.replace(/^https?:\/\//, "/portfolio/");
+		urlSuffix = folder.url.replace("/index.html", "").replace(/^https?:\/\//, "/portfolio/");
 	}
 	history.pushState(folder, folder["folder-name"], urlSuffix);
 }

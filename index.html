@@ -1,79 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="theme-color" content="#000000">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="mobile-web-app-capable" content="yes">
-    <title>ian</title>
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>ian</title>
 
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/vendor/animate/animate.css" rel="stylesheet">
-    <link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-  </head>
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/animate/animate.css" rel="stylesheet">
+  <link href="/vendor/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="terminal-container col-12 overflow-x-hidden">
-      <terminal></terminal>
-    </div>
-    <div id="window">
-      <div class="window-header text-center" ondblclick="toggleWindow()">
-        <span style="width: 100%">
-          <div id="history" class="btn-group btn-group-toggle">
-            <button id="back" class="btn" onclick="goBack()">
-              <i class="far fa-angle-left"></i>
-            </button>
-            <button id="forward" class="btn" style="border-left: none" onclick="goForward()">
-              <i class="far fa-angle-right"></i>
-            </button>
-          </div>
-
-          <span id="traffic-lights">
-            <span class="fa-stack fa-1x float-right window-header-buttons" onclick="closeWindow()">
-              <i class="fas fa-circle fa-stack-1x red-light"></i>
-              <i class="fa-inverse fas fa-times fa-stack-halfx"></i>
-            </span>
-            <span class="fa-stack fa-1x float-right window-header-buttons" onclick="expandWindow()">
-              <i class="fas fa-circle fa-stack-1x green-light"></i>
-              <i class="fa-inverse fas fa-plus fa-stack-halfx"></i>
-            </span>
-            <span class="fa-stack fa-1x float-right window-header-buttons" onclick="shrinkWindow()">
-              <i class="fas fa-circle fa-stack-1x yellow-light"></i>
-              <i class="fa-inverse fas fa-minus fa-stack-halfx"></i>
-            </span>
-          </span>
-          <button class="open-external-btn btn" onclick="openExternal()">
-            <i class="fal fa-external-link"></i>
+<body>
+  <div class="terminal-container col-12 overflow-x-hidden">
+    <terminal></terminal>
+  </div>
+  <div id="window">
+    <div class="window-header text-center" ondblclick="toggleWindow()">
+      <span style="width: 100%">
+        <div id="history" class="btn-group btn-group-toggle">
+          <button id="back" class="btn" onclick="goBack()">
+            <i class="far fa-angle-left"></i>
           </button>
-          <span id="window-title">Portfolio
+          <button id="forward" class="btn" style="border-left: none" onclick="goForward()">
+            <i class="far fa-angle-right"></i>
+          </button>
+        </div>
+
+        <span id="traffic-lights">
+          <span class="fa-stack fa-1x float-right window-header-buttons" onclick="closeWindow()">
+            <i class="fas fa-circle fa-stack-1x red-light"></i>
+            <i class="fa-inverse fas fa-times fa-stack-halfx"></i>
+          </span>
+          <span class="fa-stack fa-1x float-right window-header-buttons" onclick="expandWindow()">
+            <i class="fas fa-circle fa-stack-1x green-light"></i>
+            <i class="fa-inverse fas fa-plus fa-stack-halfx"></i>
+          </span>
+          <span class="fa-stack fa-1x float-right window-header-buttons" onclick="shrinkWindow()">
+            <i class="fas fa-circle fa-stack-1x yellow-light"></i>
+            <i class="fa-inverse fas fa-minus fa-stack-halfx"></i>
           </span>
         </span>
-      </div>
-      <div class="window-body">
-      </div>
+        <button class="open-external-btn btn" onclick="openExternal()">
+          <i class="fal fa-external-link"></i>
+        </button>
+        <span id="window-title">
+          <img id="window-title-icon" src="/img/folder.svg"><span>Portfolio</span>
+        </span>
+      </span>
     </div>
+    <div class="window-body">
+    </div>
+  </div>
 
-    <!-- vendors -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/typed.js/typed.min.js"></script>
-    <script src="/vendor/async/async.min.js"></script>
-    <script src="/vendor/json2html/json2html.js"></script>
-    <script src="/vendor/json2html/jquery.json2html.js"></script>
-    <!-- user scripts -->
-    <script src="/js/terminal.js"></script>
-    <script src="/js/window.js"></script>
-    <script src="/js/index.js"></script>
-    <script src="/portfolio/portfolio.js"></script>
-  </body>
+  <!-- vendors -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/typed.js/typed.min.js"></script>
+  <script src="/vendor/async/async.min.js"></script>
+  <script src="/vendor/json2html/json2html.js"></script>
+  <script src="/vendor/json2html/jquery.json2html.js"></script>
+  <!-- user scripts -->
+  <script src="/js/terminal.js"></script>
+  <script src="/js/window.js"></script>
+  <script src="/js/index.js"></script>
+  <script src="/portfolio/portfolio.js"></script>
+</body>
 
 </html>

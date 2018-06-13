@@ -3,12 +3,12 @@ function showWindow(async) {
 	// load again in case not called from choice select
 	$(".window-body").load("/portfolio/index.html");
 
-	$("#history").on("update", (event, historyLength, historyPointer, folderName) => {
-		$("#window-title").text(folderName);
+	$("#history").on("update", (event, historyLength, historyPointer, folder) => {
+		$("#window-title").html(`<img id="window-title-icon" src="${folder["folder-img"]}" ><span> ${folder["folder-name"]} </span>`);
 		$("#forward").prop("disabled", historyPointer >= historyLength - 1);
 		$("#back").prop("disabled", historyPointer === 0);
 		// whether to show the open external button
-		if (folderName === "Portfolio") {
+		if (folder["folder-name"] === "Portfolio") {
 			$(".open-external-btn").removeClass("show");
 		} else {
 			$(".open-external-btn").addClass("show");
