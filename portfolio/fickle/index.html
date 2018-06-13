@@ -1,326 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>fiddle my ...</title>
-		<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon.ico" />
-		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/vendor/swiper/swiper.min.css" rel="stylesheet">
-		<link href="/css/main.css" rel="stylesheet">
-		<style>
-			body {
-				margin: 0;
-				width: 100vw;
-				overflow: hidden;
-			}
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>fiddle my ...</title>
+	<link rel="icon" type="image/png" href="/portfolio/fickle/img/favicon.ico" />
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/vendor/swiper/swiper.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			width: 100vw;
+			overflow: hidden;
+		}
 
-			.background {
-				height: 100vh;
-				overflow: hidden;
-				background: linear-gradient( rgb(27, 202, 233) 0%, rgba(92, 191, 208, 1) 50%, white 50%);
-			}
+		.background {
+			height: 100vh;
+			overflow: hidden;
+			background: linear-gradient( rgb(27, 202, 233) 0%, rgba(92, 191, 208, 1) 50%, white 50%);
+		}
 
-			.swiper-slide {
-				height: 100vh;
-			}
+		.swiper-slide {
+			height: 100vh;
+		}
 
-			.swiper-slide div {
-				/* user-select: none; */
-			}
+		.swiper-slide div {
+			/* user-select: none; */
+		}
 
-			.title {
-				height: 50vh;
-				width: 100%;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				top: 0;
-			}
+		.title {
+			height: 50vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 0;
+		}
 
+		.title h2 {
+			padding-top: 20px;
+			color: white;
+			font-size: 50px;
+			font-weight: 500;
+			position: bottom;
+			margin-left: 25px;
+		}
+
+		.title h1 {
+			color: white;
+			font-size: 80px;
+			letter-spacing: 5px;
+			font-weight: 500;
+			margin-left: 25px;
+		}
+
+		@media screen and (max-width: 767px) {
 			.title h2 {
-				padding-top: 20px;
+				padding-top: 10px;
 				color: white;
-				font-size: 50px;
+				font-size: 30px;
 				font-weight: 500;
-				position: bottom;
-				margin-left: 25px;
+				margin-left: 15px;
 			}
 
 			.title h1 {
 				color: white;
-				font-size: 80px;
+				font-size: 60px;
 				letter-spacing: 5px;
 				font-weight: 500;
-				margin-left: 25px;
+				margin-left: 15px;
 			}
 
-			@media screen and (max-width: 767px) {
-				.title h2 {
-					padding-top: 10px;
-					color: white;
-					font-size: 30px;
-					font-weight: 500;
-					margin-left: 15px;
-				}
+		}
 
-				.title h1 {
-					color: white;
-					font-size: 60px;
-					letter-spacing: 5px;
-					font-weight: 500;
-					margin-left: 15px;
-				}
+		.bottom {
+			height: 50vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-bottom: 5vh;
+			opacity: 0;
+		}
 
+		.bottom h3 {
+			color: black;
+			font-size: 17px;
+		}
+
+		.typed-cursor {
+			color: white;
+			opacity: 1;
+			animation: blink 0.7s infinite;
+		}
+
+
+		@keyframes blink {
+			0% {
+				opacity: 1;
 			}
-
-			.bottom {
-				height: 50vh;
-				width: 100%;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding-bottom: 5vh;
+			50% {
 				opacity: 0;
 			}
-
-			.bottom h3 {
-				color: black;
-				font-size: 17px;
-			}
-
-			.typed-cursor {
-				color: white;
+			100% {
 				opacity: 1;
-				animation: blink 0.7s infinite;
 			}
+		}
+
+		.center-contents.padded {
+			height: 100%;
+			flex-direction: column;
+		}
+
+		.phone {
+			margin-top: 6vh;
+			height: 60vh;
+		}
+
+		.phone-text {
+			font-size: 3rem;
+			height: 3vh;
+			overflow: visible;
+			text-transform: uppercase;
+			color: white;
+			position: absolute;
+			top: calc(20vh - 4rem);
+		}
 
 
-			@keyframes blink {
-				0% {
-					opacity: 1;
-				}
-				50% {
-					opacity: 0;
-				}
-				100% {
-					opacity: 1;
-				}
-			}
+		.phone.frame {
+			background-image: url('/portfolio/fickle/img/phoneframe.png');
+			width: 100%;
+			border: none;
+		}
 
-			.center-contents.padded {
-				height: 100%;
-				flex-direction: column;
-			}
+		.promo-video {
+			width: 60vw;
+			height: 33.75vw;
+		}
 
-			.phone {
-				margin-top: 6vh;
-				height: 60vh;
-			}
 
+		.description-container {
+			min-height: 100%;
+			background: linear-gradient( rgb(27, 202, 233), rgb(92, 191, 208));
+			overflow-y: auto;
+		}
+
+		.description a {
+			color: rgb(12, 83, 95);
+			font-weight: 700;
+		}
+
+		.navigate-icon {
+			background-image: url("/portfolio/fickle/img/arrowkeys.png");
+			position: absolute;
+			left: 0;
+			bottom: 2vh;
+			height: 6vh;
+			max-height: 60px;
+			width: 100%;
+			min-height: 30px;
+		}
+
+		@media screen and (max-width: 767px) {
 			.phone-text {
-				font-size: 3rem;
-				height: 3vh;
-				overflow: visible;
-				text-transform: uppercase;
-				color: white;
-				position: absolute;
-				top: calc(20vh - 4rem);
-			}
-
-
-			.phone.frame {
-				background-image: url('/portfolio/fickle/img/phoneframe.png');
-				width: 100%;
-				border: none;
+				font-size: 2rem;
+				top: calc(20vh - 3rem);
 			}
 
 			.promo-video {
-				width: 60vw;
-				height: 33.75vw;
-			}
-
-
-			.description-container {
-				min-height: 100%;
-				background: linear-gradient( rgb(27, 202, 233), rgb(92, 191, 208));
-				overflow-y: auto;
-			}
-
-			.description a {
-				color: rgb(12, 83, 95);
-				font-weight: 700;
+				width: 90vw;
+				height: 50.625vw;
 			}
 
 			.navigate-icon {
-				background-image: url("/portfolio/fickle/img/arrowkeys.png");
-				position: absolute;
-				left: 0;
-				bottom: 2vh;
-				height: 6vh;
-				max-height: 60px;
-				width: 100%;
-				min-height: 30px;
+				background-image: url("/portfolio/fickle/img/swipe.svg");
 			}
+		}
 
-			@media screen and (max-width: 767px) {
-				.phone-text {
-					font-size: 2rem;
-					top: calc(20vh - 3rem);
-				}
+	</style>
+</head>
 
-				.promo-video {
-					width: 90vw;
-					height: 50.625vw;
-				}
-
-				.navigate-icon {
-					background-image: url("/portfolio/fickle/img/swipe.svg");
-				}
-			}
-
-		</style>
-	</head>
-
-	<body>
-		<div id="page" class="background">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<div class="title">
-						<h2 id="questionrow">
-							<span id="question"></span>
-						</h2>
-						<h1 id="ficklerow" style="display: none;">FICKLE.</h1>
-					</div>
-					<div class="center-contents" style="position: absolute; height: 100vh; width: 100vw; top: 0;">
-						<img src="/portfolio/fickle/img/icon.png" height="180" width="180" style="max-height: 20vh; max-width: 20vh;">
-					</div>
-					<div class="bottom">
-						<h3>
-							<b>Making Everyday Decisions Easier</b>
-							<div class="navigate-icon center-background"></div>
-						</h3>
-					</div>
+<body>
+	<div id="page" class="background">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="title">
+					<h2 id="questionrow">
+						<span id="question"></span>
+					</h2>
+					<h1 id="ficklerow" style="display: none;">FICKLE.</h1>
 				</div>
-
-				<div class="swiper-slide">
-					<div class="center-contents padded">
-						<div class="phone-text">Ask anything</div>
-						<img class="phone" src="/portfolio/fickle/img/question.png">
-					</div>
+				<div class="center-contents" style="position: absolute; height: 100vh; width: 100vw; top: 0;">
+					<img src="/portfolio/fickle/img/icon.png" height="180" width="180" style="max-height: 20vh; max-width: 20vh;">
 				</div>
-				<div class="swiper-slide">
-					<div class="center-contents padded">
-						<div class="phone-text">Get answers fast</div>
-						<div class="phone frame center-background">
-							<video src="/portfolio/fickle/img/answer.mp4" type="video/mp4" style="height: 76%; margin: 7.2vh auto; display: block;" autoplay muted loop></video>
-						</div>
-					</div>
+				<div class="bottom">
+					<h3>
+						<b>Making Everyday Decisions Easier</b>
+						<div class="navigate-icon center-background"></div>
+					</h3>
 				</div>
-				<div class="swiper-slide">
-					<div class="center-contents padded">
-						<iframe id="ytplayer" src="https://www.youtube-nocookie.com/embed/Ya73l2ghhgQ?rel=0&amp;showinfo=0&amp;modestbranding=1&amp;enablejsapi=1" frameborder="0" allow="encrypted-media" allowfullscreen class="promo-video">
-						</iframe>
-					</div>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="center-contents padded">
+					<div class="phone-text">Ask anything</div>
+					<img class="phone" src="/portfolio/fickle/img/question.png">
 				</div>
-				<div class="swiper-slide description-container">
-					<div class="description" style="color: white;">
-						<h3>Stack</h3>
-						<p>
-							<img class="stack-logo" data-tooltip="Objective-C" src="/img/logo/ios.png">
-							<img class="stack-logo" data-tooltip="Firebase" src="/img/logo/firebase.png">
-						</p>
-						<h3>Description</h3>
-						<p>
-							An average person makes thousands of decisions a day. Some of these are insignificant while others are life-changing. Making all these decisions is very draining - don't you wish there's a convenient way to get quick and sensible opinion from friends?
-							<br>
-							<br> Fickle is a social polling app that makes decisions easier by connecting you to your friends in a fun environment with fast responses; the perfect environment to engage in whenever you are torn between choices.
-
-							<br>
-							<br> Our business model stems from two forms. First, companies can pay to post questions actively (in the form of sponsored posts) to gather quick consumer opinions. Second, we gather user activity passively to provide market insights for our business partners. These two strategies also makes Fickle a competitive market research platform for two reasons. 1) It allows companies to communicate directly with consumers through active polling and 2) it provides companies with higher quality market data through passive polling.
-						</p>
-
-						<h3>Accolades</h3>
-						<p>
-							<ul>
-								<li>Selected to represent UC Berkeley and NTU</li>
-								<li>Finalist in the Unversity Mobile Challeng(UMC) 2015 - Mobile World Congress (Barcelona, Spain)</li>
-							</ul>
-						</p>
-						<h3>External Links</h3>
-						<a href="https://www.ntu.edu.sg/rep/PublishingImages/Pages/Programme-Overview/NTU_REP_2015_spread_480x260mm(h)_LR.pdf" target="_blank">REP Brouchure</a>
-						<br>
-						<a href="https://www.built.io/blog/uc-berkeley-s-university-mobile-challenge-semi-finals-with-built-io" target="_blank">Built.io</a>
+			</div>
+			<div class="swiper-slide">
+				<div class="center-contents padded">
+					<div class="phone-text">Get answers fast</div>
+					<div class="phone frame center-background">
+						<video src="/portfolio/fickle/img/answer.mp4" type="video/mp4" style="height: 76%; margin: 7.2vh auto; display: block;" autoplay muted loop></video>
 					</div>
 				</div>
 			</div>
-			<div class="swiper-button-prev center-background" style="background-image: url('/portfolio/fickle/img/back.png'); background-size: 100% 80%;"></div>
-			<div class="swiper-button-next center-background" style="background-image: url('/portfolio/fickle/img/next.png'); background-size: 100% 80%;"></div>
-			<div class="swiper-scrollbar" style="position:fixed!important"></div>
+			<div class="swiper-slide">
+				<div class="center-contents padded">
+					<iframe id="ytplayer" src="https://www.youtube-nocookie.com/embed/Ya73l2ghhgQ?rel=0&amp;showinfo=0&amp;modestbranding=1&amp;enablejsapi=1" frameborder="0" allow="encrypted-media" allowfullscreen class="promo-video">
+					</iframe>
+				</div>
+			</div>
+			<div class="swiper-slide description-container">
+				<div class="description" style="color: white;">
+					<h3>Stack</h3>
+					<p>
+						<img class="stack-logo" data-tooltip="Objective-C" src="/img/logo/ios.png">
+						<img class="stack-logo" data-tooltip="Firebase" src="/img/logo/firebase.png">
+					</p>
+					<h3>Description</h3>
+					<p>
+						An average person makes thousands of decisions a day. Some of these are insignificant while others are life-changing. Making all these decisions is very draining - don't you wish there's a convenient way to get quick and sensible opinion from friends?
+						<br>
+						<br> Fickle is a social polling app that makes decisions easier by connecting you to your friends in a fun environment with fast responses; the perfect environment to engage in whenever you are torn between choices.
+
+						<br>
+						<br> Our business model stems from two forms. First, companies can pay to post questions actively (in the form of sponsored posts) to gather quick consumer opinions. Second, we gather user activity passively to provide market insights for our business partners. These two strategies also makes Fickle a competitive market research platform for two reasons. 1) It allows companies to communicate directly with consumers through active polling and 2) it provides companies with higher quality market data through passive polling.
+					</p>
+
+					<h3>Accolades</h3>
+					<p>
+						<ul>
+							<li>Selected to represent UC Berkeley and NTU</li>
+							<li>Finalist in the Unversity Mobile Challeng(UMC) 2015 - Mobile World Congress (Barcelona, Spain)</li>
+						</ul>
+					</p>
+					<h3>External Links</h3>
+					<a href="https://www.ntu.edu.sg/rep/PublishingImages/Pages/Programme-Overview/NTU_REP_2015_spread_480x260mm(h)_LR.pdf" target="_blank">REP Brouchure</a>
+					<br>
+					<a href="https://www.built.io/blog/uc-berkeley-s-university-mobile-challenge-semi-finals-with-built-io" target="_blank">Built.io</a>
+				</div>
+			</div>
 		</div>
-		<script src=" /vendor/jquery/jquery.min.js "></script>
-		<script src="/vendor/typed.js/typed.min.js "></script>
-		<script src="/vendor/swiper/swiper.min.js "></script>
-		<script>
-			var tag = document.createElement('script');
-			tag.id = 'iframe-demo';
-			tag.src = 'https://www.youtube.com/iframe_api';
-			var firstScriptTag = document.getElementsByTagName('script')[0];
-			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		<div class="swiper-button-prev center-background" style="background-image: url('/portfolio/fickle/img/back.png'); background-size: 100% 80%;"></div>
+		<div class="swiper-button-next center-background" style="background-image: url('/portfolio/fickle/img/next.png'); background-size: 100% 80%;"></div>
+		<div class="swiper-scrollbar" style="position:fixed!important"></div>
+	</div>
+	<script src="/js/google-analytics.js"></script>
+	<script src=" /vendor/jquery/jquery.min.js "></script>
+	<script src="/vendor/typed.js/typed.min.js "></script>
+	<script src="/vendor/swiper/swiper.min.js "></script>
+	<script>
+		var tag = document.createElement('script');
+		tag.id = 'iframe-demo';
+		tag.src = 'https://www.youtube.com/iframe_api';
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-			var player;
-			function onYouTubeIframeAPIReady() {
-				player = new YT.Player('ytplayer');
-			}
+		var player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('ytplayer');
+		}
 
-			$(document).ready(function () {
+		$(document).ready(function () {
 
-				var mySwiper = new Swiper('#page ', {
-					scrollbar: {
-						el: '.swiper-scrollbar ',
-					},
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					},
-					fadeEffect: {
-						crossFade: true
-					},
-					keyboard: {
-						enabled: true,
-						onlyInViewport: false,
-					},
-					on: {
-						slideChange: function () {
-							if (this.activeIndex !== 3 && player.pauseVideo) {
-								player.pauseVideo();
-							}
+			var mySwiper = new Swiper('#page ', {
+				scrollbar: {
+					el: '.swiper-scrollbar ',
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				fadeEffect: {
+					crossFade: true
+				},
+				keyboard: {
+					enabled: true,
+					onlyInViewport: false,
+				},
+				on: {
+					slideChange: function () {
+						if (this.activeIndex !== 3 && player.pauseVideo) {
+							player.pauseVideo();
 						}
 					}
-				});
-
-				var typed = new Typed("#question ", {
-					strings: ["Got a question? ", "Let 's fickle it out"],
-					typeSpeed: 30,
-					startDelay: 30,
-					showCursor: true,
-					backDelay: 1000,
-					cursorChar: "|",
-					onComplete: function () {
-						setTimeout(function () {
-							$("#questionrow").fadeOut(500, function () {
-								$("#ficklerow").fadeIn(500, function () {
-									$(".bottom").fadeTo(500, 0.5)
-								});
-							});
-						}, 1000);
-					}
-				});
+				}
 			});
 
-		</script>
-	</body>
+			var typed = new Typed("#question ", {
+				strings: ["Got a question? ", "Let 's fickle it out"],
+				typeSpeed: 30,
+				startDelay: 30,
+				showCursor: true,
+				backDelay: 1000,
+				cursorChar: "|",
+				onComplete: function () {
+					setTimeout(function () {
+						$("#questionrow").fadeOut(500, function () {
+							$("#ficklerow").fadeIn(500, function () {
+								$(".bottom").fadeTo(500, 0.5)
+							});
+						});
+					}, 1000);
+				}
+			});
+		});
+
+	</script>
+</body>
 
 </html>

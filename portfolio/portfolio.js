@@ -41,7 +41,7 @@ function renderFolders(doNotPushState) {
 		url: "/portfolio/vault/index.html"
 	},
 	{
-		"folder-name": "AED App",
+		"folder-name": "AED Crowdsourcing",
 		"folder-img": "/portfolio/aed/img/aed-logo.png",
 		url: "/portfolio/aed/index.html"
 	},
