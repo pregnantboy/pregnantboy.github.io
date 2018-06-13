@@ -184,6 +184,7 @@ function pushState(folder) {
 	let urlSuffix = "/";
 	if (folder.url) {
 		urlSuffix = folder.url.replace("/index.html", "");
+		urlSuffix = folder.url.replace("http://", "/portfolio/");
 	}
 	history.pushState(folder, folder["folder-name"], urlSuffix);
 }
