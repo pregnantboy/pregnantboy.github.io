@@ -47,7 +47,7 @@ function renderFolders(doNotPushState) {
 	{
 		"folder-name": "adelinetng.com",
 		"folder-img": "/img/adel-logo.png",
-		url: "http://adelinetng.com"
+		url: "https://adelinetng.com"
 	},
 	{
 		"folder-name": "DMGify",
@@ -183,7 +183,9 @@ function pushState(folder) {
 	// window.location.hash = hash;
 	let urlSuffix = "/";
 	if (folder.url) {
-		urlSuffix = folder.url.replace("/index.html", "").replace(/^https?:\/\//, "/portfolio/");
+		urlSuffix = folder.url
+		.replace("/index.html", "")
+		.replace(/^https?:\/\//, "/portfolio/");
 	}
 	history.pushState(folder, folder["folder-name"], urlSuffix);
 }
