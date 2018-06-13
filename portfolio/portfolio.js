@@ -183,8 +183,7 @@ function pushState(folder) {
 	// window.location.hash = hash;
 	let urlSuffix = "/";
 	if (folder.url) {
-		urlSuffix = folder.url.replace("/index.html", "");
-		urlSuffix = folder.url.replace(/^https?:\/\//, "/portfolio/");
+		urlSuffix = folder.url.replace("/index.html", "").replace(/^https?:\/\//, "/portfolio/");
 	}
 	history.pushState(folder, folder["folder-name"], urlSuffix);
 }
