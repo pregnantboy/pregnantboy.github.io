@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dmgify</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/portfolio/dmgify/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/portfolio/dmgify/img/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/portfolio/dmgify/img/favicon-16x16.png">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,600" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			width: 100vw;
+			overflow-x: hidden;
+		}
+
+		.background {
+			height: 100%;
+			min-height: 100vh;
+			background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+			display: flex;
+			align-items: center;
+			font-family: 'Rubik';
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.main-title {
+			font-size: 8vh;
+			margin-top: 5vh;
+			font-weight: 600;
+			color: rgb(40, 40, 40);
+		}
+
+		.sub-title {
+			font-size: 4vh;
+		}
+
+		.sub-title a {
+			text-decoration: none;
+			border-bottom: 2px dotted black;
+			color: rgb(40, 40, 40);
+		}
+
+		.image-container {
+			height: 60vh;
+			z-index: 1;
+		}
+
+		.image-container img {
+			max-height: 100%;
+			max-width: 90vw;
+		}
+
+		#particles canvas {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			width: 100vw;
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		@media screen and (max-width: 747px) {
+			.main-title {
+				font-size: 45px;
+			}
+
+			.sub-title {
+				font-size: 20px;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="background">
+		<div id="particles"></div>
+		<div class="center-contents image-container">
+			<img src="/portfolio/dmgify/img/dmgify.png">
+		</div>
+		<span class="main-title">dmgify</span>
+		<span class="sub-title">Packs your app nicely in a
+			<a href="https://www.lifewire.com/dmg-file-2620719" target="_blank">dmg</a>
+		</span>
+		<a href="https://github.com/pregnantboy/dmgify" class="source-code">
+			<img src="/img/logo/github.png" height="40">
+			<span>Source</span>
+		</a>
+	</div>
+	<script src="/vendor/particlesjs/particles.min.js">
+	</script>
+
+	<script>
+		particlesJS.load("particles", "/portfolio/dmgify/particlesjs-config.json", function () {
+			console.log("callback - particles.js config loaded");
+		});
+	</script>
+</body>

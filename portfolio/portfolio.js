@@ -4,7 +4,7 @@ function loadUrl(folder, doNotReplaceHistory, doNotPushState) {
 		return;
 	}
 
-	$("#content").html(`<iframe src="${folder.url}" frameborder="0" width="100%;" style="height: 80vh" scrolling="yes" onload="this.contentWindow.focus()"></iframe>`);
+	$("#content").html(`<iframe src="${folder.url}" frameborder="0" width="100%;" style="height: 100%" scrolling="yes" onload="this.contentWindow.focus()"></iframe>`);
 	if (!doNotReplaceHistory) {
 		addToHistory(folder);
 	}
@@ -57,8 +57,8 @@ function renderFolders(doNotPushState) {
 	},
 	{
 		"folder-name": "DMGify",
-		"folder-img": "",
-		url: "/portfolio/fickle/index.html"
+		"folder-img": "/portfolio/dmgify/img/dmgify-logo.png",
+		url: "/portfolio/dmgify/index.html"
 	},
 	{
 		"folder-name": "School Apps",
