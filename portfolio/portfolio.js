@@ -63,7 +63,7 @@ function renderFolders(doNotPushState) {
 	{
 		"folder-name": "School Apps",
 		"folder-img": "",
-		url: "/portfolio/fickle/index.html"
+		url: "/portfolio/misc/index.html"
 	}];
 
 	let folderTemplate = {

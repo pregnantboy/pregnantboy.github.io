@@ -17,9 +17,10 @@ let print = (msg, keepSpaces) => term.print.bind(term, msg, keepSpaces);
 
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 	showWindow();
+	startup(true);
+} else {
+	startup(false);
 }
-
-startup(true);
 
 function startup(skip) {
 	if (skip) {
@@ -173,4 +174,3 @@ function escapeString(string) {
 	div.appendChild(document.createTextNode(string));
 	return div.innerHTML;
 }
-
