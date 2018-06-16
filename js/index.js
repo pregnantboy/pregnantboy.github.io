@@ -23,14 +23,22 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 }
 
 function startup(skip) {
+	let storedId = getCookie("loginId");
+	let returning = false;
+	if (storedId && storedId.length > 0) {
+		id = storedId;
+		returning = true;
+		skip = true;
+	}
 	if (skip) {
-		showLogo().then(() => {
+		showLogo(returning).then(() => {
 			getSelectedChoice(true);
 		});
 	} else {
 		getLoginId()
 			.then(newId => {
 				id = newId;
+				setCookie("loginId", id, 30);
 				return showLogo();
 			})
 			.then(() => {
@@ -70,7 +78,7 @@ function getLoginId() {
 	});
 }
 
-function showLogo() {
+function showLogo(returning) {
 	return new Promise((resolve, reject) => {
 		async.waterfall([window.innerWidth > 600
 			? print(`
@@ -95,7 +103,8 @@ function showLogo() {
 	       		`,
 			true), next => {
 			// must be done in a function for id to be updated;
-			term.type("Welcome " + id + "!", next);
+			let welcomeMsg = returning ? "Welcome back " : "Welcome ";
+			term.type(welcomeMsg + id + "!", next);
 		}],
 		err => {
 			if (err) reject(err);
@@ -112,7 +121,8 @@ function getSelectedChoice(firstLoad) {
 		next => {
 			term.choice([{ choice: "Portfolio", id: 1 },
 				{ choice: "Resume", id: 2 },
-				{ choice: "Contact Info", id: 3 }], choice => {
+				{ choice: "Contact Info", id: 3 },
+				{ choice: "Logout", id: 4 }], choice => {
 				selectedChoice = choice;
 				next();
 			});
@@ -163,6 +173,14 @@ function handleChoice(choice) {
 			type("github: <a target=\"_blank\" href=\"https://github.com/pregnantboy\">@pregnantboy</a>"),
 			type("linkedin:  <a target=\"_blank\" href=\"https://www.linkedin.com/in/chenweiian/\">chenweiiian</a>")],
 		getSelectedChoice);
+		break;
+	case 4:
+		async.waterfall([type("Logging out...^500 Successful!"),
+			next => {
+				deleteCookie("loginId");
+				next();
+			},
+			type("[Connection terminated]")]);
 		break;
 	default:
 		getSelectedChoice();
