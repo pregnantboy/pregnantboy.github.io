@@ -85,6 +85,10 @@ function renderFolders(doNotPushState) {
 
 	$("#content").html("<div class=\"folder-list row\"></div>");
 
+	if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+		$(".folder-list").append("<div class=\"file-container-warning\">Pages will open in new tabs on iOS devices</div>");
+	}
+
 	$(".folder-list").json2html(folderData, folderTemplate);
 
 	if (!doNotPushState) {
