@@ -1,5 +1,10 @@
 function loadUrl(folder, doNotReplaceHistory, doNotPushState) {
-	$("#content").html(`<iframe src="${folder.url}" frameborder="0" style="height: calc(100% + 1px); width: 100%;" onload="this.contentWindow.focus()"></iframe>`);
+	if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+		window.open(folder.url, "_blank");
+		return;
+	}
+
+	$("#content").html(`<iframe src="${folder.url}" frameborder="0" width="100%;" style="height: 80vh" scrolling="yes" onload="this.contentWindow.focus()"></iframe>`);
 	if (!doNotReplaceHistory) {
 		addToHistory(folder);
 	}
