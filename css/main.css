@@ -42,7 +42,7 @@
 
 body {
     font-family: "Source Code Pro", monospace;
-    min-height: 100vh;
+    min-height: 100%;
     width: 100vw;
     background: #111116;
     background: -webkit-linear-gradient(to left, #2a2b2c, #111116);
@@ -82,7 +82,7 @@ body {
 
 .terminal-container {
     padding: 5vh 5vw;
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
 }

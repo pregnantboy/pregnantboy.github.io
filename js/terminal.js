@@ -29,6 +29,10 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 	inputField.style.fontSize = "1px";
 	inputField.style.color = "transparent";
 	inputField.maxLength = "30";
+	inputField.autocomplete = "off";
+	inputField.autocapitalize = "off";
+	inputField.autocorrect = "off";
+	inputField.spellcheck = false;
 
 	terminalObj._inputLine.textContent = "";
 	terminalObj._input.style.display = "block";
@@ -80,7 +84,10 @@ function promptInput(terminalObj, message, PROMPT_TYPE, callback) {
 				firstPrompt = false;
 				setTimeout(() => {
 					inputField.focus();
-				}, 1);
+				}, 100);
+				setTimeout(() => {
+					inputField.click();
+				}, 200);
 			} else {
 				inputField.focus();
 			}
@@ -336,9 +343,9 @@ class Terminal {
 	}
 	scrollToBottom() {
 		if (this._autoScroll) {
+			this._containerDiv.scrollTop = this._containerDiv.scrollHeight + 10;
 			// Document scrolltop needed for mobile devices with address bar on top
 			document.documentElement.scrollTop = document.documentElement.scrollHeight;
-			this._containerDiv.scrollTop = this._containerDiv.scrollHeight + 10;
 		}
 	}
 }

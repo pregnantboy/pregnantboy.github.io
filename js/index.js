@@ -49,6 +49,7 @@ function startup(skip) {
 
 function getLoginId() {
 	return new Promise((resolve, reject) => {
+		term.setAutoScroll(false);
 		let newId = null;
 		async.waterfall([type("Booting up...^500"),
 			next => {
@@ -69,6 +70,7 @@ function getLoginId() {
 			sleep(1000),
 			clear()],
 		err => {
+			term.setAutoScroll(true);
 			if (err) {
 				reject(err);
 			} else {

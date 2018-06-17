@@ -41,9 +41,34 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             background-position: center;
             background-size: 80% auto;
             background-repeat: no-repeat;
+        }
+
+        .two-div {
+            grid-row: span 2;
+        }
+
+        .one-div {
+            grid-row: span 1;
+        }
+
+        .logo {
+            width: 60%;
+        }
+
+        .stills-vid {
+            width: 80%;
+            min-height: 30vw;
+            margin: 0 auto;
+            opacity: 0
+        }
+
+        .stills-vid:hover,
+        .stills-vid:focus {
+            opacity: 1;
         }
 
         @media screen and (max-width: 767px) {
@@ -70,36 +95,9 @@
             }
         }
 
-
-        .two-div {
-            grid-row: span 2;
-        }
-
-        .one-div {
-            grid-row: span 1;
-        }
-
-        .logo {
-            width: 60%;
-        }
-
-        .stills-vid {
-            width: 80%;
-            min-height: 30vw;
-            margin: 0 auto;
-            opacity: 0
-        }
-
-        .stills-vid:hover,
-        .stills-vid:focus {
-            opacity: 1;
-        }
-
-        .video-label {
-            position: absolute;
-            top: 12%;
+        .title-label {
             color: white;
-            text-transform: uppercase;
+            text-align: center;
             letter-spacing: 2px;
             font-weight: 500;
             font-size: 1.4rem;
@@ -115,6 +113,7 @@
             <div class="one-div"> </div>
             <div class="still-div two-div">
                 <img class="logo" src="/portfolio/pepo/pepo-logo-with-text.png">
+                <span style="text-align: center" class="title-label">A smart, social water-saving app.</span>
             </div>
 
             <div class="one-div"> </div>
@@ -137,6 +136,7 @@
             </div>
             <div class="still-div two-div">
                 <img class="logo" src="/portfolio/pepo/sensor.png">
+                <span style="text-align: center" class="title-label">with a non-intrusive water tracker for showers.</span>
             </div>
         </div>
 
