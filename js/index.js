@@ -31,6 +31,7 @@ function startup(skip) {
 		skip = true;
 	}
 	if (skip) {
+		setGtagUserId(id);
 		showLogo(returning).then(() => {
 			getSelectedChoice(true);
 		});
@@ -38,12 +39,21 @@ function startup(skip) {
 		getLoginId()
 			.then(newId => {
 				id = newId;
+				setGtagUserId(id);
 				setCookie("loginId", id, 30);
 				return showLogo();
 			})
 			.then(() => {
 				getSelectedChoice(true);
 			});
+	}
+}
+
+function setGtagUserId(gtagId) {
+	try {
+		gtag("set", { user_id: gtagId });
+	} catch (e) {
+		console.log(e);
 	}
 }
 
