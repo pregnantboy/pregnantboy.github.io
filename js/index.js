@@ -183,7 +183,7 @@ function handleChoice(choice) {
 	case 3:
 		async.waterfall([type("email: <a target=\"_blank\" href=\"mailto:ian-@gmx.com\">ian-@gmx.com</a>"),
 			type("github: <a target=\"_blank\" href=\"https://github.com/pregnantboy\">@pregnantboy</a>"),
-			type("linkedin:  <a target=\"_blank\" href=\"https://www.linkedin.com/in/chenweiian/\">chenweiiian</a>")],
+			type("linkedin:  <a target=\"_blank\" href=\"https://www.linkedin.com/in/chenweiian/\">chenweiian</a>")],
 		getSelectedChoice);
 		break;
 	case 4:
