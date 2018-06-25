@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("/css/normalize.css");
 @font-face {
     font-family: "Open Sans";
     src: url("/css/fonts/OpenSans-Light.woff2") format("woff2"), url("/css/fonts/OpenSans-Light.woff") format("woff");
