@@ -30,6 +30,9 @@ function startup(skip) {
 		returning = true;
 		skip = true;
 	}
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		skip = true;
+	}
 	if (skip) {
 		setGtagUserId(id);
 		showLogo(returning).then(() => {
@@ -63,7 +66,7 @@ function getLoginId() {
 		let newId = null;
 		async.waterfall([type("Booting up...^500"),
 			next => {
-				term.input("Please enter your login ID:", msg => {
+				term.input("Please enter your login ID: (type anything)", msg => {
 					msg = msg.trim();
 					if (msg && msg.length > 0) {
 						newId = escapeString(msg);
