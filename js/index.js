@@ -169,18 +169,9 @@ function handleChoice(choice) {
 		});
 		break;
 	case 2: {
-		async.waterfall([type("Randomly generating words... ^100OK"),
-			type("Converting to PDF... ^100OK"),
-			type("Resume ready for download")], () => {
-			let file_path = "/Resume - Chen Wei Ian.pdf";
-			let a = document.createElement("A");
-			a.href = file_path;
-			a.download = file_path.substr(file_path.lastIndexOf("/") + 1);
-			document.body.appendChild(a);
-			a.click();
-			document.body.removeChild(a);
-			getSelectedChoice();
-		});
+		// inserted backup code here
+		async.waterfall([type("Error 404. File no longer available publicly. ^100"), type("Please contact me for resume. ^100")],
+			getSelectedChoice);
 		break;
 	}
 	case 3:
