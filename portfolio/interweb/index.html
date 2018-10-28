@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>dmgnify</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/dmgify/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/portfolio/dmgify/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/portfolio/dmgify/img/favicon-16x16.png">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,600" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .background {
+            background-color: #1d212b;
+            height: 100%;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            position: relative;
+            display: flex;
+            width: 100vw;
+            -webkit-perspective: 900px;
+            perspective: 900px;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            top: 0%;
+            width: 300px;
+            height: 500px;
+            transition: .5s all ease;
+            transform: rotateX(60deg) scale(0.7);
+            -webkit-perspective: 900px;
+            perspective: 900px;
+            box-shadow: 0px 20px 50px #7e0fff;
+            animation: entry 1s linear 1;
+            border-radius: 10px;
+            background-color: #1d212b;
+        }
+
+        #c0 {
+            z-index: 300;
+            box-shadow: 0px 0px 50px #7e0fff;
+        }
+
+        #c1 {
+            box-shadow: 0px 0px 50px #0fffc1;
+            left: 100%;
+            z-index: 0;
+        }
+
+        #c2 {
+            left: -100%;
+            z-index: 0;
+            box-shadow: 0px 0px 50px cyan;
+        }
+
+        .container:hover {
+            transform: rotate(0deg) scale(1) translateY(10px);
+            transition: .5s all ease;
+            z-index: 400;
+        }
+
+        .image {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 45%;
+        }
+
+        @media (max-width: 1000px) {
+            .wrapper {
+                height: auto;
+                top: 100px;
+            }
+
+            .container,
+            .container:hover {
+            }
+        }
+
+
+        @keyframes entry {
+            0% {
+                top: -20%;
+                opacity: 0.1;
+            }
+
+            100% {
+                top: 0%;
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .header {
+            font-family: monospace;
+            font-size: 18px;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            max-width: 80vw;
+            top: 50px;
+            line-height: 150px;
+            text-align: center;
+            color: #252b37;
+            z-index: 5;
+            background-color: #151823;
+            animation: textColor 10s ease infinite;
+        }
+
+        .header-shadow {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50px;
+            z-index: 2;
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            margin: 0 auto;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            background: linear-gradient(270deg, #0fffc1, #7e0fff);
+            background-size: 200% 200%;
+            animation: animateGlow 10s ease infinite;
+            transition: filter 1s;
+        }
+
+        .header:hover+.header-shadow {
+            /* top: 40px;
+            width: 170px;
+            height: 170px;
+            border-radius: 170px; */
+            -webkit-filter: blur(20px);
+            -moz-filter: blur(20px);
+            -ms-filter: blur(20px);
+            filter: blur(20px);
+        }
+
+        @keyframes animateGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes textColor {
+            0% {
+                color: #7e0fff;
+            }
+
+            50% {
+                color: #0fffc1;
+            }
+
+            100% {
+                color: #7e0fff;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="header-container">
+            <div class="header">interweb</div>
+            <div class="header-shadow"></div>
+        </div>
+        <div class="wrapper">
+            <div class="container" id="c0">
+                <div class="image" id="i0">
+                </div>
+            </div>
+            <div class="container" id="c1">
+                <div class="image" id="i1">
+                </div>
+            </div>
+            <div class="container" id="c2">
+                <div class="image" id="i2">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
