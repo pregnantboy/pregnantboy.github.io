@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>interweb</title>
+    <link rel="icon" type="image/png" sizes="72x72" href="/portfolio/interweb/img/icon72.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/portfolio/interweb/img/icon48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/portfolio/interweb/img/icon96.png">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,600" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .background {
+            background-color: #1d212b;
+            height: 100%;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            position: relative;
+            display: flex;
+            width: 100vw;
+            -webkit-perspective: 900px;
+            perspective: 900px;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            margin-top: -100px;
+            animation: entry 1s ease-in forwards 1s;
+        }
+
+        .container {
+            max-width: 30vw;
+            width: 300px;
+            max-height: calc(30vw / 720 * 1384);
+            height: 562px;
+            transition: .5s all ease;
+            transform: translateY(-10vw) rotateX(60deg) scale(0.7);
+            -webkit-perspective: 900px;
+            perspective: 900px;
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #1d212b;
+        }
+
+        #c0 {
+            z-index: 300;
+        }
+
+        #c1 {
+            left: 100%;
+            z-index: 0;
+        }
+
+        #c2 {
+            left: -100%;
+            z-index: 0;
+        }
+
+        .container:hover {
+            transform: translateY(-18vw) rotate(0deg) scale(1);
+            transition: .5s all ease;
+            z-index: 400;
+        }
+
+        .image {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .description {
+            margin-top: -200px;
+        }
+
+        @media (max-width: 992px) {
+            .description {
+                margin-top: 50px;
+            }
+
+            .wrapper {
+                height: auto;
+                top: 50px;
+            }
+
+            .container {
+                -webkit-perspective: 200;
+                perspective: 200;
+                width: 30vw;
+                height: calc(30vw / 720 * 1384);
+            }
+
+            #c0 {
+                transform: rotateY(60deg)
+            }
+
+            #c1 {
+                transform: none;
+            }
+
+            #c2 {
+                transform: rotateY(-60deg)
+            }
+
+            #c0:hover {
+                transform: rotate(0deg) scale(1.5) translateX(10vw);
+                z-index: 1000;
+            }
+
+            #c1:hover {
+                transform: rotate(0deg) scale(1.5) translateX(0);
+                z-index: 1000;
+            }
+
+            #c2:hover {
+                transform: rotate(0deg) scale(1.5) translateX(-10vw);
+                z-index: 1000;
+            }
+        }
+
+
+        @keyframes entry {
+            0% {
+                margin-top: -100px;
+                opacity: 0;
+            }
+
+            100% {
+                margin-top: 0;
+                opacity: 1;
+            }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            font-family: monospace;
+            font-size: 18px;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            max-width: 80vw;
+            top: 50px;
+            line-height: 150px;
+            text-align: center;
+            color: transparent;
+            z-index: 5;
+            background-color: #151823;
+            animation: fadeInText 2s ease forwards 0.5s, textColor 10s ease infinite 2s;
+        }
+
+        .header-shadow {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50px;
+            z-index: 2;
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            margin: 0 auto;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            background: linear-gradient(270deg, #0fffc1, #7e0fff);
+            background-size: 200% 200%;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards 0.5s, animateGlow 10s ease infinite 2s;
+            transition: filter 1s;
+        }
+
+        .header:hover+.header-shadow {
+            -webkit-filter: blur(20px);
+            -moz-filter: blur(20px);
+            -ms-filter: blur(20px);
+            filter: blur(20px);
+        }
+
+        .header-subtext {
+            margin-top: 75px;
+            color: transparent;
+            animation: fadeInText 2s ease forwards 0.5s, textColor 10s ease infinite 2s;
+        }
+
+        @keyframes animateGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInBtn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                color: transparent;
+            }
+
+            100% {
+                color: #7e0fff;
+            }
+        }
+
+        @keyframes textColor {
+            0% {
+                color: #7e0fff;
+            }
+
+            50% {
+                color: #0fffc1;
+            }
+
+            100% {
+                color: #7e0fff;
+            }
+        }
+
+        :root {
+            --primary: #0fffc1;
+            --solid: cyan;
+            --btn-w: 20em;
+            --dot-w: calc(var(--btn-w)*.1);
+            --tr-X: calc(var(--btn-w) - var(--dot-w));
+        }
+
+        .btn {
+            position: relative;
+            margin: 20px auto;
+            width: var(--btn-w);
+            color: var(--primary);
+            border: .15em solid var(--primary);
+            border-radius: 5em;
+            text-transform: uppercase;
+            font-family: monospace;
+            text-align: center;
+            font-size: 1em;
+            line-height: 2em;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInBtn 2s ease forwards 0.5s
+        }
+
+
+
+        .dot {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: var(--dot-w);
+            height: 100%;
+            border-radius: 100%;
+            transition: all 300ms ease;
+            display: none;
+        }
+
+        .dot:after {
+            content: '';
+            position: absolute;
+            left: calc(50% - .4em);
+            top: -.4em;
+            height: .4em;
+            width: .4em;
+            background: var(--primary);
+            border-radius: 1em;
+            border: .25em solid var(--solid);
+            box-shadow: 0 0 .7em var(--solid),
+                0 0 2em var(--primary);
+        }
+
+        .btn:hover .dot,
+        .btn:focus .dot {
+            animation: atom 1.5s infinite linear;
+            display: block;
+        }
+
+        @keyframes atom {
+            0% {
+                transform: translateX(0) rotate(0);
+            }
+
+            30% {
+                transform: translateX(var(--tr-X)) rotate(0);
+            }
+
+            50% {
+                transform: translateX(var(--tr-X)) rotate(180deg);
+            }
+
+            80% {
+                transform: translateX(0) rotate(180deg);
+            }
+
+            100% {
+                transform: translateX(0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="header-container">
+            <div class="header">interweb</div>
+            <div class="header-shadow"></div>
+            <div class="header-subtext">a mobile data tracker</div>
+        </div>
+        <div class="btn" onclick="window.open('https://drive.google.com/open?id=1npophDrcOVyPYX7S67FkFKSzopRF9tku', '_blank')">
+            <span>Download for android</span>
+            <div class="dot"></div>
+        </div>
+        <div class="wrapper">
+            <div class="container" id="c0">
+                <img class="image" id="i0" src="/portfolio/interweb/img/1.jpeg">
+            </div>
+            <div class="container" id="c1">
+                <img class="image" id="i1" src="/portfolio/interweb/img/2.jpeg">
+            </div>
+            <div class="container" id="c2">
+                <img class="image" id="i2" src="/portfolio/interweb/img/3.jpeg">
+            </div>
+        </div>
+        <div class="description">
+            <h3>Stack</h3>
+            <p>
+                <img class="stack-logo" data-tooltip="React Native" src="/img/logo/react-native.png">
+                <img class="stack-logo" data-tooltip="Java" src="/img/logo/java.png">
+            </p>
+            <h3>Description</h3>
+            <p>
+                A mobile data usage tracking app with features such as:
+                <ul>
+                    <li>
+                        Weekend data exclusion option
+                    </li>
+                    <li>
+                        Uses native android api (no background process required for tracking)
+                    </li>
+                    <li>
+                        App data usage breakdown
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</body>

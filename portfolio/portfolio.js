@@ -20,51 +20,56 @@ let portfolioFolderObject = {
 };
 
 function renderFolders(doNotPushState) {
-	let folderData = [{
-		"folder-name": "Fickle",
-		"folder-img": "/portfolio/fickle/img/icon.png",
-		url: "/portfolio/fickle/index.html"
-	},
-	{
-		"folder-name": "Pepo",
-		"folder-img": "/portfolio/pepo/pepo-logo.png",
-		url: "/portfolio/pepo/index.html"
-	},
-	{
-		"folder-name": "Bigtube",
-		"folder-img": "/portfolio/bigtube/img/icon.png",
-		url: "/portfolio/bigtube/index.html"
-	},
-	{
-		"folder-name": "Minecraft AI Creator",
-		"folder-img": "/portfolio/minecraft/img/128.png",
-		url: "/portfolio/minecraft/index.html"
-	},
-	{
-		"folder-name": "Vault",
-		"folder-img": "/portfolio/vault/img/icon128.png",
-		url: "/portfolio/vault/index.html"
-	},
-	{
-		"folder-name": "AED Crowdsourcing",
-		"folder-img": "/portfolio/aed/img/aed-logo.png",
-		url: "/portfolio/aed/index.html"
-	},
-	{
-		"folder-name": "adelinetng.com",
-		"folder-img": "/img/adel-logo.png",
-		url: "https://adelinetng.com"
-	},
-	{
-		"folder-name": "DMGify",
-		"folder-img": "/portfolio/dmgify/img/dmgify-logo.png",
-		url: "/portfolio/dmgify/index.html"
-	},
-	{
-		"folder-name": "School Apps",
-		"folder-img": "",
-		url: "/portfolio/misc/index.html"
-	}];
+	let folderData = [
+		{
+			"folder-name": "Interweb",
+			"folder-img": "/portfolio/interweb/img/icon.png",
+			url: "/portfolio/interweb/index.html"
+		}, {
+			"folder-name": "Fickle",
+			"folder-img": "/portfolio/fickle/img/icon.png",
+			url: "/portfolio/fickle/index.html"
+		},
+		{
+			"folder-name": "Pepo",
+			"folder-img": "/portfolio/pepo/pepo-logo.png",
+			url: "/portfolio/pepo/index.html"
+		},
+		{
+			"folder-name": "Bigtube",
+			"folder-img": "/portfolio/bigtube/img/icon.png",
+			url: "/portfolio/bigtube/index.html"
+		},
+		{
+			"folder-name": "Minecraft AI Creator",
+			"folder-img": "/portfolio/minecraft/img/128.png",
+			url: "/portfolio/minecraft/index.html"
+		},
+		{
+			"folder-name": "Vault",
+			"folder-img": "/portfolio/vault/img/icon128.png",
+			url: "/portfolio/vault/index.html"
+		},
+		{
+			"folder-name": "AED Crowdsourcing",
+			"folder-img": "/portfolio/aed/img/aed-logo.png",
+			url: "/portfolio/aed/index.html"
+		},
+		{
+			"folder-name": "adelinetng.com",
+			"folder-img": "/img/adel-logo.png",
+			url: "https://adelinetng.com"
+		},
+		{
+			"folder-name": "DMGify",
+			"folder-img": "/portfolio/dmgify/img/dmgify-logo.png",
+			url: "/portfolio/dmgify/index.html"
+		},
+		{
+			"folder-name": "School Apps",
+			"folder-img": "",
+			url: "/portfolio/misc/index.html"
+		}];
 
 	let folderTemplate = {
 		"<>": "div",
@@ -117,7 +122,7 @@ function addToHistory(folder) {
 function updateForwardBackButtons() {
 	$("#history").trigger("update", [historyLog.length,
 		historyPointer,
-		historyLog[historyPointer]]);
+	historyLog[historyPointer]]);
 }
 
 $("#history").on("goBack", () => {
