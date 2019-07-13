@@ -64,11 +64,6 @@ function renderFolders(doNotPushState) {
 			"folder-name": "DMGify",
 			"folder-img": "/portfolio/dmgify/img/dmgify-logo.png",
 			url: "/portfolio/dmgify/index.html"
-		},
-		{
-			"folder-name": "School Apps",
-			"folder-img": "",
-			url: "/portfolio/misc/index.html"
 		}];
 
 	let folderTemplate = {
