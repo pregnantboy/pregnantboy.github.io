@@ -56,11 +56,6 @@ function renderFolders(doNotPushState) {
 			url: "/portfolio/aed/index.html"
 		},
 		{
-			"folder-name": "adelinetng.com",
-			"folder-img": "/img/adel-logo.png",
-			url: "https://adelinetng.com"
-		},
-		{
 			"folder-name": "DMGify",
 			"folder-img": "/portfolio/dmgify/img/dmgify-logo.png",
 			url: "/portfolio/dmgify/index.html"
