@@ -12,7 +12,7 @@
         "test": "eslint js/*"
     },
     "dependencies": {
-        "bootstrap": "^4.1.0",
+        "bootstrap": "^4.3.1",
         "jquery": "^3.3.1",
         "typed.js": "^2.0.6"
     },
